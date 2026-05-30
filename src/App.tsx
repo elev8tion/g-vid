@@ -146,6 +146,22 @@ function App() {
   const [lastGeneration, setLastGeneration] = useState<{ prompt: string; shot: Shot; message: string; credits?: number } | null>(null);
   const [generatedVideo, setGeneratedVideo] = useState<string | null>(null);
 
+  // When a new video is generated, scroll to the result section so the user sees it
+  useEffect(() => {
+    if (generatedVideo) {
+      // Small delay so the DOM has updated
+      const timer = setTimeout(() => {
+        const el = document.getElementById('generated-result');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // Close the studio so the result on the main page is visible
+        setShowCreate(false);
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+  }, [generatedVideo, setShowCreate]);
+
   const { tweaks, updateTweaks, resetTweaks } = useDesignTweaks();
 
   useEffect(() => {
@@ -429,7 +445,9 @@ function App() {
             const jbody = await jres.json();
             if (jbody.status === 'done' && jbody.resultUrl) {
               setGeneratedVideo(jbody.resultUrl);
-              toast.success('Your Grok 4.3 clip is ready!');
+              toast.success('Your Grok 4.3 clip is ready!', { 
+                description: 'Scroll down on the main page to watch and download it.' 
+              });
               return { ok: true, message: 'Generation complete' };
             }
             if (jbody.status === 'error') {
@@ -646,7 +664,10 @@ function App() {
 
         {/* Real generation result (wired to /jobs polling) */}
         {generatedVideo && (
-          <section className="page-container pb-12">
+          <section 
+            id="generated-result" 
+            className="page-container pb-12 scroll-mt-20"
+          >
             <div className="glass rounded-3xl p-6 md:p-8">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
                 <div>

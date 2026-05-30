@@ -176,8 +176,10 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
       setGenerationProgress(100);
       setGenerationStage('Request completed');
       if (result.ok) {
-        setMessage({ type: 'success', text: result.message });
-        toast.success('Prompt ready for Grok', { description: result.message });
+        setMessage({ type: 'success', text: result.message || 'Generation complete!' });
+        toast.success('Generation complete!', { 
+          description: 'Close this studio to view and download your clip on the main page.' 
+        });
       } else {
         setMessage({ type: 'error', text: result.message });
       }
@@ -572,11 +574,20 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
           </div>
 
           {(message || session?.connected) && (
-            <div className="mt-6 p-4 rounded-2xl border border-[#262626] bg-[#111113] text-xs text-[#c7c7cf] space-y-2">
+            <div className="mt-6 p-4 rounded-2xl border border-[#262626] bg-[#111113] text-xs text-[#c7c7cf] space-y-3">
               {message && (
                 <div className={message.type === 'error' ? 'text-rose-400' : 'text-emerald-400'}>{message.text}</div>
               )}
               {session?.connected && <div>Powered by your SuperGrok subscription</div>}
+
+              {message?.type === 'success' && (
+                <button
+                  onClick={onClose}
+                  className="mt-2 w-full btn btn-primary text-sm py-2"
+                >
+                  Close Studio & View / Download Your Clip →
+                </button>
+              )}
             </div>
           )}
         </div>
