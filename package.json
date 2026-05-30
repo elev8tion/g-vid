@@ -9,9 +9,11 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview --port 5175 --strictPort false",
+    "preview:4173": "vite preview --port 4173 --strictPort false",
     "prod": "npm run build && npm run preview",
     "server": "cd server && npm start",
-    "up": "concurrently \"npm run dev\" \"npm run server\""
+    "up": "concurrently \"npm run dev\" \"npm run server\"",
+    "check:smart-trim": "node scripts/check-smart-trim.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",

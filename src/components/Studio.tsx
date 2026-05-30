@@ -56,6 +56,9 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
   const [audioFile, setAudioFile] = useState<File | null>(null);
   const [audioDuration, setAudioDuration] = useState(0);
   const [audioTrim, setAudioTrim] = useState<TrimWindow>({ start: 0, duration: 8 });
+  const [autoTrimApplied, setAutoTrimApplied] = useState(false);
+  const [userAdjustedTrim, setUserAdjustedTrim] = useState(false);
+  const [smartTrimStatus, setSmartTrimStatus] = useState<string | null>(null);
   const [faceDescription, setFaceDescription] = useState('');
   const [selectedShot, setSelectedShot] = useState<Shot | null>(initialShot ?? null);
   const [videoQuality, setVideoQuality] = useState<'480p' | '720p'>('720p');
@@ -97,6 +100,13 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
       localStorage.setItem('gvid_video_quality', videoQuality);
     } catch {}
   }, [videoQuality]);
+
+  // Guard: if audio is loaded but onloadedmetadata/HMR missed smart trim, auto-run once unless user moved the slider.
+  useEffect(() => {
+    if (!audioFile || !audioDuration) return;
+    if (userAdjustedTrim || autoTrimApplied) return;
+    smartTrimAudio('guard', undefined, audioFile || undefined);
+  }, [audioFile, audioDuration, userAdjustedTrim, autoTrimApplied]);
 
   const canProceed = () => {
     if (step === 0) return uploadedImages.length >= 2;
@@ -245,11 +255,16 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
     });
   };
 
-  const smartTrimAudio = async () => {
-    if (!audioFile) return;
+  async function smartTrimAudio(
+    reason: 'auto-load' | 'manual' | 'guard' = 'manual',
+    knownDuration?: number,
+    fileOverride?: File,
+  ) {
+    const sourceFile = fileOverride ?? audioFile;
+    if (!sourceFile) return;
 
     try {
-      const arrayBuffer = await audioFile.arrayBuffer();
+      const arrayBuffer = await sourceFile.arrayBuffer();
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
       const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
 
@@ -275,39 +290,73 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
         }
       }
 
-      const maxStart = Math.max(0, audioDuration - 8);
+      const duration = knownDuration ?? (audioDuration || audioBuffer.duration);
+      const maxStart = Math.max(0, duration - 8);
       const clamped = Math.max(0, Math.min(bestStart, maxStart));
 
       // Keep 0.1s precision (matches the slider)
       const preciseStart = Math.round(clamped * 10) / 10;
 
       setAudioTrim({ start: preciseStart, duration: 8 });
+      setAutoTrimApplied(true);
+      setUserAdjustedTrim(false);
 
-      toast.success('Smart trim applied', {
-        description: `Best 8s high-energy section found around ${preciseStart.toFixed(1)}s`,
+      const status = `Smart trim: ${preciseStart.toFixed(1)}s–${(preciseStart + 8).toFixed(1)}s`;
+      setSmartTrimStatus(status);
+
+      console.info('[smart-trim]', {
+        reason,
+        start: preciseStart,
+        duration: 8,
+        energy: Number(bestEnergy.toFixed?.(4) ?? bestEnergy),
+        windowSize,
+        hopSize,
+        maxStart,
       });
+
+      if (reason === 'manual') {
+        toast.success('Smart trim applied', {
+          description: `Best 8s high-energy section around ${preciseStart.toFixed(1)}s`,
+        });
+      }
     } catch (err) {
       // Safe fallback: center of the file
-      const mid = Math.max(0, Math.round((audioDuration / 2 - 4) * 10) / 10);
+      const duration = knownDuration ?? (audioDuration || 0);
+      const mid = Math.max(0, Math.round(((duration / 2 - 4) * 10)) / 10);
       setAudioTrim({ start: mid, duration: 8 });
-      toast.info('Smart trim unavailable — using center section');
+      setAutoTrimApplied(true);
+      setSmartTrimStatus('Smart trim unavailable — using center section');
+
+      if (reason === 'manual') {
+        toast.info('Smart trim unavailable — using center section');
+      }
     }
-  };
+  }
 
   const handleAudioUpload = (file: File) => {
     if (!file.type.startsWith('audio/')) return;
 
+    setAudioFile(file);
+    setAudioTrim({ start: 0, duration: 8 });
+    setAutoTrimApplied(false);
+    setUserAdjustedTrim(false);
+    setSmartTrimStatus('Analyzing audio for best 8s window...');
+
     const url = URL.createObjectURL(file);
     const audio = new Audio(url);
 
-    audio.onloadedmetadata = () => {
+    audio.onloadedmetadata = async () => {
       const duration = audio.duration;
       setAudioDuration(duration);
-      setAudioFile(file);
-      const preferredStart = Math.max(0, Math.min(duration - 8, duration * 0.25));
-      // Keep one decimal place for precision (slider supports 0.1s steps)
-      const preciseStart = Math.round(preferredStart * 10) / 10;
-      setAudioTrim({ start: preciseStart, duration: 8 });
+      URL.revokeObjectURL(url);
+
+      // Auto-run smart energy-based trim by default when audio is loaded.
+      // This ensures the best 8s high-energy vocal window is used unless the user manually overrides the slider.
+      await smartTrimAudio('auto-load', duration, file);
+    };
+
+    audio.onerror = () => {
+      setSmartTrimStatus('Audio metadata unavailable — please re-upload');
       URL.revokeObjectURL(url);
     };
   };
@@ -436,7 +485,7 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
                             <div className="font-medium">{audioFile.name}</div>
                             <div className="text-[#a1a1aa] text-sm">{audioDuration.toFixed(1)}s total</div>
                           </div>
-                          <button type="button" onClick={smartTrimAudio} className="btn btn-secondary text-xs px-4 py-2 flex items-center gap-2">
+                          <button type="button" onClick={() => smartTrimAudio('manual')} className="btn btn-secondary text-xs px-4 py-2 flex items-center gap-2">
                             <Zap size={14} /> Smart Trim
                           </button>
                         </div>
@@ -456,9 +505,15 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
                               const maxStart = Math.max(0, audioDuration - 8);
                               const val = Math.min(parseFloat(e.target.value), maxStart);
                               setAudioTrim({ start: val, duration: 8 });
+                              setUserAdjustedTrim(true);
+                              setAutoTrimApplied(false);
+                              setSmartTrimStatus(`Manual trim: ${val.toFixed(1)}s–${(val + 8).toFixed(1)}s`);
                             }}
                             className="w-full accent-[#3b82f6]"
                           />
+                          {smartTrimStatus && (
+                            <div className="text-[11px] text-[#a1a1aa] mt-2 font-mono">{smartTrimStatus}</div>
+                          )}
                         </div>
                       </div>
                     )}
@@ -537,6 +592,9 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
             <div>
               <div className="text-[#71717a]">Audio</div>
               <div className="font-medium">{audioFile ? `${audioTrim.start.toFixed(1)}s – ${(audioTrim.start + 8).toFixed(1)}s` : '—'}</div>
+              {smartTrimStatus && audioFile && (
+                <div className="text-[10px] text-emerald-400 mt-0.5 leading-tight font-mono">{smartTrimStatus}</div>
+              )}
               {step === 3 && audioFile && (
                 <div className="text-[10px] text-amber-400 mt-0.5 leading-tight">
                   Note: Your exact audio clip drives the performance via prompt only (xAI does not receive the raw audio file).
