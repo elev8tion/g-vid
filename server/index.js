@@ -17,7 +17,10 @@ import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import { URLSearchParams } from 'url';
 import fs from 'node:fs';
+import path from 'node:path';
 import sharp from 'sharp';
+import { spawn } from 'node:child_process';
+import { pipeline } from 'node:stream/promises';
 
 dotenv.config();
 
@@ -29,6 +32,13 @@ app.use(cors());
 app.use(express.json());
 
 const upload = multer({ dest: 'uploads/' });
+
+// Serve generated videos with replaced audio
+const GENERATED_DIR = path.join(process.cwd(), 'generated');
+if (!fs.existsSync(GENERATED_DIR)) {
+  fs.mkdirSync(GENERATED_DIR, { recursive: true });
+}
+app.use('/generated', express.static(GENERATED_DIR, { maxAge: '1h' }));
 
 // ============================================
 // In-memory stores (replace with Redis/DB in production)
@@ -149,6 +159,58 @@ async function compressImageForRef(buffer, originalMime = 'image/jpeg') {
   }
 }
 
+/**
+ * Download video from URL and replace its audio track with the provided audio file.
+ * Returns the path to the new video file inside GENERATED_DIR.
+ */
+async function replaceAudioInVideo(videoUrl, audioPath, jobId) {
+  const videoTempPath = path.join(GENERATED_DIR, `${jobId}-xai-video.mp4`);
+  const finalPath = path.join(GENERATED_DIR, `${jobId}-final.mp4`);
+
+  try {
+    // Download the xAI video
+    console.log('[Mux] Downloading xAI video for audio replacement...');
+    const videoRes = await fetch(videoUrl);
+    if (!videoRes.ok) throw new Error(`Failed to download video: ${videoRes.status}`);
+    await pipeline(videoRes.body, fs.createWriteStream(videoTempPath));
+
+    // Run ffmpeg to replace audio (copy video stream, re-encode audio if needed)
+    console.log('[Mux] Running ffmpeg to replace audio track with user clip...');
+    await new Promise((resolve, reject) => {
+      const ffmpeg = spawn('/opt/homebrew/bin/ffmpeg', [
+        '-y',
+        '-i', videoTempPath,
+        '-i', audioPath,
+        '-c:v', 'copy',           // keep original video quality
+        '-c:a', 'aac',            // re-encode audio to aac for mp4
+        '-map', '0:v:0',
+        '-map', '1:a:0',
+        '-shortest',              // match shortest stream (should be 8s)
+        finalPath,
+      ], { stdio: ['ignore', 'pipe', 'pipe'] });
+
+      let stderr = '';
+      ffmpeg.stderr.on('data', (data) => { stderr += data.toString(); });
+
+      ffmpeg.on('close', (code) => {
+        if (code === 0) {
+          resolve();
+        } else {
+          reject(new Error(`ffmpeg failed with code ${code}: ${stderr}`));
+        }
+      });
+
+      ffmpeg.on('error', reject);
+    });
+
+    console.log('[Mux] Audio replacement complete:', finalPath);
+    return finalPath;
+  } finally {
+    // Clean up temp video download
+    try { fs.unlinkSync(videoTempPath); } catch {}
+  }
+}
+
 // Poll xAI video status endpoint until completion/failure
 async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
   const MAX_ATTEMPTS = 60; // ~5 minutes at 5s interval
@@ -187,8 +249,33 @@ async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
     const resultUrl = data?.video?.url || data?.url;
 
     if (resultUrl) {
-      jobStore.set(jobId, { status: 'done', resultUrl, createdAt: Date.now() });
-      console.log('[xAI status] job', jobId, 'completed with url');
+      const existingJob = jobStore.get(jobId) || {};
+      let finalUrl = resultUrl;
+
+      // If we have the user's original audio for this job, replace xAI's audio track
+      if (existingJob.originalAudioPath && fs.existsSync(existingJob.originalAudioPath)) {
+        try {
+          console.log('[Mux] xAI video ready — replacing audio with user clip for job', jobId);
+          const muxedPath = await replaceAudioInVideo(resultUrl, existingJob.originalAudioPath, jobId);
+          // Serve via our static /generated endpoint
+          const filename = path.basename(muxedPath);
+          finalUrl = `${BACKEND_URL}/generated/${filename}`;
+
+          // Clean up the preserved original audio now that we're done
+          try { fs.unlinkSync(existingJob.originalAudioPath); } catch {}
+        } catch (muxErr) {
+          console.error('[Mux] Audio replacement failed for job', jobId, muxErr);
+          // Fall back to the original xAI video (better than nothing)
+        }
+      }
+
+      jobStore.set(jobId, {
+        ...existingJob,
+        status: 'done',
+        resultUrl: finalUrl,
+        createdAt: Date.now(),
+      });
+      console.log('[xAI status] job', jobId, 'completed with url', finalUrl);
       return;
     }
 
@@ -395,10 +482,20 @@ app.post('/generate', upload.fields([
 
   // Create job and return immediately so frontend can poll
   const jobId = 'job_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+
+  // If audio was uploaded, preserve it for later audio replacement (muxing)
+  let preservedAudioPath = null;
+  if (audioFile) {
+    const ext = path.extname(audioFile.originalname) || '.mp3';
+    preservedAudioPath = path.join(GENERATED_DIR, `${jobId}-original-audio${ext}`);
+    fs.copyFileSync(audioFile.path, preservedAudioPath);
+  }
+
   jobStore.set(jobId, {
     status: 'processing',
     createdAt: Date.now(),
     sessionId,                    // store for token refresh during xAI status polling
+    originalAudioPath: preservedAudioPath, // for post-generation audio replacement
   });
 
   // Respond fast
@@ -422,6 +519,9 @@ app.post('/generate', upload.fields([
     console.log('[Generate] Background task starting. ENABLE_XAI_REFS =', sendRefs);
     console.log('[Generate] Number of uploaded image files:', imageFiles.length);
     console.log('[Generate] Audio file present:', !!audioFile);
+    if (audioFile) {
+      console.log('[Generate] >>> User audio was uploaded but will NOT be sent as data to xAI. Performance will be driven by prompt instructions only.');
+    }
 
     try {
       // Convert images to (optionally compressed) data URIs
@@ -596,11 +696,13 @@ app.post('/generate', upload.fields([
       const xaiRequestId = xaiData?.request_id;
 
       if (xaiRequestId) {
-        // Store the xAI request id so our /jobs poller (or this background task) can check status
+        // Store the xAI request id — merge so we don't lose originalAudioPath etc.
+        const existingJob = jobStore.get(jobId) || {};
         jobStore.set(jobId, {
+          ...existingJob,
           status: 'processing',
           xaiRequestId,
-          sessionId,           // for refreshing the token when polling status
+          sessionId,
           createdAt: Date.now(),
         });
         console.log('[Generate] job', jobId, 'submitted to xAI as request_id', xaiRequestId);
