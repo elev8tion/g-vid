@@ -1,0 +1,177 @@
+{
+  "/Users/kc/g-vid/tsconfig.node.json": {
+    "mtime": 1779984897.028706,
+    "ast_hash": "70bdd0a673bcfc0e828080b306e7c680",
+    "semantic_hash": "70bdd0a673bcfc0e828080b306e7c680"
+  },
+  "/Users/kc/g-vid/.tmp-playwright-dom.mjs": {
+    "mtime": 1780115406.7841816,
+    "ast_hash": "e667b86b7264ca0e46826642615e1a1b",
+    "semantic_hash": "e667b86b7264ca0e46826642615e1a1b"
+  },
+  "/Users/kc/g-vid/tailwind.config.js": {
+    "mtime": 1780108297.7873209,
+    "ast_hash": "e6e049a6a1d224b3d2503e95e1905c5e",
+    "semantic_hash": "e6e049a6a1d224b3d2503e95e1905c5e"
+  },
+  "/Users/kc/g-vid/.tmp-playwright-box.mjs": {
+    "mtime": 1780115433.065619,
+    "ast_hash": "01e732cf24f3df82ee6d47e1d28cb236",
+    "semantic_hash": "01e732cf24f3df82ee6d47e1d28cb236"
+  },
+  "/Users/kc/g-vid/tsconfig.app.json": {
+    "mtime": 1779984897.0277948,
+    "ast_hash": "136630b5accce1ca50663df229534a26",
+    "semantic_hash": "136630b5accce1ca50663df229534a26"
+  },
+  "/Users/kc/g-vid/.tmp-playwright-top.mjs": {
+    "mtime": 1780115495.9064045,
+    "ast_hash": "49f112589898c8d89b8b7fe8f55c14a1",
+    "semantic_hash": "49f112589898c8d89b8b7fe8f55c14a1"
+  },
+  "/Users/kc/g-vid/.tmp-playwright.mjs": {
+    "mtime": 1780115318.1656034,
+    "ast_hash": "34b16386f84b75348b49837cf6a40eba",
+    "semantic_hash": "34b16386f84b75348b49837cf6a40eba"
+  },
+  "/Users/kc/g-vid/.tmp-playwright-studio-element.mjs": {
+    "mtime": 1780115387.4122446,
+    "ast_hash": "1578e9a61345daf708ed3401e4ac4645",
+    "semantic_hash": "1578e9a61345daf708ed3401e4ac4645"
+  },
+  "/Users/kc/g-vid/.tmp-playwright-snap.mjs": {
+    "mtime": 1780115359.8035963,
+    "ast_hash": "6c62b01146e52256ac9563d4ab0d9825",
+    "semantic_hash": "6c62b01146e52256ac9563d4ab0d9825"
+  },
+  "/Users/kc/g-vid/.tmp-playwright-check.mjs": {
+    "mtime": 1780115346.48526,
+    "ast_hash": "4addead22d0c3cf38bf4035c91fe7150",
+    "semantic_hash": "4addead22d0c3cf38bf4035c91fe7150"
+  },
+  "/Users/kc/g-vid/.tmp-playwright-style.mjs": {
+    "mtime": 1780115422.5079055,
+    "ast_hash": "89f0a064006bac5c99610a8d8a6eed33",
+    "semantic_hash": "89f0a064006bac5c99610a8d8a6eed33"
+  },
+  "/Users/kc/g-vid/package.json": {
+    "mtime": 1780119198.23927,
+    "ast_hash": "62d645bf3ff0465bcb09a848671ed171",
+    "semantic_hash": "62d645bf3ff0465bcb09a848671ed171"
+  },
+  "/Users/kc/g-vid/tsconfig.json": {
+    "mtime": 1779984897.0282445,
+    "ast_hash": "a3d39fa780ebff65444de257f291ce6c",
+    "semantic_hash": "a3d39fa780ebff65444de257f291ce6c"
+  },
+  "/Users/kc/g-vid/eslint.config.js": {
+    "mtime": 1779984897.0201216,
+    "ast_hash": "0355276bc79439afe3c53e3a2470ca1e",
+    "semantic_hash": "0355276bc79439afe3c53e3a2470ca1e"
+  },
+  "/Users/kc/g-vid/vite.config.ts": {
+    "mtime": 1779998291.3814237,
+    "ast_hash": "f394ec368ac6a1aebf8fcbb2e145236d",
+    "semantic_hash": "f394ec368ac6a1aebf8fcbb2e145236d"
+  },
+  "/Users/kc/g-vid/postcss.config.js": {
+    "mtime": 1779985103.6824555,
+    "ast_hash": "6b5c4cb81230b2fed05f0216b775c0f5",
+    "semantic_hash": "6b5c4cb81230b2fed05f0216b775c0f5"
+  },
+  "/Users/kc/g-vid/server/index.js": {
+    "mtime": 1780124201.4138792,
+    "ast_hash": "60945ad16f348f821812525047807fd0",
+    "semantic_hash": "60945ad16f348f821812525047807fd0"
+  },
+  "/Users/kc/g-vid/server/package.json": {
+    "mtime": 1779987137.1920729,
+    "ast_hash": "fb0a3fdbf959e9346b1bd3fbca34b6f4",
+    "semantic_hash": "fb0a3fdbf959e9346b1bd3fbca34b6f4"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/example_media.py": {
+    "mtime": 1780119613.1532774,
+    "ast_hash": "c3781469d8b27d6a70edd9b000ff47cd",
+    "semantic_hash": "c3781469d8b27d6a70edd9b000ff47cd"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/cli.py": {
+    "mtime": 1780119613.1523101,
+    "ast_hash": "30d59493afcc687be4c5b4bdbf06e5bf",
+    "semantic_hash": "30d59493afcc687be4c5b4bdbf06e5bf"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/example.py": {
+    "mtime": 1780119613.1529036,
+    "ast_hash": "6a186199d4d1d9aec266b3f54cd87af6",
+    "semantic_hash": "6a186199d4d1d9aec266b3f54cd87af6"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/xai_oauth/media.py": {
+    "mtime": 1780119613.1815915,
+    "ast_hash": "bfc000d8e5c4eef1d723ba196ee834b7",
+    "semantic_hash": "bfc000d8e5c4eef1d723ba196ee834b7"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/xai_oauth/client.py": {
+    "mtime": 1780119613.1555989,
+    "ast_hash": "b9fbfa77e920d917a416995492849fa8",
+    "semantic_hash": "b9fbfa77e920d917a416995492849fa8"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/xai_oauth/constants.py": {
+    "mtime": 1780119613.155971,
+    "ast_hash": "feb6a1dbef814ac3a5119a231e00a68b",
+    "semantic_hash": "feb6a1dbef814ac3a5119a231e00a68b"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/xai_oauth/__init__.py": {
+    "mtime": 1780119613.154605,
+    "ast_hash": "92bee55f670ce539889d2f9ef5427b2b",
+    "semantic_hash": "92bee55f670ce539889d2f9ef5427b2b"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/xai_oauth/cli.py": {
+    "mtime": 1780119613.1549404,
+    "ast_hash": "41f1813ffc5b0e579e0c338f2c0cd558",
+    "semantic_hash": "41f1813ffc5b0e579e0c338f2c0cd558"
+  },
+  "/Users/kc/g-vid/xai-oauth-client/xai_oauth/storage.py": {
+    "mtime": 1780119613.181934,
+    "ast_hash": "76131411108bb87db17c10a26553d3dd",
+    "semantic_hash": "76131411108bb87db17c10a26553d3dd"
+  },
+  "/Users/kc/g-vid/src/App.tsx": {
+    "mtime": 1780124231.4985201,
+    "ast_hash": "febe4dada66b33ad4f9cadd832ae7af5",
+    "semantic_hash": "febe4dada66b33ad4f9cadd832ae7af5"
+  },
+  "/Users/kc/g-vid/src/main.tsx": {
+    "mtime": 1780019240.707252,
+    "ast_hash": "787e5a07efeb2bf6209d5937195f2f68",
+    "semantic_hash": "787e5a07efeb2bf6209d5937195f2f68"
+  },
+  "/Users/kc/g-vid/src/components/Studio.tsx": {
+    "mtime": 1780058437.8653724,
+    "ast_hash": "b582f8d1b600c79ea7e0aeb589774b4d",
+    "semantic_hash": "b582f8d1b600c79ea7e0aeb589774b4d"
+  },
+  "/Users/kc/g-vid/src/components/TopNav.tsx": {
+    "mtime": 1780111640.333638,
+    "ast_hash": "d234282a947d88a35f022a8b099d34e6",
+    "semantic_hash": "d234282a947d88a35f022a8b099d34e6"
+  },
+  "/Users/kc/g-vid/src/hooks/useFeatureFlag.ts": {
+    "mtime": 1780015760.3119898,
+    "ast_hash": "c03bf8842450d4afefa8f6763fe30819",
+    "semantic_hash": "c03bf8842450d4afefa8f6763fe30819"
+  },
+  "/Users/kc/g-vid/public/assets/videos/1.mp4": {
+    "mtime": 1779984924.1506815,
+    "ast_hash": "2110f7f03fb2e5864cc6ba4d6d3927a0",
+    "semantic_hash": "2110f7f03fb2e5864cc6ba4d6d3927a0"
+  },
+  "/Users/kc/g-vid/public/assets/videos/2.mp4": {
+    "mtime": 1779984924.1544716,
+    "ast_hash": "25d727738e6d5cf3378fc68414007049",
+    "semantic_hash": "25d727738e6d5cf3378fc68414007049"
+  },
+  "/Users/kc/g-vid/public/assets/videos/3.mp4": {
+    "mtime": 1779984924.1567228,
+    "ast_hash": "5e9732090200b8f7b3d7d1f0e2de98d5",
+    "semantic_hash": "5e9732090200b8f7b3d7d1f0e2de98d5"
+  }
+}

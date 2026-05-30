@@ -1,0 +1,5412 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "tsconfig.node.json",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L1",
+      "id": "tsconfig_node_json",
+      "community": 7,
+      "norm_label": "tsconfig.node.json"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L2",
+      "id": "g_vid_tsconfig_node_compileroptions",
+      "community": 7,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "tsBuildInfoFile",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L3",
+      "id": "g_vid_tsconfig_node_compileroptions_tsbuildinfofile",
+      "community": 7,
+      "norm_label": "tsbuildinfofile"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L4",
+      "id": "g_vid_tsconfig_node_compileroptions_target",
+      "community": 7,
+      "norm_label": "target"
+    },
+    {
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L5",
+      "id": "g_vid_tsconfig_node_compileroptions_lib",
+      "community": 7,
+      "norm_label": "lib"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L6",
+      "id": "g_vid_tsconfig_node_compileroptions_module",
+      "community": 7,
+      "norm_label": "module"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L7",
+      "id": "g_vid_tsconfig_node_compileroptions_types",
+      "community": 7,
+      "norm_label": "types"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L8",
+      "id": "g_vid_tsconfig_node_compileroptions_skiplibcheck",
+      "community": 7,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L11",
+      "id": "g_vid_tsconfig_node_compileroptions_moduleresolution",
+      "community": 7,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "allowImportingTsExtensions",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L12",
+      "id": "g_vid_tsconfig_node_compileroptions_allowimportingtsextensions",
+      "community": 7,
+      "norm_label": "allowimportingtsextensions"
+    },
+    {
+      "label": "verbatimModuleSyntax",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L13",
+      "id": "g_vid_tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "community": 7,
+      "norm_label": "verbatimmodulesyntax"
+    },
+    {
+      "label": "moduleDetection",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L14",
+      "id": "g_vid_tsconfig_node_compileroptions_moduledetection",
+      "community": 7,
+      "norm_label": "moduledetection"
+    },
+    {
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L15",
+      "id": "g_vid_tsconfig_node_compileroptions_noemit",
+      "community": 7,
+      "norm_label": "noemit"
+    },
+    {
+      "label": "noUnusedLocals",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L18",
+      "id": "g_vid_tsconfig_node_compileroptions_nounusedlocals",
+      "community": 7,
+      "norm_label": "nounusedlocals"
+    },
+    {
+      "label": "noUnusedParameters",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L19",
+      "id": "g_vid_tsconfig_node_compileroptions_nounusedparameters",
+      "community": 7,
+      "norm_label": "nounusedparameters"
+    },
+    {
+      "label": "erasableSyntaxOnly",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L20",
+      "id": "g_vid_tsconfig_node_compileroptions_erasablesyntaxonly",
+      "community": 7,
+      "norm_label": "erasablesyntaxonly"
+    },
+    {
+      "label": "noFallthroughCasesInSwitch",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L21",
+      "id": "g_vid_tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "community": 7,
+      "norm_label": "nofallthroughcasesinswitch"
+    },
+    {
+      "label": "include",
+      "file_type": "code",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L23",
+      "id": "g_vid_tsconfig_node_include",
+      "community": 7,
+      "norm_label": "include"
+    },
+    {
+      "label": ".tmp-playwright-dom.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-dom.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_dom_mjs",
+      "community": 20,
+      "norm_label": ".tmp-playwright-dom.mjs"
+    },
+    {
+      "label": "tailwind.config.js",
+      "file_type": "code",
+      "source_file": "tailwind.config.js",
+      "source_location": "L1",
+      "id": "tailwind_config_js",
+      "community": 21,
+      "norm_label": "tailwind.config.js"
+    },
+    {
+      "label": ".tmp-playwright-box.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-box.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_box_mjs",
+      "community": 22,
+      "norm_label": ".tmp-playwright-box.mjs"
+    },
+    {
+      "label": "tsconfig.app.json",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L1",
+      "id": "tsconfig_app_json",
+      "community": 5,
+      "norm_label": "tsconfig.app.json"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L2",
+      "id": "g_vid_tsconfig_app_compileroptions",
+      "community": 5,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "tsBuildInfoFile",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L3",
+      "id": "g_vid_tsconfig_app_compileroptions_tsbuildinfofile",
+      "community": 5,
+      "norm_label": "tsbuildinfofile"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L4",
+      "id": "g_vid_tsconfig_app_compileroptions_target",
+      "community": 5,
+      "norm_label": "target"
+    },
+    {
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L5",
+      "id": "g_vid_tsconfig_app_compileroptions_lib",
+      "community": 5,
+      "norm_label": "lib"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L6",
+      "id": "g_vid_tsconfig_app_compileroptions_module",
+      "community": 5,
+      "norm_label": "module"
+    },
+    {
+      "label": "types",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L7",
+      "id": "g_vid_tsconfig_app_compileroptions_types",
+      "community": 5,
+      "norm_label": "types"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L8",
+      "id": "g_vid_tsconfig_app_compileroptions_skiplibcheck",
+      "community": 5,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L11",
+      "id": "g_vid_tsconfig_app_compileroptions_moduleresolution",
+      "community": 5,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "allowImportingTsExtensions",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L12",
+      "id": "g_vid_tsconfig_app_compileroptions_allowimportingtsextensions",
+      "community": 5,
+      "norm_label": "allowimportingtsextensions"
+    },
+    {
+      "label": "verbatimModuleSyntax",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L13",
+      "id": "g_vid_tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "community": 5,
+      "norm_label": "verbatimmodulesyntax"
+    },
+    {
+      "label": "moduleDetection",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L14",
+      "id": "g_vid_tsconfig_app_compileroptions_moduledetection",
+      "community": 5,
+      "norm_label": "moduledetection"
+    },
+    {
+      "label": "noEmit",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L15",
+      "id": "g_vid_tsconfig_app_compileroptions_noemit",
+      "community": 5,
+      "norm_label": "noemit"
+    },
+    {
+      "label": "jsx",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L16",
+      "id": "g_vid_tsconfig_app_compileroptions_jsx",
+      "community": 5,
+      "norm_label": "jsx"
+    },
+    {
+      "label": "noUnusedLocals",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L19",
+      "id": "g_vid_tsconfig_app_compileroptions_nounusedlocals",
+      "community": 5,
+      "norm_label": "nounusedlocals"
+    },
+    {
+      "label": "noUnusedParameters",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L20",
+      "id": "g_vid_tsconfig_app_compileroptions_nounusedparameters",
+      "community": 5,
+      "norm_label": "nounusedparameters"
+    },
+    {
+      "label": "erasableSyntaxOnly",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L21",
+      "id": "g_vid_tsconfig_app_compileroptions_erasablesyntaxonly",
+      "community": 5,
+      "norm_label": "erasablesyntaxonly"
+    },
+    {
+      "label": "noFallthroughCasesInSwitch",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L22",
+      "id": "g_vid_tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "community": 5,
+      "norm_label": "nofallthroughcasesinswitch"
+    },
+    {
+      "label": "include",
+      "file_type": "code",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L24",
+      "id": "g_vid_tsconfig_app_include",
+      "community": 5,
+      "norm_label": "include"
+    },
+    {
+      "label": ".tmp-playwright-top.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-top.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_top_mjs",
+      "community": 17,
+      "norm_label": ".tmp-playwright-top.mjs"
+    },
+    {
+      "label": "cs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-top.mjs",
+      "source_location": "L9",
+      "id": "g_vid_tmp_playwright_top_cs",
+      "community": 17,
+      "norm_label": "cs"
+    },
+    {
+      "label": ".tmp-playwright.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_mjs",
+      "community": 23,
+      "norm_label": ".tmp-playwright.mjs"
+    },
+    {
+      "label": ".tmp-playwright-studio-element.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-studio-element.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_studio_element_mjs",
+      "community": 15,
+      "norm_label": ".tmp-playwright-studio-element.mjs"
+    },
+    {
+      "label": "studio",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-studio-element.mjs",
+      "source_location": "L8",
+      "id": "g_vid_tmp_playwright_studio_element_studio",
+      "community": 15,
+      "norm_label": "studio"
+    },
+    {
+      "label": ".tmp-playwright-snap.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-snap.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_snap_mjs",
+      "community": 24,
+      "norm_label": ".tmp-playwright-snap.mjs"
+    },
+    {
+      "label": ".tmp-playwright-check.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-check.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_check_mjs",
+      "community": 12,
+      "norm_label": ".tmp-playwright-check.mjs"
+    },
+    {
+      "label": "root",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-check.mjs",
+      "source_location": "L9",
+      "id": "g_vid_tmp_playwright_check_root",
+      "community": 12,
+      "norm_label": "root"
+    },
+    {
+      "label": "cs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-check.mjs",
+      "source_location": "L11",
+      "id": "g_vid_tmp_playwright_check_cs",
+      "community": 12,
+      "norm_label": "cs"
+    },
+    {
+      "label": ".tmp-playwright-style.mjs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-style.mjs",
+      "source_location": "L1",
+      "id": "tmp_playwright_style_mjs",
+      "community": 16,
+      "norm_label": ".tmp-playwright-style.mjs"
+    },
+    {
+      "label": "cs",
+      "file_type": "code",
+      "source_file": ".tmp-playwright-style.mjs",
+      "source_location": "L9",
+      "id": "g_vid_tmp_playwright_style_cs",
+      "community": 16,
+      "norm_label": "cs"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package_json",
+      "community": 4,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "g_vid_package_name",
+      "community": 4,
+      "norm_label": "name"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "g_vid_package_private",
+      "community": 4,
+      "norm_label": "private"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "g_vid_package_version",
+      "community": 4,
+      "norm_label": "version"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "g_vid_package_type",
+      "community": 4,
+      "norm_label": "type"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "g_vid_package_scripts",
+      "community": 4,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "g_vid_package_scripts_dev",
+      "community": 4,
+      "norm_label": "dev"
+    },
+    {
+      "label": "dev:5175",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "g_vid_package_scripts_dev_5175",
+      "community": 4,
+      "norm_label": "dev:5175"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "g_vid_package_scripts_build",
+      "community": 4,
+      "norm_label": "build"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "id": "g_vid_package_scripts_lint",
+      "community": 4,
+      "norm_label": "lint"
+    },
+    {
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "id": "g_vid_package_scripts_preview",
+      "community": 4,
+      "norm_label": "preview"
+    },
+    {
+      "label": "prod",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "g_vid_package_scripts_prod",
+      "community": 4,
+      "norm_label": "prod"
+    },
+    {
+      "label": "server",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "g_vid_package_scripts_server",
+      "community": 4,
+      "norm_label": "server"
+    },
+    {
+      "label": "up",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "g_vid_package_scripts_up",
+      "community": 4,
+      "norm_label": "up"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "id": "g_vid_package_dependencies",
+      "community": 4,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "framer-motion",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "id": "g_vid_package_dependencies_framer_motion",
+      "community": 4,
+      "norm_label": "framer-motion"
+    },
+    {
+      "label": "lucide-react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "g_vid_package_dependencies_lucide_react",
+      "community": 4,
+      "norm_label": "lucide-react"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "g_vid_package_dependencies_react",
+      "community": 4,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "id": "g_vid_package_dependencies_react_dom",
+      "community": 4,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "react-hot-toast",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "id": "g_vid_package_dependencies_react_hot_toast",
+      "community": 4,
+      "norm_label": "react-hot-toast"
+    },
+    {
+      "label": "sonner",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "g_vid_package_dependencies_sonner",
+      "community": 4,
+      "norm_label": "sonner"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "id": "g_vid_package_devdependencies",
+      "community": 6,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@eslint/js",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "id": "g_vid_package_devdependencies_eslint_js",
+      "community": 6,
+      "norm_label": "@eslint/js"
+    },
+    {
+      "label": "@tailwindcss/postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "id": "g_vid_package_devdependencies_tailwindcss_postcss",
+      "community": 6,
+      "norm_label": "@tailwindcss/postcss"
+    },
+    {
+      "label": "@types/node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "id": "g_vid_package_devdependencies_types_node",
+      "community": 6,
+      "norm_label": "@types/node"
+    },
+    {
+      "label": "@types/react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "id": "g_vid_package_devdependencies_types_react",
+      "community": 6,
+      "norm_label": "@types/react"
+    },
+    {
+      "label": "@vitejs/plugin-react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "id": "g_vid_package_devdependencies_vitejs_plugin_react",
+      "community": 6,
+      "norm_label": "@vitejs/plugin-react"
+    },
+    {
+      "label": "autoprefixer",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "id": "g_vid_package_devdependencies_autoprefixer",
+      "community": 6,
+      "norm_label": "autoprefixer"
+    },
+    {
+      "label": "concurrently",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "id": "g_vid_package_devdependencies_concurrently",
+      "community": 6,
+      "norm_label": "concurrently"
+    },
+    {
+      "label": "eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "id": "g_vid_package_devdependencies_eslint",
+      "community": 6,
+      "norm_label": "eslint"
+    },
+    {
+      "label": "eslint-plugin-react-hooks",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "id": "g_vid_package_devdependencies_eslint_plugin_react_hooks",
+      "community": 6,
+      "norm_label": "eslint-plugin-react-hooks"
+    },
+    {
+      "label": "eslint-plugin-react-refresh",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "id": "g_vid_package_devdependencies_eslint_plugin_react_refresh",
+      "community": 6,
+      "norm_label": "eslint-plugin-react-refresh"
+    },
+    {
+      "label": "globals",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "id": "g_vid_package_devdependencies_globals",
+      "community": 6,
+      "norm_label": "globals"
+    },
+    {
+      "label": "playwright",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "id": "g_vid_package_devdependencies_playwright",
+      "community": 6,
+      "norm_label": "playwright"
+    },
+    {
+      "label": "postcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "id": "g_vid_package_devdependencies_postcss",
+      "community": 6,
+      "norm_label": "postcss"
+    },
+    {
+      "label": "tailwindcss",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "id": "g_vid_package_devdependencies_tailwindcss",
+      "community": 6,
+      "norm_label": "tailwindcss"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "id": "g_vid_package_devdependencies_typescript",
+      "community": 6,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "typescript-eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L41",
+      "id": "g_vid_package_devdependencies_typescript_eslint",
+      "community": 6,
+      "norm_label": "typescript-eslint"
+    },
+    {
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "id": "g_vid_package_devdependencies_vite",
+      "community": 6,
+      "norm_label": "vite"
+    },
+    {
+      "label": "tsconfig.json",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L1",
+      "id": "tsconfig_json",
+      "community": 13,
+      "norm_label": "tsconfig.json"
+    },
+    {
+      "label": "files",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "id": "g_vid_tsconfig_files",
+      "community": 13,
+      "norm_label": "files"
+    },
+    {
+      "label": "references",
+      "file_type": "code",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "id": "g_vid_tsconfig_references",
+      "community": 13,
+      "norm_label": "references"
+    },
+    {
+      "label": "eslint.config.js",
+      "file_type": "code",
+      "source_file": "eslint.config.js",
+      "source_location": "L1",
+      "id": "eslint_config_js",
+      "community": 25,
+      "norm_label": "eslint.config.js"
+    },
+    {
+      "label": "vite.config.ts",
+      "file_type": "code",
+      "source_file": "vite.config.ts",
+      "source_location": "L1",
+      "id": "vite_config_ts",
+      "community": 26,
+      "norm_label": "vite.config.ts"
+    },
+    {
+      "label": "postcss.config.js",
+      "file_type": "code",
+      "source_file": "postcss.config.js",
+      "source_location": "L1",
+      "id": "postcss_config_js",
+      "community": 27,
+      "norm_label": "postcss.config.js"
+    },
+    {
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L1",
+      "id": "server_index_js",
+      "community": 9,
+      "norm_label": "index.js"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L23",
+      "id": "server_index_app",
+      "community": 9,
+      "norm_label": "app"
+    },
+    {
+      "label": "upload",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L30",
+      "id": "server_index_upload",
+      "community": 9,
+      "norm_label": "upload"
+    },
+    {
+      "label": "tokenStore",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L35",
+      "id": "server_index_tokenstore",
+      "community": 9,
+      "norm_label": "tokenstore"
+    },
+    {
+      "label": "deviceFlowStore",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L36",
+      "id": "server_index_deviceflowstore",
+      "community": 9,
+      "norm_label": "deviceflowstore"
+    },
+    {
+      "label": "jobStore",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L37",
+      "id": "server_index_jobstore",
+      "community": 9,
+      "norm_label": "jobstore"
+    },
+    {
+      "label": "doRefresh()",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L53",
+      "id": "server_index_dorefresh",
+      "community": 9,
+      "norm_label": "dorefresh()"
+    },
+    {
+      "label": "getValidToken()",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L85",
+      "id": "server_index_getvalidtoken",
+      "community": 9,
+      "norm_label": "getvalidtoken()"
+    },
+    {
+      "label": "body",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L116",
+      "id": "server_index_body",
+      "community": 9,
+      "norm_label": "body"
+    },
+    {
+      "label": "flow",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L166",
+      "id": "server_index_flow",
+      "community": 9,
+      "norm_label": "flow"
+    },
+    {
+      "label": "cleanup()",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L291",
+      "id": "server_index_cleanup",
+      "community": 9,
+      "norm_label": "cleanup()"
+    },
+    {
+      "label": "referenceImages",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L298",
+      "id": "server_index_referenceimages",
+      "community": 1,
+      "norm_label": "referenceimages"
+    },
+    {
+      "label": "buf",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L301",
+      "id": "server_index_buf",
+      "community": 9,
+      "norm_label": "buf"
+    },
+    {
+      "label": "duration",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L321",
+      "id": "server_index_duration",
+      "community": 9,
+      "norm_label": "duration"
+    },
+    {
+      "label": "xaiPayload",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L323",
+      "id": "server_index_xaipayload",
+      "community": 9,
+      "norm_label": "xaipayload"
+    },
+    {
+      "label": "xaiData",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L348",
+      "id": "server_index_xaidata",
+      "community": 9,
+      "norm_label": "xaidata"
+    },
+    {
+      "label": "job",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L421",
+      "id": "server_index_job",
+      "community": 9,
+      "norm_label": "job"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L1",
+      "id": "server_package_json",
+      "community": 8,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L2",
+      "id": "server_package_name",
+      "community": 8,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L3",
+      "id": "server_package_version",
+      "community": 8,
+      "norm_label": "version"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L4",
+      "id": "server_package_description",
+      "community": 8,
+      "norm_label": "description"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L5",
+      "id": "server_package_main",
+      "community": 8,
+      "norm_label": "main"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L6",
+      "id": "server_package_scripts",
+      "community": 8,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L7",
+      "id": "server_package_scripts_start",
+      "community": 8,
+      "norm_label": "start"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L8",
+      "id": "server_package_scripts_dev",
+      "community": 8,
+      "norm_label": "dev"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L10",
+      "id": "server_package_type",
+      "community": 8,
+      "norm_label": "type"
+    },
+    {
+      "label": "keywords",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L11",
+      "id": "server_package_keywords",
+      "community": 8,
+      "norm_label": "keywords"
+    },
+    {
+      "label": "author",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L12",
+      "id": "server_package_author",
+      "community": 8,
+      "norm_label": "author"
+    },
+    {
+      "label": "license",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L13",
+      "id": "server_package_license",
+      "community": 8,
+      "norm_label": "license"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L14",
+      "id": "server_package_dependencies",
+      "community": 8,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L15",
+      "id": "server_package_dependencies_cors",
+      "community": 8,
+      "norm_label": "cors"
+    },
+    {
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L16",
+      "id": "server_package_dependencies_dotenv",
+      "community": 8,
+      "norm_label": "dotenv"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L17",
+      "id": "server_package_dependencies_express",
+      "community": 8,
+      "norm_label": "express"
+    },
+    {
+      "label": "multer",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L18",
+      "id": "server_package_dependencies_multer",
+      "community": 8,
+      "norm_label": "multer"
+    },
+    {
+      "label": "node-fetch",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L19",
+      "id": "server_package_dependencies_node_fetch",
+      "community": 8,
+      "norm_label": "node-fetch"
+    },
+    {
+      "label": "example_media.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/example_media.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_example_media_py",
+      "community": 3,
+      "norm_label": "example_media.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/example_media.py",
+      "source_location": "L9",
+      "id": "xai_oauth_client_example_media_main",
+      "community": 3,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Advanced Media Generation Example using xAI OAuth  This demonstrates the flexibl",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/example_media.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_example_media_rationale_1",
+      "community": 3,
+      "norm_label": "advanced media generation example using xai oauth  this demonstrates the flexibl"
+    },
+    {
+      "label": "cli.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/cli.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_cli_py",
+      "community": 18,
+      "norm_label": "cli.py"
+    },
+    {
+      "label": "Legacy CLI wrapper (use `xai-oauth` after installation).",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/cli.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_cli_rationale_1",
+      "community": 18,
+      "norm_label": "legacy cli wrapper (use `xai-oauth` after installation)."
+    },
+    {
+      "label": "example.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/example.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_example_py",
+      "community": 14,
+      "norm_label": "example.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/example.py",
+      "source_location": "L6",
+      "id": "xai_oauth_client_example_main",
+      "community": 14,
+      "norm_label": "main()"
+    },
+    {
+      "label": "Example usage of the xAI OAuth client.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/example.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_example_rationale_1",
+      "community": 14,
+      "norm_label": "example usage of the xai oauth client."
+    },
+    {
+      "label": "media.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_xai_oauth_media_py",
+      "community": 0,
+      "norm_label": "media.py"
+    },
+    {
+      "label": "XaiMediaClient",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L47",
+      "id": "xai_oauth_media_xaimediaclient",
+      "community": 3,
+      "norm_label": "xaimediaclient"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L59",
+      "id": "xai_oauth_media_xaimediaclient_init",
+      "community": 3,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "XaiOAuthClient",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L59",
+      "id": "xaioauthclient",
+      "community": 3,
+      "norm_label": "xaioauthclient"
+    },
+    {
+      "label": "._get_headers()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L63",
+      "id": "xai_oauth_media_xaimediaclient_get_headers",
+      "community": 3,
+      "norm_label": "._get_headers()"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L63",
+      "id": "xai_oauth_client_xai_oauth_media_py_str",
+      "community": 3,
+      "norm_label": "str"
+    },
+    {
+      "label": ".generate_image()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "id": "xai_oauth_media_xaimediaclient_generate_image",
+      "community": 3,
+      "norm_label": ".generate_image()"
+    },
+    {
+      "label": "int",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "id": "int",
+      "community": 3,
+      "norm_label": "int"
+    },
+    {
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "id": "xai_oauth_client_xai_oauth_media_py_bool",
+      "community": 3,
+      "norm_label": "bool"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "id": "xai_oauth_client_xai_oauth_media_py_any",
+      "community": 3,
+      "norm_label": "any"
+    },
+    {
+      "label": ".edit_image()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L142",
+      "id": "xai_oauth_media_xaimediaclient_edit_image",
+      "community": 3,
+      "norm_label": ".edit_image()"
+    },
+    {
+      "label": "float",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L142",
+      "id": "xai_oauth_client_xai_oauth_media_py_float",
+      "community": 3,
+      "norm_label": "float"
+    },
+    {
+      "label": ".generate_video()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L182",
+      "id": "xai_oauth_media_xaimediaclient_generate_video",
+      "community": 3,
+      "norm_label": ".generate_video()"
+    },
+    {
+      "label": ".generate_audio()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L228",
+      "id": "xai_oauth_media_xaimediaclient_generate_audio",
+      "community": 3,
+      "norm_label": ".generate_audio()"
+    },
+    {
+      "label": "._enhance_prompt_if_requested()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L242",
+      "id": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested",
+      "community": 3,
+      "norm_label": "._enhance_prompt_if_requested()"
+    },
+    {
+      "label": ".close()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L254",
+      "id": "xai_oauth_media_xaimediaclient_close",
+      "community": 3,
+      "norm_label": ".close()"
+    },
+    {
+      "label": "Advanced Media Generation Client for xAI (Grok Imagine)  Supports: - Image gener",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L1",
+      "id": "xai_oauth_media_rationale_1",
+      "community": 0,
+      "norm_label": "advanced media generation client for xai (grok imagine)  supports: - image gener"
+    },
+    {
+      "label": "Flexible and powerful media generation client for xAI.      Designed to be highl",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L48",
+      "id": "xai_oauth_media_rationale_48",
+      "community": 3,
+      "norm_label": "flexible and powerful media generation client for xai.      designed to be highl"
+    },
+    {
+      "label": "Generate an image using xAI's Grok Imagine.          This method is highly custo",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L87",
+      "id": "xai_oauth_media_rationale_87",
+      "community": 3,
+      "norm_label": "generate an image using xai's grok imagine.          this method is highly custo"
+    },
+    {
+      "label": "Image editing / img2img using xAI.         Note: Support depends on xAI's curren",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L151",
+      "id": "xai_oauth_media_rationale_151",
+      "community": 3,
+      "norm_label": "image editing / img2img using xai.         note: support depends on xai's curren"
+    },
+    {
+      "label": "Generate video using xAI's video generation endpoint.         Highly customizabl",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L192",
+      "id": "xai_oauth_media_rationale_192",
+      "community": 3,
+      "norm_label": "generate video using xai's video generation endpoint.         highly customizabl"
+    },
+    {
+      "label": "Placeholder for audio generation.         xAI may add TTS in the future. Current",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L229",
+      "id": "xai_oauth_media_rationale_229",
+      "community": 3,
+      "norm_label": "placeholder for audio generation.         xai may add tts in the future. current"
+    },
+    {
+      "label": "Optionally lets Grok itself improve the prompt for better results.         This",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L243",
+      "id": "xai_oauth_media_rationale_243",
+      "community": 3,
+      "norm_label": "optionally lets grok itself improve the prompt for better results.         this"
+    },
+    {
+      "label": "client.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_xai_oauth_client_py",
+      "community": 0,
+      "norm_label": "client.py"
+    },
+    {
+      "label": "XaiOAuthError",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L27",
+      "id": "xai_oauth_client_xaioautherror",
+      "community": 2,
+      "norm_label": "xaioautherror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "exception",
+      "community": 2,
+      "norm_label": "exception"
+    },
+    {
+      "label": "_discover()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L31",
+      "id": "xai_oauth_client_discover",
+      "community": 2,
+      "norm_label": "_discover()"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L31",
+      "id": "xai_oauth_client_xai_oauth_client_py_str",
+      "community": 2,
+      "norm_label": "str"
+    },
+    {
+      "label": "_pkce_verifier()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L42",
+      "id": "xai_oauth_client_pkce_verifier",
+      "community": 2,
+      "norm_label": "_pkce_verifier()"
+    },
+    {
+      "label": "_pkce_challenge()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L47",
+      "id": "xai_oauth_client_pkce_challenge",
+      "community": 2,
+      "norm_label": "_pkce_challenge()"
+    },
+    {
+      "label": "_CallbackHandler",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L54",
+      "id": "xai_oauth_client_callbackhandler",
+      "community": 10,
+      "norm_label": "_callbackhandler"
+    },
+    {
+      "label": "BaseHTTPRequestHandler",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basehttprequesthandler",
+      "community": 10,
+      "norm_label": "basehttprequesthandler"
+    },
+    {
+      "label": ".do_GET()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L55",
+      "id": "xai_oauth_client_callbackhandler_do_get",
+      "community": 10,
+      "norm_label": ".do_get()"
+    },
+    {
+      "label": ".log_message()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L64",
+      "id": "xai_oauth_client_callbackhandler_log_message",
+      "community": 10,
+      "norm_label": ".log_message()"
+    },
+    {
+      "label": "_start_callback_server()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L68",
+      "id": "xai_oauth_client_start_callback_server",
+      "community": 2,
+      "norm_label": "_start_callback_server()"
+    },
+    {
+      "label": "HTTPServer",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L68",
+      "id": "httpserver",
+      "community": 2,
+      "norm_label": "httpserver"
+    },
+    {
+      "label": "Thread",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L68",
+      "id": "thread",
+      "community": 2,
+      "norm_label": "thread"
+    },
+    {
+      "label": "_wait_for_callback()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L77",
+      "id": "xai_oauth_client_wait_for_callback",
+      "community": 2,
+      "norm_label": "_wait_for_callback()"
+    },
+    {
+      "label": "float",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L77",
+      "id": "xai_oauth_client_xai_oauth_client_py_float",
+      "community": 2,
+      "norm_label": "float"
+    },
+    {
+      "label": "XaiOAuthClient",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L88",
+      "id": "xai_oauth_client_xaioauthclient",
+      "community": 2,
+      "norm_label": "xaioauthclient"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L91",
+      "id": "xai_oauth_client_xaioauthclient_init",
+      "community": 0,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".access_token()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L96",
+      "id": "xai_oauth_client_xaioauthclient_access_token",
+      "community": 2,
+      "norm_label": ".access_token()"
+    },
+    {
+      "label": ".is_authenticated()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L100",
+      "id": "xai_oauth_client_xaioauthclient_is_authenticated",
+      "community": 2,
+      "norm_label": ".is_authenticated()"
+    },
+    {
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L100",
+      "id": "xai_oauth_client_xai_oauth_client_py_bool",
+      "community": 2,
+      "norm_label": "bool"
+    },
+    {
+      "label": ".login()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L103",
+      "id": "xai_oauth_client_xaioauthclient_login",
+      "community": 2,
+      "norm_label": ".login()"
+    },
+    {
+      "label": ".refresh()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L179",
+      "id": "xai_oauth_client_xaioauthclient_refresh",
+      "community": 2,
+      "norm_label": ".refresh()"
+    },
+    {
+      "label": ".ensure_valid_token()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L209",
+      "id": "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "community": 2,
+      "norm_label": ".ensure_valid_token()"
+    },
+    {
+      "label": ".get_auth_header()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L223",
+      "id": "xai_oauth_client_xaioauthclient_get_auth_header",
+      "community": 2,
+      "norm_label": ".get_auth_header()"
+    },
+    {
+      "label": "Main xAI OAuth client (PKCE flow + refresh).",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_rationale_1",
+      "community": 0,
+      "norm_label": "main xai oauth client (pkce flow + refresh)."
+    },
+    {
+      "label": "Custom exception for xAI OAuth errors.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L28",
+      "id": "xai_oauth_client_rationale_28",
+      "community": 2,
+      "norm_label": "custom exception for xai oauth errors."
+    },
+    {
+      "label": "Fetch OpenID configuration.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L32",
+      "id": "xai_oauth_client_rationale_32",
+      "community": 2,
+      "norm_label": "fetch openid configuration."
+    },
+    {
+      "label": "High-level client for xAI OAuth.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L89",
+      "id": "xai_oauth_client_rationale_89",
+      "community": 2,
+      "norm_label": "high-level client for xai oauth."
+    },
+    {
+      "label": "Perform the full OAuth login flow.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L104",
+      "id": "xai_oauth_client_rationale_104",
+      "community": 2,
+      "norm_label": "perform the full oauth login flow."
+    },
+    {
+      "label": "Refresh the access token using the refresh token.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L180",
+      "id": "xai_oauth_client_rationale_180",
+      "community": 2,
+      "norm_label": "refresh the access token using the refresh token."
+    },
+    {
+      "label": "Make sure we have a valid, non-expired access token.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L210",
+      "id": "xai_oauth_client_rationale_210",
+      "community": 2,
+      "norm_label": "make sure we have a valid, non-expired access token."
+    },
+    {
+      "label": "constants.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/constants.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_xai_oauth_constants_py",
+      "community": 0,
+      "norm_label": "constants.py"
+    },
+    {
+      "label": "Constants for xAI OAuth (matching Hermes implementation).",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/constants.py",
+      "source_location": "L1",
+      "id": "xai_oauth_constants_rationale_1",
+      "community": 0,
+      "norm_label": "constants for xai oauth (matching hermes implementation)."
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_xai_oauth_init_py",
+      "community": 0,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "xAI OAuth Client package with rich media generation support.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L1",
+      "id": "xai_oauth_init_rationale_1",
+      "community": 0,
+      "norm_label": "xai oauth client package with rich media generation support."
+    },
+    {
+      "label": "cli.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_xai_oauth_cli_py",
+      "community": 0,
+      "norm_label": "cli.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L10",
+      "id": "xai_oauth_cli_main",
+      "community": 0,
+      "norm_label": "main()"
+    },
+    {
+      "label": "CLI entry point for xai-oauth-client.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L1",
+      "id": "xai_oauth_cli_rationale_1",
+      "community": 0,
+      "norm_label": "cli entry point for xai-oauth-client."
+    },
+    {
+      "label": "storage.py",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L1",
+      "id": "xai_oauth_client_xai_oauth_storage_py",
+      "community": 0,
+      "norm_label": "storage.py"
+    },
+    {
+      "label": "get_token_path()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L12",
+      "id": "xai_oauth_storage_get_token_path",
+      "community": 0,
+      "norm_label": "get_token_path()"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L12",
+      "id": "path",
+      "community": 0,
+      "norm_label": "path"
+    },
+    {
+      "label": "ensure_token_dir()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L17",
+      "id": "xai_oauth_storage_ensure_token_dir",
+      "community": 0,
+      "norm_label": "ensure_token_dir()"
+    },
+    {
+      "label": "_read_tokens_raw()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L22",
+      "id": "xai_oauth_storage_read_tokens_raw",
+      "community": 0,
+      "norm_label": "_read_tokens_raw()"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L22",
+      "id": "xai_oauth_client_xai_oauth_storage_py_str",
+      "community": 0,
+      "norm_label": "str"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L22",
+      "id": "xai_oauth_client_xai_oauth_storage_py_any",
+      "community": 0,
+      "norm_label": "any"
+    },
+    {
+      "label": "save_tokens()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L32",
+      "id": "xai_oauth_storage_save_tokens",
+      "community": 0,
+      "norm_label": "save_tokens()"
+    },
+    {
+      "label": "load_tokens()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L45",
+      "id": "xai_oauth_storage_load_tokens",
+      "community": 0,
+      "norm_label": "load_tokens()"
+    },
+    {
+      "label": "load_full_state()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L51",
+      "id": "xai_oauth_storage_load_full_state",
+      "community": 0,
+      "norm_label": "load_full_state()"
+    },
+    {
+      "label": "clear_tokens()",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L56",
+      "id": "xai_oauth_storage_clear_tokens",
+      "community": 0,
+      "norm_label": "clear_tokens()"
+    },
+    {
+      "label": "Token storage for xAI OAuth (simple JSON file, modeled after Hermes).",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L1",
+      "id": "xai_oauth_storage_rationale_1",
+      "community": 0,
+      "norm_label": "token storage for xai oauth (simple json file, modeled after hermes)."
+    },
+    {
+      "label": "Return the path where tokens are stored.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L13",
+      "id": "xai_oauth_storage_rationale_13",
+      "community": 0,
+      "norm_label": "return the path where tokens are stored."
+    },
+    {
+      "label": "Save tokens + discovery info.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L33",
+      "id": "xai_oauth_storage_rationale_33",
+      "community": 0,
+      "norm_label": "save tokens + discovery info."
+    },
+    {
+      "label": "Load tokens from disk.",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L46",
+      "id": "xai_oauth_storage_rationale_46",
+      "community": 0,
+      "norm_label": "load tokens from disk."
+    },
+    {
+      "label": "Return the full stored state (tokens + discovery).",
+      "file_type": "rationale",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L52",
+      "id": "xai_oauth_storage_rationale_52",
+      "community": 0,
+      "norm_label": "return the full stored state (tokens + discovery)."
+    },
+    {
+      "label": "App.tsx",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L1",
+      "id": "src_app_tsx",
+      "community": 1,
+      "norm_label": "app.tsx"
+    },
+    {
+      "label": "Shot",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "id": "src_app_shot",
+      "community": 1,
+      "norm_label": "shot"
+    },
+    {
+      "label": "SessionState",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L19",
+      "id": "src_app_sessionstate",
+      "community": 1,
+      "norm_label": "sessionstate"
+    },
+    {
+      "label": "DesignTweaks",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L26",
+      "id": "src_app_designtweaks",
+      "community": 1,
+      "norm_label": "designtweaks"
+    },
+    {
+      "label": "OAuthFlowState",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L32",
+      "id": "src_app_oauthflowstate",
+      "community": 1,
+      "norm_label": "oauthflowstate"
+    },
+    {
+      "label": "GenerationPayload",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L42",
+      "id": "src_app_generationpayload",
+      "community": 1,
+      "norm_label": "generationpayload"
+    },
+    {
+      "label": "GenerateResult",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L51",
+      "id": "src_app_generateresult",
+      "community": 1,
+      "norm_label": "generateresult"
+    },
+    {
+      "label": "STORAGE_KEYS",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L56",
+      "id": "src_app_storage_keys",
+      "community": 1,
+      "norm_label": "storage_keys"
+    },
+    {
+      "label": "SHOTS",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L64",
+      "id": "src_app_shots",
+      "community": 1,
+      "norm_label": "shots"
+    },
+    {
+      "label": "TWEAK_DEFAULTS",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L78",
+      "id": "src_app_tweak_defaults",
+      "community": 1,
+      "norm_label": "tweak_defaults"
+    },
+    {
+      "label": "useDesignTweaks()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L84",
+      "id": "src_app_usedesigntweaks",
+      "community": 1,
+      "norm_label": "usedesigntweaks()"
+    },
+    {
+      "label": "accentVariants",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L118",
+      "id": "src_app_accentvariants",
+      "community": 1,
+      "norm_label": "accentvariants"
+    },
+    {
+      "label": "DEFAULT_SESSION",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L125",
+      "id": "src_app_default_session",
+      "community": 1,
+      "norm_label": "default_session"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "src/App.tsx",
+      "source_location": "L131",
+      "id": "src_app_app",
+      "community": 1,
+      "norm_label": "app()"
+    },
+    {
+      "label": "main.tsx",
+      "file_type": "code",
+      "source_file": "src/main.tsx",
+      "source_location": "L1",
+      "id": "src_main_tsx",
+      "community": 1,
+      "norm_label": "main.tsx"
+    },
+    {
+      "label": "Studio.tsx",
+      "file_type": "code",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L1",
+      "id": "src_components_studio_tsx",
+      "community": 1,
+      "norm_label": "studio.tsx"
+    },
+    {
+      "label": "PROGRESS_STAGES",
+      "file_type": "code",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L8",
+      "id": "components_studio_progress_stages",
+      "community": 1,
+      "norm_label": "progress_stages"
+    },
+    {
+      "label": "TrimWindow",
+      "file_type": "code",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L22",
+      "id": "components_studio_trimwindow",
+      "community": 1,
+      "norm_label": "trimwindow"
+    },
+    {
+      "label": "StudioProps",
+      "file_type": "code",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L27",
+      "id": "components_studio_studioprops",
+      "community": 1,
+      "norm_label": "studioprops"
+    },
+    {
+      "label": "Studio()",
+      "file_type": "code",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L43",
+      "id": "components_studio_studio",
+      "community": 1,
+      "norm_label": "studio()"
+    },
+    {
+      "label": "TopNav.tsx",
+      "file_type": "code",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L1",
+      "id": "src_components_topnav_tsx",
+      "community": 1,
+      "norm_label": "topnav.tsx"
+    },
+    {
+      "label": "TopNavProps",
+      "file_type": "code",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L5",
+      "id": "components_topnav_topnavprops",
+      "community": 1,
+      "norm_label": "topnavprops"
+    },
+    {
+      "label": "navLinks",
+      "file_type": "code",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L16",
+      "id": "components_topnav_navlinks",
+      "community": 1,
+      "norm_label": "navlinks"
+    },
+    {
+      "label": "StatusBadge()",
+      "file_type": "code",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L21",
+      "id": "components_topnav_statusbadge",
+      "community": 1,
+      "norm_label": "statusbadge()"
+    },
+    {
+      "label": "TopNav()",
+      "file_type": "code",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L29",
+      "id": "components_topnav_topnav",
+      "community": 1,
+      "norm_label": "topnav()"
+    },
+    {
+      "label": "useFeatureFlag.ts",
+      "file_type": "code",
+      "source_file": "src/hooks/useFeatureFlag.ts",
+      "source_location": "L1",
+      "id": "src_hooks_usefeatureflag_ts",
+      "community": 28,
+      "norm_label": "usefeatureflag.ts"
+    },
+    {
+      "label": "Real xAI Device Code OAuth for g-vid",
+      "file_type": "document",
+      "source_file": "server/README-OAUTH.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "server_readme_oauth",
+      "community": 19,
+      "norm_label": "real xai device code oauth for g-vid"
+    },
+    {
+      "label": "xAI OAuth Client + Media Generation (SuperGrok)",
+      "file_type": "document",
+      "source_file": "xai-oauth-client/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "xai_oauth_client_readme",
+      "community": 19,
+      "norm_label": "xai oauth client + media generation (supergrok)"
+    },
+    {
+      "label": "index.html",
+      "file_type": "code",
+      "source_file": "index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "index_html_index_html",
+      "community": 11,
+      "norm_label": "index.html"
+    },
+    {
+      "label": "g-vid UI Redesign Document",
+      "file_type": "document",
+      "source_file": "G-VID-UI-REDESIGN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "Systems Architect",
+      "contributor": null,
+      "id": "g_vid_ui_redesign_g_vid_ui_redesign",
+      "community": 11,
+      "norm_label": "g-vid ui redesign document"
+    },
+    {
+      "label": "g-vid README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_g_vid",
+      "community": 11,
+      "norm_label": "g-vid readme"
+    },
+    {
+      "label": "Verify User Journeys Guide",
+      "file_type": "document",
+      "source_file": "verify_user_journeys_guide.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": "OpenClaude",
+      "contributor": null,
+      "id": "verify_user_journeys_guide_verify_user_journeys_guide",
+      "community": 29,
+      "norm_label": "verify user journeys guide"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tsconfig_node_json",
+      "target": "g_vid_tsconfig_node_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "tsconfig_node_json",
+      "target": "g_vid_tsconfig_node_include",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_allowimportingtsextensions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_erasablesyntaxonly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_lib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_moduledetection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_noemit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_nounusedlocals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_nounusedparameters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_tsbuildinfofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.node.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_node_compileroptions",
+      "target": "g_vid_tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tsconfig_app_json",
+      "target": "g_vid_tsconfig_app_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tsconfig_app_json",
+      "target": "g_vid_tsconfig_app_include",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_allowimportingtsextensions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_erasablesyntaxonly",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_lib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_moduledetection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_noemit",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_nounusedlocals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_nounusedparameters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_tsbuildinfofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.app.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "g_vid_tsconfig_app_compileroptions",
+      "target": "g_vid_tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".tmp-playwright-top.mjs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tmp_playwright_top_mjs",
+      "target": "g_vid_tmp_playwright_top_cs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".tmp-playwright-studio-element.mjs",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tmp_playwright_studio_element_mjs",
+      "target": "g_vid_tmp_playwright_studio_element_studio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".tmp-playwright-check.mjs",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "tmp_playwright_check_mjs",
+      "target": "g_vid_tmp_playwright_check_cs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".tmp-playwright-check.mjs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tmp_playwright_check_mjs",
+      "target": "g_vid_tmp_playwright_check_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".tmp-playwright-style.mjs",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tmp_playwright_style_mjs",
+      "target": "g_vid_tmp_playwright_style_cs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "g_vid_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "g_vid_package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "g_vid_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "g_vid_package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "g_vid_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "g_vid_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package_json",
+      "target": "g_vid_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_dev_5175",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_preview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_prod",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "g_vid_package_scripts",
+      "target": "g_vid_package_scripts_up",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "g_vid_package_dependencies",
+      "target": "g_vid_package_dependencies_framer_motion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "g_vid_package_dependencies",
+      "target": "g_vid_package_dependencies_lucide_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "g_vid_package_dependencies",
+      "target": "g_vid_package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "g_vid_package_dependencies",
+      "target": "g_vid_package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "g_vid_package_dependencies",
+      "target": "g_vid_package_dependencies_react_hot_toast",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "g_vid_package_dependencies",
+      "target": "g_vid_package_dependencies_sonner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_autoprefixer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_concurrently",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_eslint_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_eslint_plugin_react_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_eslint_plugin_react_refresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_globals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_playwright",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_postcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_tailwindcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_tailwindcss_postcss",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_types_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_types_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_typescript_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "g_vid_package_devdependencies",
+      "target": "g_vid_package_devdependencies_vitejs_plugin_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "g_vid_tsconfig_files",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tsconfig_json",
+      "target": "g_vid_tsconfig_references",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L177",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_body",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L313",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_buf",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L291",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_cleanup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_deviceflowstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_dorefresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L321",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_duration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_flow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_getvalidtoken",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L421",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_job",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_jobstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L298",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_referenceimages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_tokenstore",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_upload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L348",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_xaidata",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L323",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_xaipayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L95",
+      "weight": 1.0,
+      "source": "server_index_getvalidtoken",
+      "target": "server_index_dorefresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_components_studio_tsx",
+      "target": "server_index_referenceimages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_author",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_keywords",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "server_package_json",
+      "target": "server_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_package_scripts",
+      "target": "server_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_package_scripts",
+      "target": "server_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_dotenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_express",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_multer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_node_fetch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/example_media.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "xai_oauth_client_example_media_py",
+      "target": "xai_oauth_client_example_media_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/example_media.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_client_example_media_rationale_1",
+      "target": "xai_oauth_client_example_media_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "xai-oauth-client/example_media.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "xai_oauth_client_example_media_main",
+      "target": "xai_oauth_media_xaimediaclient"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/cli.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_client_cli_rationale_1",
+      "target": "xai_oauth_client_cli_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/example.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "xai_oauth_client_example_py",
+      "target": "xai_oauth_client_example_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/example.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_client_example_rationale_1",
+      "target": "xai_oauth_client_example_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_client_xai_oauth_media_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_media_py",
+      "target": "xai_oauth_client_xai_oauth_client_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_media_py",
+      "target": "xai_oauth_client_xai_oauth_constants_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_media_py",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_media_py",
+      "target": "xai_oauth_media_xaimediaclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_media_rationale_1",
+      "target": "xai_oauth_client_xai_oauth_media_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_media_xaimediaclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "xai_oauth_media_rationale_48",
+      "target": "xai_oauth_media_xaimediaclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L254",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_close",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_edit_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_generate_audio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_generate_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_generate_video",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_get_headers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient",
+      "target": "xai_oauth_media_xaimediaclient_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_init",
+      "target": "xaioauthclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "source": "xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L166",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_edit_image",
+      "target": "xai_oauth_media_xaimediaclient_get_headers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "xai_oauth_media_xaimediaclient_get_headers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L211",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "xai_oauth_media_xaimediaclient_get_headers",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_get_headers",
+      "target": "xai_oauth_client_xai_oauth_media_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "source": "xai_oauth_client_xai_oauth_media_py_str",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_edit_image",
+      "target": "xai_oauth_client_xai_oauth_media_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L242",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested",
+      "target": "xai_oauth_client_xai_oauth_media_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_audio",
+      "target": "xai_oauth_client_xai_oauth_media_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "xai_oauth_client_xai_oauth_media_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "xai_oauth_client_xai_oauth_media_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L87",
+      "weight": 1.0,
+      "source": "xai_oauth_media_rationale_87",
+      "target": "xai_oauth_media_xaimediaclient_generate_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "int",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "xai_oauth_client_xai_oauth_media_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "xai_oauth_client_xai_oauth_media_py_bool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "source": "int",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "int",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "source": "xai_oauth_client_xai_oauth_media_py_bool",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "source": "xai_oauth_client_xai_oauth_media_py_any",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_edit_image",
+      "target": "xai_oauth_client_xai_oauth_media_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L228",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_audio",
+      "target": "xai_oauth_client_xai_oauth_media_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "xai_oauth_client_xai_oauth_media_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "source": "xai_oauth_media_rationale_151",
+      "target": "xai_oauth_media_xaimediaclient_edit_image",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_edit_image",
+      "target": "xai_oauth_client_xai_oauth_media_py_float",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "source": "xai_oauth_client_xai_oauth_media_py_float",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "xai_oauth_client_xai_oauth_media_py_float",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L192",
+      "weight": 1.0,
+      "source": "xai_oauth_media_rationale_192",
+      "target": "xai_oauth_media_xaimediaclient_generate_video",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L229",
+      "weight": 1.0,
+      "source": "xai_oauth_media_rationale_229",
+      "target": "xai_oauth_media_xaimediaclient_generate_audio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L243",
+      "weight": 1.0,
+      "source": "xai_oauth_media_rationale_243",
+      "target": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_client_rationale_1",
+      "target": "xai_oauth_client_xai_oauth_client_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_cli_py",
+      "target": "xai_oauth_client_xai_oauth_client_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_callbackhandler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_discover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_pkce_challenge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_pkce_verifier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_start_callback_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_wait_for_callback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_xai_oauth_constants_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_xai_oauth_storage_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_client_xaioautherror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_storage_load_full_state",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_storage_load_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_client_py",
+      "target": "xai_oauth_storage_save_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_client_xai_oauth_client_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "xai_oauth_client_rationale_28",
+      "target": "xai_oauth_client_xaioautherror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "source": "xai_oauth_client_wait_for_callback",
+      "target": "xai_oauth_client_xaioautherror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_client_xaioautherror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "target": "xai_oauth_client_xaioautherror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L143",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_client_xaioautherror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L183",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_refresh",
+      "target": "xai_oauth_client_xaioautherror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioautherror",
+      "target": "exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "xai_oauth_client_discover",
+      "target": "xai_oauth_client_xai_oauth_client_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "xai_oauth_client_rationale_32",
+      "target": "xai_oauth_client_discover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_client_discover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_refresh",
+      "target": "xai_oauth_client_discover",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "xai_oauth_client_pkce_challenge",
+      "target": "xai_oauth_client_xai_oauth_client_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "xai_oauth_client_pkce_verifier",
+      "target": "xai_oauth_client_xai_oauth_client_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "xai_oauth_client_wait_for_callback",
+      "target": "xai_oauth_client_xai_oauth_client_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_access_token",
+      "target": "xai_oauth_client_xai_oauth_client_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_get_auth_header",
+      "target": "xai_oauth_client_xai_oauth_client_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_client_pkce_verifier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_client_pkce_challenge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "xai_oauth_client_callbackhandler",
+      "target": "basehttprequesthandler",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "xai_oauth_client_callbackhandler",
+      "target": "xai_oauth_client_callbackhandler_do_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "xai_oauth_client_callbackhandler",
+      "target": "xai_oauth_client_callbackhandler_log_message",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "xai_oauth_client_start_callback_server",
+      "target": "httpserver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "xai_oauth_client_start_callback_server",
+      "target": "thread",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_client_start_callback_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "xai_oauth_client_wait_for_callback",
+      "target": "httpserver",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "source": "xai_oauth_client_wait_for_callback",
+      "target": "xai_oauth_client_xai_oauth_client_py_float",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_client_wait_for_callback",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "xai_oauth_cli_main",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "source": "xai_oauth_client_rationale_89",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_cli_py",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_client_xaioauthclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient_access_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L223",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient_get_auth_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L91",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient_is_authenticated",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L179",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient",
+      "target": "xai_oauth_client_xaioauthclient_refresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L92",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_init",
+      "target": "xai_oauth_storage_load_full_state"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_is_authenticated",
+      "target": "xai_oauth_client_xai_oauth_client_py_bool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L209",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "target": "xai_oauth_client_xai_oauth_client_py_bool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L103",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_client_xai_oauth_client_py_bool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L104",
+      "weight": 1.0,
+      "source": "xai_oauth_client_rationale_104",
+      "target": "xai_oauth_client_xaioauthclient_login",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_login",
+      "target": "xai_oauth_storage_save_tokens"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L180",
+      "weight": 1.0,
+      "source": "xai_oauth_client_rationale_180",
+      "target": "xai_oauth_client_xaioauthclient_refresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L217",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "target": "xai_oauth_client_xaioauthclient_refresh",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L207",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_refresh",
+      "target": "xai_oauth_storage_save_tokens"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L210",
+      "weight": 1.0,
+      "source": "xai_oauth_client_rationale_210",
+      "target": "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/client.py",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xaioauthclient_get_auth_header",
+      "target": "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/constants.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_constants_rationale_1",
+      "target": "xai_oauth_client_xai_oauth_constants_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "re_exports",
+      "context": "export",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_client_xai_oauth_storage_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_storage_load_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_init_py",
+      "target": "xai_oauth_storage_save_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/__init__.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_init_rationale_1",
+      "target": "xai_oauth_client_xai_oauth_init_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_cli_rationale_1",
+      "target": "xai_oauth_client_xai_oauth_cli_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_cli_py",
+      "target": "xai_oauth_cli_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_cli_py",
+      "target": "xai_oauth_client_xai_oauth_storage_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_cli_py",
+      "target": "xai_oauth_storage_clear_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/cli.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "xai_oauth_cli_main",
+      "target": "xai_oauth_storage_clear_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_storage_py",
+      "target": "xai_oauth_storage_clear_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_storage_py",
+      "target": "xai_oauth_storage_ensure_token_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_storage_py",
+      "target": "xai_oauth_storage_get_token_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_storage_py",
+      "target": "xai_oauth_storage_load_full_state",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_storage_py",
+      "target": "xai_oauth_storage_load_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_storage_py",
+      "target": "xai_oauth_storage_read_tokens_raw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "xai_oauth_client_xai_oauth_storage_py",
+      "target": "xai_oauth_storage_save_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_rationale_1",
+      "target": "xai_oauth_client_xai_oauth_storage_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_clear_tokens",
+      "target": "xai_oauth_storage_get_token_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_ensure_token_dir",
+      "target": "xai_oauth_storage_get_token_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_get_token_path",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_rationale_13",
+      "target": "xai_oauth_storage_get_token_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_read_tokens_raw",
+      "target": "xai_oauth_storage_get_token_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_save_tokens",
+      "target": "xai_oauth_storage_get_token_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_save_tokens",
+      "target": "xai_oauth_storage_ensure_token_dir",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_load_full_state",
+      "target": "xai_oauth_storage_read_tokens_raw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_load_tokens",
+      "target": "xai_oauth_storage_read_tokens_raw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_read_tokens_raw",
+      "target": "xai_oauth_client_xai_oauth_storage_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_read_tokens_raw",
+      "target": "xai_oauth_client_xai_oauth_storage_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_load_full_state",
+      "target": "xai_oauth_client_xai_oauth_storage_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_load_tokens",
+      "target": "xai_oauth_client_xai_oauth_storage_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_save_tokens",
+      "target": "xai_oauth_client_xai_oauth_storage_py_str",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_load_full_state",
+      "target": "xai_oauth_client_xai_oauth_storage_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_load_tokens",
+      "target": "xai_oauth_client_xai_oauth_storage_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_save_tokens",
+      "target": "xai_oauth_client_xai_oauth_storage_py_any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_rationale_33",
+      "target": "xai_oauth_storage_save_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_rationale_46",
+      "target": "xai_oauth_storage_load_tokens",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/storage.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "xai_oauth_storage_rationale_52",
+      "target": "xai_oauth_storage_load_full_state",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "components_studio_studio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "components_topnav_topnav",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_accentvariants",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L125",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_default_session",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_designtweaks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_generateresult",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_generationpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_oauthflowstate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_sessionstate",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_shot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_shots",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L56",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_storage_keys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_tweak_defaults",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_app_usedesigntweaks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_components_studio_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_app_tsx",
+      "target": "src_components_topnav_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_main_tsx",
+      "target": "src_app_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "field",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "components_studio_studioprops",
+      "target": "src_app_shot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "src_components_studio_tsx",
+      "target": "src_app_shot",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L148",
+      "weight": 1.0,
+      "source": "src_app_app",
+      "target": "src_app_usedesigntweaks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "src_components_studio_tsx",
+      "target": "components_studio_progress_stages",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "src_components_studio_tsx",
+      "target": "components_studio_studio",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "src_components_studio_tsx",
+      "target": "components_studio_studioprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/Studio.tsx",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "src_components_studio_tsx",
+      "target": "components_studio_trimwindow",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "src_components_topnav_tsx",
+      "target": "components_topnav_navlinks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "src_components_topnav_tsx",
+      "target": "components_topnav_statusbadge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "src_components_topnav_tsx",
+      "target": "components_topnav_topnav",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/TopNav.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_components_topnav_tsx",
+      "target": "components_topnav_topnavprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.9,
+      "source_file": "server/README-OAUTH.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "server_readme_oauth",
+      "target": "xai_oauth_client_readme"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "G-VID-UI-REDESIGN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "g_vid_ui_redesign_g_vid_ui_redesign",
+      "target": "index_html_index_html"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "G-VID-UI-REDESIGN.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "g_vid_ui_redesign_g_vid_ui_redesign",
+      "target": "readme_g_vid"
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "3d07bb9a6da85cbbdb1a5dae4d336bd2a8716692"
+}
