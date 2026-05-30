@@ -37,7 +37,9 @@ IMAGE_MODELS = {
 # Supported aspect ratios
 ASPECT_RATIOS = ["1:1", "16:9", "9:16", "4:3", "3:4", "3:2", "2:3"]
 
-# Resolutions for video (the actual /videos/generations API uses these, not "1k"/"2k")
+# Supported resolutions
+# - Video (/videos/generations): "480p", "720p", "1080p"
+# - Image  (/images/generations): may still use "1k", "2k" depending on model
 RESOLUTIONS = ["480p", "720p", "1080p"]
 
 # Video durations (in seconds)
@@ -78,7 +80,7 @@ class XaiMediaClient:
         *,
         model: str = "grok-imagine-image",
         aspect_ratio: str = "16:9",
-        resolution: str = "1k",
+        resolution: str = "1k",  # Note: for images this may still be "1k"/"2k" — video uses 480p/720p/1080p
         style: Optional[str] = None,
         negative_prompt: Optional[str] = None,
         seed: Optional[int] = None,
@@ -90,7 +92,7 @@ class XaiMediaClient:
         This method is highly customizable. You can influence the output through:
         - `style`: artistic style, lighting, mood, camera angle, etc.
         - `negative_prompt`: what to avoid
-        - `resolution`: "1k" or "2k"
+        - `resolution`: For images this may accept "1k"/"2k". For video use "480p"/"720p"/"1080p"
         - `aspect_ratio`: many options supported by xAI
         """
         if model not in IMAGE_MODELS:

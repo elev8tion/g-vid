@@ -385,6 +385,9 @@ function App() {
       formData.append('audio', payload.audio, payload.audio.name);
     }
 
+    // Debug: confirm what we are actually sending (open browser DevTools → Console)
+    console.log('[g-vid] Sending /generate with resolution =', payload.resolution || '720p (default)');
+
     // Clear any prior result when starting a fresh generation
     setGeneratedVideo(null);
 

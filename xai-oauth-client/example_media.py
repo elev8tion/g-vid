@@ -31,6 +31,7 @@ def main():
         prompt="A serene mountain lake at sunrise with mist rising from the water",
         duration=8,
         aspect_ratio="16:9",
+        resolution="720p",   # Important: must be 480p / 720p / 1080p for video
         motion_strength=0.6,
     )
     print(video)

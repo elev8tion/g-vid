@@ -321,9 +321,34 @@ app.post('/generate', upload.fields([
 
       const duration = Math.max(4, Math.min(12, parseInt(trimDuration || '8', 10) || 8));
 
-      // Validate + sanitize resolution from the UI Quality toggle
-      const allowedResolutions = ['480p', '720p', '1080p'];
-      const resolution = allowedResolutions.includes(requestedResolution) ? requestedResolution : '720p';
+      // =====================================================
+      // Payload normalization — prevents future deserialization 422s
+      // =====================================================
+      const normalizeVideoGenerationPayload = (raw) => {
+        const allowedResolutions = ['480p', '720p', '1080p'];
+        const allowedAspectRatios = ['16:9', '9:16', '1:1', '4:3', '3:4'];
+        const allowedDurations = [4, 8, 12];
+
+        let resolution = allowedResolutions.includes(raw.requestedResolution)
+          ? raw.requestedResolution
+          : '720p';
+
+        let aspect_ratio = allowedAspectRatios.includes(raw.aspect_ratio)
+          ? raw.aspect_ratio
+          : '16:9';
+
+        let finalDuration = allowedDurations.includes(raw.duration)
+          ? raw.duration
+          : 8;
+
+        return { resolution, aspect_ratio, duration: finalDuration };
+      };
+
+      const normalized = normalizeVideoGenerationPayload({
+        requestedResolution,
+        aspect_ratio: '16:9',
+        duration,
+      });
 
       // Start with the minimal payload that matches the working shape in this repo's own
       // xai-oauth-client (media.py generate_video). Extra fields like reference_images/audio
@@ -331,9 +356,9 @@ app.post('/generate', upload.fields([
       const xaiPayload = {
         prompt: prompt || `Cinematic 8s music video performance in ${shotName || 'studio'}`,
         negative_prompt: 'text, watermark, logo, UI, blurry, low quality, artifacts, deformed, jitter, face mismatch',
-        aspect_ratio: '16:9',
-        duration,
-        resolution,
+        aspect_ratio: normalized.aspect_ratio,
+        duration: normalized.duration,
+        resolution: normalized.resolution,
       };
 
       // === REFERENCE IMAGES + AUDIO FOR LIP-SYNC / CHARACTER CONSISTENCY ===
@@ -368,10 +393,13 @@ app.post('/generate', upload.fields([
         'keys:', Object.keys(xaiPayload),
         'image_refs:', sendRefs ? referenceImages.length : 0,
         'audio_ref:', sendRefs && !!audioDataUri,
-        'duration:', duration,
+        'duration:', xaiPayload.duration,
         'resolution:', xaiPayload.resolution,
         sendRefs ? '(structured image_url + audio_url refs)' : '(minimal payload)',
         `(user chose: ${requestedResolution || 'default'})`);
+
+      // Extra safety log right before the actual call
+      console.log('[xAI] >>> Sending to xAI with resolution =', xaiPayload.resolution, ' (this must NOT be "1k")');
 
       const xaiRes = await fetch(VIDEO_GEN_URL, {
         method: 'POST',
@@ -484,4 +512,6 @@ app.listen(PORT, () => {
   if (!CLIENT_ID) {
     console.log('  ⚠️  XAI_CLIENT_ID not set — real OAuth is disabled until configured.');
   }
+  console.log('  Video resolution policy: only 480p / 720p / 1080p are accepted (old "1k"/"2k" values will be normalized to 720p)');
+  console.log('  Tip: Use `npm run dev` in the server folder for hot-reload during development (prevents stale code bugs like this)');
 });

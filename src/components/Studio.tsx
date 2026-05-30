@@ -247,15 +247,18 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
       const channelData = audioBuffer.getChannelData(0);
       const sampleRate = audioBuffer.sampleRate;
       const windowSize = Math.floor(8 * sampleRate);
-      const hopSize = Math.floor(0.5 * sampleRate);
+      const hopSize = Math.floor(0.25 * sampleRate); // finer search for better results
 
       let bestStart = 0;
       let bestEnergy = 0;
 
+      // Simple but effective energy-based window selection (highest activity / loudest section)
       for (let i = 0; i < channelData.length - windowSize; i += hopSize) {
         let energy = 0;
-        for (let j = 0; j < windowSize; j += 32) {
-          energy += Math.abs(channelData[i + j]);
+        // Sample every 16 samples for speed while keeping decent accuracy
+        for (let j = 0; j < windowSize; j += 16) {
+          const sample = channelData[i + j];
+          energy += sample * sample; // RMS-style (squared) is better for detecting vocal energy
         }
         if (energy > bestEnergy) {
           bestEnergy = energy;
@@ -265,15 +268,20 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
 
       const maxStart = Math.max(0, audioDuration - 8);
       const clamped = Math.max(0, Math.min(bestStart, maxStart));
-      setAudioTrim({ start: Math.floor(clamped), duration: 8 });
+
+      // Keep 0.1s precision (matches the slider)
+      const preciseStart = Math.round(clamped * 10) / 10;
+
+      setAudioTrim({ start: preciseStart, duration: 8 });
 
       toast.success('Smart trim applied', {
-        description: `Best 8s vocal/energy section found around ${bestStart.toFixed(1)}s`,
+        description: `Best 8s high-energy section found around ${preciseStart.toFixed(1)}s`,
       });
-    } catch {
-      const mid = Math.max(0, Math.floor(audioDuration / 2 - 4));
+    } catch (err) {
+      // Safe fallback: center of the file
+      const mid = Math.max(0, Math.round((audioDuration / 2 - 4) * 10) / 10);
       setAudioTrim({ start: mid, duration: 8 });
-      toast.info('Using middle section for the clip');
+      toast.info('Smart trim unavailable — using center section');
     }
   };
 
@@ -288,7 +296,9 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
       setAudioDuration(duration);
       setAudioFile(file);
       const preferredStart = Math.max(0, Math.min(duration - 8, duration * 0.25));
-      setAudioTrim({ start: Math.floor(preferredStart), duration: 8 });
+      // Keep one decimal place for precision (slider supports 0.1s steps)
+      const preciseStart = Math.round(preferredStart * 10) / 10;
+      setAudioTrim({ start: preciseStart, duration: 8 });
       URL.revokeObjectURL(url);
     };
   };
