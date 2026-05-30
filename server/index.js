@@ -46,7 +46,9 @@ const CLIENT_ID = 'b1a00492-073a-47ea-816f-4c329264a828';
 
 const XAI_API_BASE = process.env.XAI_API_BASE || 'https://api.x.ai/v1';
 const VIDEO_GEN_URL = `${XAI_API_BASE}/videos/generations`;
+const VIDEO_STATUS_URL = (id) => `${XAI_API_BASE}/videos/${id}`;
 const ENABLE_XAI_REFS = process.env.ENABLE_XAI_REFS === '1';
+const XAI_VIDEO_MODEL = 'grok-imagine-video';
 
 // ============================================
 // Token helpers (refresh for /generate and session)
@@ -99,6 +101,143 @@ async function getValidToken(sessionId) {
     }
   }
   return tokenData;
+}
+
+// Poll xAI video status endpoint until completion/failure
+async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
+  const MAX_ATTEMPTS = 60; // ~5 minutes at 5s interval
+  const DELAY_MS = 5000;
+
+  try {
+    const tokenData = await getValidToken(sessionId);
+    if (!tokenData?.accessToken) {
+      jobStore.set(jobId, { status: 'error', error: 'Session expired while polling xAI', createdAt: Date.now() });
+      return;
+    }
+
+    const res = await fetch(VIDEO_STATUS_URL(requestId), {
+      method: 'GET',
+      headers: { 'Authorization': `Bearer ${tokenData.accessToken}` },
+    });
+
+    let raw = '';
+    let data = {};
+    try {
+      raw = await res.text();
+      if (raw) {
+        try { data = JSON.parse(raw); } catch { data = { raw }; }
+      }
+    } catch {
+      raw = '(failed to read body)';
+    }
+
+    if (!res.ok) {
+      console.error('[xAI status] non-2xx', res.status, raw || data);
+      jobStore.set(jobId, { status: 'error', error: data?.error?.message || raw || `xAI status HTTP ${res.status}`, createdAt: Date.now() });
+      return;
+    }
+
+    const status = data?.status || data?.state || data?.video?.status;
+    const resultUrl = data?.video?.url || data?.url;
+
+    if (resultUrl) {
+      jobStore.set(jobId, { status: 'done', resultUrl, createdAt: Date.now() });
+      console.log('[xAI status] job', jobId, 'completed with url');
+      return;
+    }
+
+    if (status && ['failed', 'error', 'canceled'].includes(String(status).toLowerCase())) {
+      jobStore.set(jobId, { status: 'error', error: data?.error?.message || `xAI reported ${status}`, createdAt: Date.now() });
+      console.error('[xAI status] job', jobId, 'failed:', data);
+      return;
+    }
+
+    if (attempt + 1 >= MAX_ATTEMPTS) {
+      jobStore.set(jobId, { status: 'error', error: 'xAI video still processing (timeout)', createdAt: Date.now() });
+      console.warn('[xAI status] job', jobId, 'timed out');
+      return;
+    }
+
+    // keep polling
+    setTimeout(() => {
+      pollXaiVideoStatus(jobId, requestId, sessionId, attempt + 1).catch(err => {
+        console.error('[xAI status] poller error for job', jobId, err);
+        jobStore.set(jobId, { status: 'error', error: err.message || 'poller failed', createdAt: Date.now() });
+      });
+    }, DELAY_MS);
+  } catch (err) {
+    console.error('[xAI status] unexpected error for job', jobId, err);
+    jobStore.set(jobId, { status: 'error', error: err.message || 'poller failed', createdAt: Date.now() });
+  }
+}
+
+// Background poller for xAI async video jobs (Reference-to-Video or standard)
+async function pollXaiVideoStatus(ourJobId, xaiRequestId, sessionId) {
+  const maxAttempts = 120; // ~10 minutes at 5s interval
+  let attempt = 0;
+
+  while (attempt < maxAttempts) {
+    await new Promise(r => setTimeout(r, 5000)); // poll every 5 seconds
+    attempt++;
+
+    const currentToken = await getValidToken(sessionId);
+    if (!currentToken?.accessToken) {
+      jobStore.set(ourJobId, {
+        status: 'error',
+        error: 'Lost authentication while polling xAI video status',
+        createdAt: Date.now(),
+      });
+      return;
+    }
+
+    try {
+      const statusRes = await fetch(`${XAI_API_BASE}/videos/${xaiRequestId}`, {
+        headers: {
+          'Authorization': `Bearer ${currentToken.accessToken}`,
+        },
+      });
+
+      const statusData = await statusRes.json().catch(() => ({}));
+
+      if (!statusRes.ok) {
+        console.error('[xAI Status] error for', xaiRequestId, statusData);
+        continue;
+      }
+
+      const status = statusData.status;
+
+      if (status === 'done' && statusData.video?.url) {
+        jobStore.set(ourJobId, {
+          status: 'done',
+          resultUrl: statusData.video.url,
+          createdAt: Date.now(),
+        });
+        console.log('[Generate] job', ourJobId, 'completed via xAI request', xaiRequestId);
+        return;
+      }
+
+      if (status === 'failed' || status === 'expired') {
+        jobStore.set(ourJobId, {
+          status: 'error',
+          error: statusData.error?.message || `xAI video ${status}`,
+          createdAt: Date.now(),
+        });
+        console.log('[Generate] job', ourJobId, 'failed with xAI status', status);
+        return;
+      }
+
+      // still pending / processing
+    } catch (err) {
+      console.warn('[xAI Status] poll error for', xaiRequestId, err.message);
+    }
+  }
+
+  // Timeout
+  jobStore.set(ourJobId, {
+    status: 'error',
+    error: 'Timed out waiting for xAI video generation',
+    createdAt: Date.now(),
+  });
 }
 
 // ============================================
@@ -282,6 +421,7 @@ app.post('/generate', upload.fields([
   jobStore.set(jobId, {
     status: 'processing',
     createdAt: Date.now(),
+    sessionId,                    // store for token refresh during xAI status polling
   });
 
   // Respond fast
@@ -350,10 +490,10 @@ app.post('/generate', upload.fields([
         duration,
       });
 
-      // Start with the minimal payload that matches the working shape in this repo's own
-      // xai-oauth-client (media.py generate_video). Extra fields like reference_images/audio
-      // were causing 422 Unprocessable Entity with empty body from xAI.
+      // Payload for xAI Grok Imagine Video API (reference-to-video).
+      // Uses Reference-to-Video mode when reference_images are provided.
       const xaiPayload = {
+        model: XAI_VIDEO_MODEL,
         prompt: prompt || `Cinematic 8s music video performance in ${shotName || 'studio'}`,
         negative_prompt: 'text, watermark, logo, UI, blurry, low quality, artifacts, deformed, jitter, face mismatch',
         aspect_ratio: normalized.aspect_ratio,
@@ -361,36 +501,24 @@ app.post('/generate', upload.fields([
         resolution: normalized.resolution,
       };
 
-      // === REFERENCE IMAGES + AUDIO FOR LIP-SYNC / CHARACTER CONSISTENCY ===
-      //
-      // When ENABLE_XAI_REFS=1, we attach references.
-      // Current working shape for xAI /videos/generations (as of the latest errors):
-      //   - "images": [ { "image_url": "data:image/...;base64,..." }, ... ]
-      //   - "audio":  { "audio_url": "data:audio/...;base64,..." }
-      //
-      // Note: The API expects the *_url fields to be **strings**, not objects.
-      // We log the exact payload shape on every attempt so we can iterate quickly.
+      // === REFERENCE IMAGES (no audio field per current Reference-to-Video schema) ===
+      // Shape required by xAI /videos/generations:
+      //   "reference_images": [ { "url": "data:image/...;base64,..." }, ... ]
+      //   model: "grok-imagine-video"
+      // Audio is not part of this schema; lip-sync is driven by the prompt.
       const sendRefs = ENABLE_XAI_REFS;
       if (sendRefs && referenceImages.length) {
-        xaiPayload.images = referenceImages.map(uri => ({
-          image_url: uri
-        }));
-      }
-      if (sendRefs && audioDataUri) {
-        xaiPayload.audio = {
-          audio_url: audioDataUri
-        };
+        xaiPayload.reference_images = referenceImages.map(uri => ({ url: uri }));
       }
       if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
       if (sendRefs && shotName) xaiPayload.shot_name = shotName;
 
       console.log('[xAI] POST', VIDEO_GEN_URL,
         'keys:', Object.keys(xaiPayload),
-        'image_refs:', sendRefs ? referenceImages.length : 0,
-        'audio_ref:', sendRefs && !!audioDataUri,
+        'ref_images:', sendRefs ? referenceImages.length : 0,
         'duration:', xaiPayload.duration,
         'resolution:', xaiPayload.resolution,
-        sendRefs ? '(structured image_url + audio_url refs)' : '(minimal payload)',
+        sendRefs ? '(reference_images attached)' : '(minimal payload)',
         `(user chose: ${requestedResolution || 'default'})`);
 
       // Extra safety log right before the actual call
@@ -398,8 +526,7 @@ app.post('/generate', upload.fields([
 
       if (sendRefs) {
         console.log('[xAI] Refs payload shape:',
-          'images=', xaiPayload.images ? xaiPayload.images.length + ' items (first image_url type: ' + typeof xaiPayload.images[0]?.image_url + ')' : 'none',
-          'audio=', xaiPayload.audio ? typeof xaiPayload.audio.audio_url : 'none'
+          'reference_images=', xaiPayload.reference_images ? xaiPayload.reference_images.length + ' items (first url type: ' + typeof xaiPayload.reference_images[0]?.url + ')' : 'none'
         );
       }
 
@@ -439,40 +566,31 @@ app.post('/generate', upload.fields([
         return;
       }
 
-      // Parse possible response shapes (sync vs async job)
-      let resultUrl = null;
-      let xaiJobId = null;
+      // xAI video API is always async for generation.
+      // Successful submit returns { "request_id": "..." }
+      const xaiRequestId = xaiData?.request_id;
 
-      if (xaiData?.video?.url) resultUrl = xaiData.video.url;
-      else if (xaiData?.data?.[0]?.url) resultUrl = xaiData.data[0].url;
-      else if (xaiData?.url) resultUrl = xaiData.url;
-      else if (xaiData?.result?.url) resultUrl = xaiData.result.url;
-
-      if (!resultUrl) {
-        xaiJobId = xaiData?.id || xaiData?.job_id || xaiData?.jobId || xaiData?.generation_id || xaiData?.video?.id;
-      }
-
-      if (resultUrl) {
-        jobStore.set(jobId, {
-          status: 'done',
-          resultUrl,
-          createdAt: Date.now(),
-        });
-        console.log('[Generate] job', jobId, 'completed with direct video url');
-      } else if (xaiJobId) {
+      if (xaiRequestId) {
+        // Store the xAI request id so our /jobs poller (or this background task) can check status
         jobStore.set(jobId, {
           status: 'processing',
-          xaiJobId,
+          xaiRequestId,
+          sessionId,           // for refreshing the token when polling status
           createdAt: Date.now(),
         });
-        console.log('[Generate] job', jobId, 'xAI returned async job', xaiJobId, '— client will poll /jobs until extended poller implemented');
-        // NOTE: for full async support, add a background poller here that GETs ${VIDEO_GEN_URL}/${xaiJobId} with Bearer and updates jobStore when done
+        console.log('[Generate] job', jobId, 'submitted to xAI as request_id', xaiRequestId);
+
+        // Background poll the xAI status endpoint until done/failed
+        pollXaiVideoStatus(jobId, xaiRequestId, sessionId).catch(err => {
+          console.error('[Generate] background xAI status poller failed for job', jobId, err);
+        });
+
       } else {
-        // Unexpected success shape — treat as done with no url (frontend will see error)
-        console.warn('[xAI] success but no recognized video url or job id in body. keys:', Object.keys(xaiData), 'sample:', JSON.stringify(xaiData).slice(0, 300));
+        // Unexpected response shape
+        console.warn('[xAI] success but no request_id. keys:', Object.keys(xaiData), 'sample:', JSON.stringify(xaiData).slice(0, 400));
         jobStore.set(jobId, {
           status: 'error',
-          error: 'xAI returned success without video url or job id',
+          error: 'Unexpected response from xAI video API (no request_id)',
           createdAt: Date.now(),
         });
       }

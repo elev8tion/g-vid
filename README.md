@@ -98,17 +98,31 @@ This is the correct, practical way to connect SuperGrok in 2026:
   ```
 - We **no longer send** `reference_images` / `audio` / `face_description` / `shot_name` by default — they produced 422 Unprocessable Entity (empty `{}` body).
 - The frontend `buildPrompt()` already embeds the face description + "lip-syncing to the exact 8s vocal window" + shot details, so generations are still strongly personalized.
-- To experiment with real image + audio references (for face lock + lip sync), set `ENABLE_XAI_REFS=1`.  
-  When enabled we currently send:
-  ```json
-  "images": [ { "image_url": "data:image/jpeg;base64,..." }, ... ],
-  "audio":  { "audio_url": "data:audio/mpeg;base64,..." }
-  ```
-  (Note: `image_url` / `audio_url` values must be **strings**, not objects.)
+- To use real reference images (the core of g-vid: your selfies for consistent character), set `ENABLE_XAI_REFS=1`.
 
-  This shape was corrected after the "invalid type: map, expected a string" error on `images[0].image_url`.
-  The backend now logs the exact shape it sends on every ref attempt.
-  The raw error body on any 422/4xx is also fully logged.
+  The correct payload (per official xAI docs for `grok-imagine-video` Reference-to-Video mode) is:
+  ```json
+  {
+    "model": "grok-imagine-video",
+    "prompt": "...",
+    "reference_images": [
+      { "url": "data:image/jpeg;base64,..." },
+      ...
+    ],
+    "duration": 8,
+    "aspect_ratio": "16:9",
+    "resolution": "720p"   // or "480p"
+  }
+  ```
+
+  Important:
+  - Must include the `model` field.
+  - Use `reference_images` (not the deprecated `images`).
+  - Each reference is `{ "url": "data:..." }` or public HTTPS URL.
+  - The API is **asynchronous** (returns `request_id`, backend now polls `/v1/videos/{id}` in the background).
+  - Audio lip-sync is currently driven via strong prompt engineering (the frontend already builds excellent prompts for this).
+
+  The backend now correctly implements this based on official documentation and will surface clear errors + logs for any remaining constraints.
 
 - **Success responses** handled: direct video URL shapes → `{ videoUrl }` to client, or async job id → our `/jobs/:id` poller.
 
