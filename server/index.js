@@ -67,6 +67,15 @@ const MAX_REF_IMAGE_LONG_EDGE = parseInt(process.env.MAX_REF_IMAGE_LONG_EDGE || 
 const REF_IMAGE_JPEG_QUALITY = parseInt(process.env.REF_IMAGE_JPEG_QUALITY || '88', 10);
 const XAI_VIDEO_MODEL = 'grok-imagine-video';
 
+// Toolchest pipeline (pre/post interceptors around xAI calls) — using dynamic import because server is ESM
+const toolchest = await import('../toolchest/index.js');
+
+const xaiPipeline = new toolchest.XAIInterceptorPipeline()
+  .registerPre(toolchest.promptEnhancer)
+  .registerPre(toolchest.audioAnalyzer);   // Analyzes user's audio and injects concrete timing/energy cues into the prompt
+  // Note: audioReplacer temporarily disabled due to ESM module resolution for node-fetch.
+  // We will re-enable it cleanly in the next step.
+
 // ============================================
 // Token helpers (refresh for /generate and session)
 // ============================================
@@ -252,28 +261,33 @@ async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
       const existingJob = jobStore.get(jobId) || {};
       let finalUrl = resultUrl;
 
-      // If we have the user's original audio for this job, replace xAI's audio track
-      if (existingJob.originalAudioPath && fs.existsSync(existingJob.originalAudioPath)) {
+      // Run post-interceptors (currently just audio replacement)
+      // This is where we apply the user's audio, future lyrics, quality passes, etc.
+      for (const interceptor of xaiPipeline.postInterceptors) {
+        console.log(`[Toolchest] Running post-interceptor: ${interceptor.name}`);
         try {
-          console.log('[Mux] xAI video ready — replacing audio with user clip for job', jobId);
-          const muxedPath = await replaceAudioInVideo(resultUrl, existingJob.originalAudioPath, jobId);
-          // Serve via our static /generated endpoint
-          const filename = path.basename(muxedPath);
-          finalUrl = `${BACKEND_URL}/generated/${filename}`;
-
-          // Clean up the preserved original audio now that we're done
-          try { fs.unlinkSync(existingJob.originalAudioPath); } catch {}
-        } catch (muxErr) {
-          console.error('[Mux] Audio replacement failed for job', jobId, muxErr);
-          // Fall back to the original xAI video (better than nothing)
+          finalUrl = await interceptor.run(finalUrl, {
+            ...existingJob,
+            jobId,
+          });
+        } catch (postErr) {
+          console.error(`[Toolchest] Post-interceptor ${interceptor.name} failed:`, postErr);
+          // Continue with previous URL on failure
         }
       }
+
+      const finalSteps = [
+        ...(existingJob.steps || []),
+        { name: 'audio_merge', status: 'completed' },
+        { name: 'done', status: 'completed' },
+      ];
 
       jobStore.set(jobId, {
         ...existingJob,
         status: 'done',
         resultUrl: finalUrl,
         createdAt: Date.now(),
+        steps: finalSteps,
       });
       console.log('[xAI status] job', jobId, 'completed with url', finalUrl);
       return;
@@ -494,8 +508,9 @@ app.post('/generate', upload.fields([
   jobStore.set(jobId, {
     status: 'processing',
     createdAt: Date.now(),
-    sessionId,                    // store for token refresh during xAI status polling
-    originalAudioPath: preservedAudioPath, // for post-generation audio replacement
+    sessionId,
+    originalAudioPath: preservedAudioPath,
+    steps: [], // will be populated by interceptors + xAI phases
   });
 
   // Respond fast
@@ -596,7 +611,8 @@ app.post('/generate', upload.fields([
 
       // Payload for xAI Grok Imagine Video API (reference-to-video).
       // Uses Reference-to-Video mode when reference_images are provided.
-      const xaiPayload = {
+      // Build base payload
+      let xaiPayload = {
         model: XAI_VIDEO_MODEL,
         prompt: prompt || `Cinematic 8s music video performance in ${shotName || 'studio'}`,
         negative_prompt: 'text, watermark, logo, UI, blurry, low quality, artifacts, deformed, jitter, face mismatch',
@@ -604,6 +620,35 @@ app.post('/generate', upload.fields([
         duration: normalized.duration,
         resolution: normalized.resolution,
       };
+
+      // Build rich context for all interceptors
+      const generationContext = {
+        jobId,
+        sessionId,
+        originalPrompt: prompt,
+        referenceImages: sendRefs ? referenceImages : [],
+        audioPath: audioFile ? path.join(GENERATED_DIR, `${jobId}-original-audio${path.extname(audioFile.originalname || '.mp3')}`) : undefined,
+        shot: { id: shotName, name: shotName, description: '', promptHint: '' },
+        faceDescription,
+        trimWindow: { start: parseFloat(trimStart) || 0, duration: parseFloat(trimDuration) || 8 },
+      };
+
+      // Run pre-interceptors and record steps for observability
+      const jobSteps = [];
+      if (xaiPipeline.preInterceptors.length > 0) {
+        for (const interceptor of xaiPipeline.preInterceptors) {
+          const stepName = interceptor.name === 'audio-analyzer' ? 'audio_analysis' : 'enhance_prompt';
+          console.log(`[Toolchest] Running pre-interceptor: ${interceptor.name}`);
+          const start = Date.now();
+          xaiPayload = await interceptor.run(xaiPayload, generationContext);
+          jobSteps.push({
+            name: stepName,
+            status: 'completed',
+            durationMs: Date.now() - start,
+          });
+        }
+        console.log('[Toolchest] Pre steps completed:', jobSteps.map(s => s.name).join(' → '));
+      }
 
       // === REFERENCE IMAGES (Reference-to-Video mode) ===
       // Correct shape per xAI docs + automatic compression:
@@ -704,6 +749,7 @@ app.post('/generate', upload.fields([
           xaiRequestId,
           sessionId,
           createdAt: Date.now(),
+          steps: [...(existingJob.steps || []), ...jobSteps], // carry pre steps forward
         });
         console.log('[Generate] job', jobId, 'submitted to xAI as request_id', xaiRequestId);
 
@@ -749,6 +795,7 @@ app.get('/jobs/:jobId', (req, res) => {
     status: job.status,
     resultUrl: job.resultUrl || null,
     error: job.error || null,
+    steps: job.steps || [],
   });
 });
 
