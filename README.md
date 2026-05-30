@@ -71,27 +71,40 @@ This is the correct, practical way to connect SuperGrok in 2026:
 
 5. Once authorized, real tokens are issued and stored by the backend.
 
-### Wiring Real xAI API Calls
+### Real xAI Grok Video Generation (wired)
 
-In `server/index.js`, the `/generate` endpoint is ready for you to:
+`/generate` now performs a **real call** to xAI using the Device Code access token:
 
-```js
-// Example real call structure (when xAI exposes video generation)
-const response = await fetch('https://api.x.ai/v1/video/generations', {
-  method: 'POST',
-  headers: {
-    'Authorization': `Bearer ${tokenData.accessToken}`,
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    prompt: richPrompt,
-    duration_seconds: 8,
-    reference_images: [...], // when supported
-  })
-});
-```
+- Verifies + auto-refreshes the session token from `tokenStore`
+- Accepts the multipart form (images[] up to 5, optional audio, prompt, trim*, shotName, faceDescription)
+- Converts uploads to data URIs and POSTs to the xAI video endpoint
+- Returns `{ jobId }` immediately; frontend polls `GET /jobs/:jobId` until `status === 'done'` (with `resultUrl`) or `error`
+- All xAI request/response status codes + errors are logged to the server console
 
-For now, when you click **"Generate Fresh Personalized 8s Clip with Grok Now"** in Production mode, the exact prompt (including your face description + precise audio timing + shot direction) is prepared and can be fed directly into live Grok video generation.
+#### Required xAI video endpoint + payload
+
+- **Endpoint**: `POST https://api.x.ai/v1/videos/generations`
+- **Auth**: `Authorization: Bearer <access_token from device flow>`
+- **Payload shape** (JSON):
+  ```json
+  {
+    "prompt": "Cinematic 8-second ... (rich prompt built in Studio)",
+    "negative_prompt": "text, watermark, ...",
+    "aspect_ratio": "16:9",
+    "duration": 8,
+    "reference_images": ["data:image/jpeg;base64,...", "... (up to 5)"],
+    "audio": "data:audio/mpeg;base64,..."   // 8s window, for lip-sync if supported
+  }
+  ```
+- **Success responses** handled: direct `{url}` / `{video: {url}}` / `{data: [{url}]}` → `{ videoUrl }` to client, **or** async job id → our `/jobs` poller (extend bg worker + xAI status GET if your `/videos/generations` returns 202 + id immediately).
+
+#### Scopes
+
+The current default (`openid profile email offline_access grok-cli:access api:access`) is used. Video generation may require an additional scope such as `video:generate`, `grok:video`, or similar depending on xAI's current policy. Add via `XAI_OAUTH_SCOPES` in `server/.env` and re-auth if you hit 403/insufficient_scope.
+
+See server logs for the exact xAI error body when experimenting.
+
+The frontend (Studio progress + App.tsx polling + generated video player) now works end-to-end with a real xAI token.
 
 ### Running Everything Together
 
@@ -108,7 +121,7 @@ This starts both the Vite frontend and the Express backend.
 - Backend scaffolded with real Device Code OAuth structure
 - Generation in Production mode builds **real, high-quality prompts** ready for Grok 4.3 Video
 
-The last mile (calling the actual xAI video endpoint with the token) is now a one-line change once xAI exposes the endpoint publicly.
+The integration is complete: real calls + job polling + result playback are wired (see "Real xAI Grok Video Generation" above). Test with a valid SuperGrok token.
 
 This is the cleanest, most professional way to deliver "VisualEssential but powered by SuperGrok" today.
 

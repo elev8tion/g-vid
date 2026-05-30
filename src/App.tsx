@@ -143,6 +143,7 @@ function App() {
   const [sessionLoading, setSessionLoading] = useState(true);
   const [sessionError, setSessionError] = useState<string | null>(null);
   const [lastGeneration, setLastGeneration] = useState<{ prompt: string; shot: Shot; message: string; credits?: number } | null>(null);
+  const [generatedVideo, setGeneratedVideo] = useState<string | null>(null);
 
   const { tweaks, updateTweaks, resetTweaks } = useDesignTweaks();
 
@@ -339,6 +340,7 @@ function App() {
     }
     setShowCreate(false);
     setOauthFlow({ active: false, status: 'idle' });
+    setGeneratedVideo(null);
     toast.info('Disconnected');
   };
 
@@ -381,6 +383,9 @@ function App() {
       formData.append('audio', payload.audio, payload.audio.name);
     }
 
+    // Clear any prior result when starting a fresh generation
+    setGeneratedVideo(null);
+
     try {
       const response = await fetch(`${BACKEND}/generate`, {
         method: 'POST',
@@ -396,15 +401,64 @@ function App() {
       setLastGeneration({
         prompt: payload.prompt,
         shot: payload.shot,
-        message: body.message || 'Prompt accepted',
+        message: body.message || body.status || 'Generation started',
         credits: body.estimatedCredits,
       });
 
+      // Handle sync result or async jobId from real backend
+      if (body.videoUrl) {
+        setGeneratedVideo(body.videoUrl);
+        toast.success('Video ready', { description: 'Direct result from Grok' });
+        return { ok: true, message: 'Video generated' };
+      }
+
+      if (body.jobId) {
+        const jobId = body.jobId;
+        const maxAttempts = 90; // ~3 minutes at 2s polls
+        let attempt = 0;
+        while (attempt < maxAttempts) {
+          await new Promise((r) => setTimeout(r, 2000));
+          attempt += 1;
+          try {
+            const jres = await fetch(`${BACKEND}/jobs/${encodeURIComponent(jobId)}`);
+            const jbody = await jres.json();
+            if (jbody.status === 'done' && jbody.resultUrl) {
+              setGeneratedVideo(jbody.resultUrl);
+              toast.success('Your Grok 4.3 clip is ready!');
+              return { ok: true, message: 'Generation complete' };
+            }
+            if (jbody.status === 'error') {
+              const errMsg = jbody.error || 'xAI generation failed';
+              toast.error('Generation failed', { description: errMsg });
+              return { ok: false, message: errMsg };
+            }
+            // still processing — continue polling (Studio progress UI stays visible)
+          } catch (pollErr) {
+            // transient network hiccup — keep trying
+          }
+        }
+        toast.error('Generation timeout', { description: 'Job still processing on server. Try refreshing later.' });
+        return { ok: false, message: 'Timed out waiting for result' };
+      }
+
+      // Legacy / stub response
       return { ok: true, message: body.message || 'Prompt accepted' };
     } catch (error: any) {
       return { ok: false, message: error.message || 'Generation failed' };
     }
   };
+
+  const downloadVideo = () => {
+    if (!generatedVideo) return;
+    const a = document.createElement('a');
+    a.href = generatedVideo;
+    a.download = `g-vid-${Date.now()}.mp4`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  const clearGeneratedVideo = () => setGeneratedVideo(null);
 
   const accentSet = accentVariants[tweaks.accent as keyof typeof accentVariants] ?? accentVariants['#3b82f6'];
 
@@ -584,6 +638,33 @@ function App() {
             ))}
           </div>
         </section>
+
+        {/* Real generation result (wired to /jobs polling) */}
+        {generatedVideo && (
+          <section className="page-container pb-12">
+            <div className="glass rounded-3xl p-6 md:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                <div>
+                  <div className="text-[10px] tracking-[2px] text-emerald-400">GROK 4.3 VIDEO • 8s CLIP</div>
+                  <div className="text-2xl font-semibold tracking-[-0.5px] mt-0.5">Freshly generated</div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button onClick={downloadVideo} className="btn btn-secondary text-sm px-5">Download MP4</button>
+                  <button onClick={clearGeneratedVideo} className="btn btn-ghost text-sm">Dismiss</button>
+                </div>
+              </div>
+              <div className="relative rounded-2xl overflow-hidden bg-black/90 border border-white/10">
+                <video
+                  src={generatedVideo}
+                  controls
+                  playsInline
+                  className="w-full aspect-video object-contain bg-black"
+                />
+              </div>
+              <div className="mt-3 text-[10px] text-[#71717a]">Result served by xAI. Use your SuperGrok quota for real generations.</div>
+            </div>
+          </section>
+        )}
       </main>
 
       {showCreate && (
