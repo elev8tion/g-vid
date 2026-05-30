@@ -1,73 +1,36 @@
 {
   "communities": {
     "0": [
-      "exception",
-      "httpserver",
-      "thread",
-      "xai_oauth_client_discover",
-      "xai_oauth_client_pkce_challenge",
-      "xai_oauth_client_pkce_verifier",
+      "path",
+      "xai_oauth_cli_main",
+      "xai_oauth_cli_rationale_1",
       "xai_oauth_client_rationale_1",
-      "xai_oauth_client_rationale_104",
-      "xai_oauth_client_rationale_180",
-      "xai_oauth_client_rationale_210",
-      "xai_oauth_client_rationale_28",
-      "xai_oauth_client_rationale_32",
-      "xai_oauth_client_rationale_89",
-      "xai_oauth_client_start_callback_server",
-      "xai_oauth_client_wait_for_callback",
+      "xai_oauth_client_xai_oauth_cli_py",
       "xai_oauth_client_xai_oauth_client_py",
-      "xai_oauth_client_xai_oauth_client_py_bool",
-      "xai_oauth_client_xai_oauth_client_py_float",
-      "xai_oauth_client_xai_oauth_client_py_str",
       "xai_oauth_client_xai_oauth_constants_py",
       "xai_oauth_client_xai_oauth_init_py",
       "xai_oauth_client_xai_oauth_media_py",
-      "xai_oauth_client_xaioauthclient",
-      "xai_oauth_client_xaioauthclient_access_token",
-      "xai_oauth_client_xaioauthclient_ensure_valid_token",
-      "xai_oauth_client_xaioauthclient_get_auth_header",
-      "xai_oauth_client_xaioauthclient_is_authenticated",
-      "xai_oauth_client_xaioauthclient_login",
-      "xai_oauth_client_xaioauthclient_refresh",
-      "xai_oauth_client_xaioautherror",
+      "xai_oauth_client_xai_oauth_storage_py",
+      "xai_oauth_client_xai_oauth_storage_py_any",
+      "xai_oauth_client_xai_oauth_storage_py_str",
+      "xai_oauth_client_xaioauthclient_init",
       "xai_oauth_constants_rationale_1",
       "xai_oauth_init_rationale_1",
-      "xai_oauth_media_rationale_1"
+      "xai_oauth_media_rationale_1",
+      "xai_oauth_storage_clear_tokens",
+      "xai_oauth_storage_ensure_token_dir",
+      "xai_oauth_storage_get_token_path",
+      "xai_oauth_storage_load_full_state",
+      "xai_oauth_storage_load_tokens",
+      "xai_oauth_storage_rationale_1",
+      "xai_oauth_storage_rationale_13",
+      "xai_oauth_storage_rationale_33",
+      "xai_oauth_storage_rationale_46",
+      "xai_oauth_storage_rationale_52",
+      "xai_oauth_storage_read_tokens_raw",
+      "xai_oauth_storage_save_tokens"
     ],
     "1": [
-      "g_vid_package_dependencies",
-      "g_vid_package_dependencies_framer_motion",
-      "g_vid_package_dependencies_lucide_react",
-      "g_vid_package_dependencies_react",
-      "g_vid_package_dependencies_react_dom",
-      "g_vid_package_dependencies_react_hot_toast",
-      "g_vid_package_dependencies_sonner",
-      "g_vid_package_devdependencies",
-      "g_vid_package_devdependencies_autoprefixer",
-      "g_vid_package_devdependencies_concurrently",
-      "g_vid_package_devdependencies_eslint",
-      "g_vid_package_devdependencies_eslint_js",
-      "g_vid_package_devdependencies_eslint_plugin_react_hooks",
-      "g_vid_package_devdependencies_eslint_plugin_react_refresh",
-      "g_vid_package_devdependencies_globals",
-      "g_vid_package_devdependencies_playwright",
-      "g_vid_package_devdependencies_postcss",
-      "g_vid_package_devdependencies_tailwindcss",
-      "g_vid_package_devdependencies_tailwindcss_postcss",
-      "g_vid_package_devdependencies_types_node",
-      "g_vid_package_devdependencies_types_react",
-      "g_vid_package_devdependencies_typescript",
-      "g_vid_package_devdependencies_typescript_eslint",
-      "g_vid_package_devdependencies_vite",
-      "g_vid_package_devdependencies_vitejs_plugin_react",
-      "g_vid_package_name",
-      "g_vid_package_private",
-      "g_vid_package_type",
-      "g_vid_package_version",
-      "package_json"
-    ],
-    "2": [
       "components_studio_progress_stages",
       "components_studio_studio",
       "components_studio_studioprops",
@@ -94,6 +57,33 @@
       "src_components_studio_tsx",
       "src_components_topnav_tsx",
       "src_main_tsx"
+    ],
+    "2": [
+      "exception",
+      "httpserver",
+      "thread",
+      "xai_oauth_client_discover",
+      "xai_oauth_client_pkce_challenge",
+      "xai_oauth_client_pkce_verifier",
+      "xai_oauth_client_rationale_104",
+      "xai_oauth_client_rationale_180",
+      "xai_oauth_client_rationale_210",
+      "xai_oauth_client_rationale_28",
+      "xai_oauth_client_rationale_32",
+      "xai_oauth_client_rationale_89",
+      "xai_oauth_client_start_callback_server",
+      "xai_oauth_client_wait_for_callback",
+      "xai_oauth_client_xai_oauth_client_py_bool",
+      "xai_oauth_client_xai_oauth_client_py_float",
+      "xai_oauth_client_xai_oauth_client_py_str",
+      "xai_oauth_client_xaioauthclient",
+      "xai_oauth_client_xaioauthclient_access_token",
+      "xai_oauth_client_xaioauthclient_ensure_valid_token",
+      "xai_oauth_client_xaioauthclient_get_auth_header",
+      "xai_oauth_client_xaioauthclient_is_authenticated",
+      "xai_oauth_client_xaioauthclient_login",
+      "xai_oauth_client_xaioauthclient_refresh",
+      "xai_oauth_client_xaioautherror"
     ],
     "3": [
       "int",
@@ -122,26 +112,27 @@
       "xaioauthclient"
     ],
     "4": [
-      "path",
-      "xai_oauth_cli_main",
-      "xai_oauth_cli_rationale_1",
-      "xai_oauth_client_xai_oauth_cli_py",
-      "xai_oauth_client_xai_oauth_storage_py",
-      "xai_oauth_client_xai_oauth_storage_py_any",
-      "xai_oauth_client_xai_oauth_storage_py_str",
-      "xai_oauth_client_xaioauthclient_init",
-      "xai_oauth_storage_clear_tokens",
-      "xai_oauth_storage_ensure_token_dir",
-      "xai_oauth_storage_get_token_path",
-      "xai_oauth_storage_load_full_state",
-      "xai_oauth_storage_load_tokens",
-      "xai_oauth_storage_rationale_1",
-      "xai_oauth_storage_rationale_13",
-      "xai_oauth_storage_rationale_33",
-      "xai_oauth_storage_rationale_46",
-      "xai_oauth_storage_rationale_52",
-      "xai_oauth_storage_read_tokens_raw",
-      "xai_oauth_storage_save_tokens"
+      "g_vid_package_dependencies",
+      "g_vid_package_dependencies_framer_motion",
+      "g_vid_package_dependencies_lucide_react",
+      "g_vid_package_dependencies_react",
+      "g_vid_package_dependencies_react_dom",
+      "g_vid_package_dependencies_react_hot_toast",
+      "g_vid_package_dependencies_sonner",
+      "g_vid_package_name",
+      "g_vid_package_private",
+      "g_vid_package_scripts",
+      "g_vid_package_scripts_build",
+      "g_vid_package_scripts_dev",
+      "g_vid_package_scripts_dev_5175",
+      "g_vid_package_scripts_lint",
+      "g_vid_package_scripts_preview",
+      "g_vid_package_scripts_prod",
+      "g_vid_package_scripts_server",
+      "g_vid_package_scripts_up",
+      "g_vid_package_type",
+      "g_vid_package_version",
+      "package_json"
     ],
     "5": [
       "g_vid_tsconfig_app_compileroptions",
@@ -165,6 +156,26 @@
       "tsconfig_app_json"
     ],
     "6": [
+      "g_vid_package_devdependencies",
+      "g_vid_package_devdependencies_autoprefixer",
+      "g_vid_package_devdependencies_concurrently",
+      "g_vid_package_devdependencies_eslint",
+      "g_vid_package_devdependencies_eslint_js",
+      "g_vid_package_devdependencies_eslint_plugin_react_hooks",
+      "g_vid_package_devdependencies_eslint_plugin_react_refresh",
+      "g_vid_package_devdependencies_globals",
+      "g_vid_package_devdependencies_playwright",
+      "g_vid_package_devdependencies_postcss",
+      "g_vid_package_devdependencies_tailwindcss",
+      "g_vid_package_devdependencies_tailwindcss_postcss",
+      "g_vid_package_devdependencies_types_node",
+      "g_vid_package_devdependencies_types_react",
+      "g_vid_package_devdependencies_typescript",
+      "g_vid_package_devdependencies_typescript_eslint",
+      "g_vid_package_devdependencies_vite",
+      "g_vid_package_devdependencies_vitejs_plugin_react"
+    ],
+    "7": [
       "g_vid_tsconfig_node_compileroptions",
       "g_vid_tsconfig_node_compileroptions_allowimportingtsextensions",
       "g_vid_tsconfig_node_compileroptions_erasablesyntaxonly",
@@ -184,7 +195,7 @@
       "g_vid_tsconfig_node_include",
       "tsconfig_node_json"
     ],
-    "7": [
+    "8": [
       "server_package_author",
       "server_package_dependencies",
       "server_package_dependencies_cors",
@@ -204,7 +215,7 @@
       "server_package_type",
       "server_package_version"
     ],
-    "8": [
+    "9": [
       "server_index_app",
       "server_index_body",
       "server_index_buf",
@@ -222,17 +233,6 @@
       "server_index_xaidata",
       "server_index_xaipayload"
     ],
-    "9": [
-      "g_vid_package_scripts",
-      "g_vid_package_scripts_build",
-      "g_vid_package_scripts_dev",
-      "g_vid_package_scripts_dev_5175",
-      "g_vid_package_scripts_lint",
-      "g_vid_package_scripts_preview",
-      "g_vid_package_scripts_prod",
-      "g_vid_package_scripts_server",
-      "g_vid_package_scripts_up"
-    ],
     "10": [
       "basehttprequesthandler",
       "xai_oauth_client_callbackhandler",
@@ -240,19 +240,19 @@
       "xai_oauth_client_callbackhandler_log_message"
     ],
     "11": [
+      "g_vid_ui_redesign_g_vid_ui_redesign",
+      "index_html_index_html",
+      "readme_g_vid"
+    ],
+    "12": [
       "g_vid_tmp_playwright_check_cs",
       "g_vid_tmp_playwright_check_root",
       "tmp_playwright_check_mjs"
     ],
-    "12": [
+    "13": [
       "g_vid_tsconfig_files",
       "g_vid_tsconfig_references",
       "tsconfig_json"
-    ],
-    "13": [
-      "g_vid_ui_redesign_g_vid_ui_redesign",
-      "index_html_index_html",
-      "readme_g_vid"
     ],
     "14": [
       "xai_oauth_client_example_main",
@@ -264,81 +264,63 @@
       "tmp_playwright_studio_element_mjs"
     ],
     "16": [
-      "g_vid_tmp_playwright_top_cs",
-      "tmp_playwright_top_mjs"
-    ],
-    "17": [
-      "server_readme_oauth",
-      "xai_oauth_client_readme"
-    ],
-    "18": [
       "g_vid_tmp_playwright_style_cs",
       "tmp_playwright_style_mjs"
     ],
-    "19": [
+    "17": [
+      "g_vid_tmp_playwright_top_cs",
+      "tmp_playwright_top_mjs"
+    ],
+    "18": [
       "xai_oauth_client_cli_py",
       "xai_oauth_client_cli_rationale_1"
     ],
-    "20": [
-      "readme_gvid"
+    "19": [
+      "server_readme_oauth",
+      "xai_oauth_client_readme"
     ],
-    "21": [
+    "20": [
       "tmp_playwright_dom_mjs"
     ],
-    "22": [
+    "21": [
       "tailwind_config_js"
     ],
-    "23": [
+    "22": [
       "tmp_playwright_box_mjs"
     ],
-    "24": [
+    "23": [
       "tmp_playwright_mjs"
     ],
-    "25": [
+    "24": [
       "tmp_playwright_snap_mjs"
     ],
-    "26": [
+    "25": [
       "eslint_config_js"
     ],
-    "27": [
+    "26": [
       "vite_config_ts"
     ],
-    "28": [
+    "27": [
       "postcss_config_js"
     ],
-    "29": [
+    "28": [
       "src_hooks_usefeatureflag_ts"
     ],
-    "30": [
+    "29": [
       "verify_user_journeys_guide_verify_user_journeys_guide"
-    ],
-    "31": [
-      "src_assets_hero"
-    ],
-    "32": [
-      "src_assets_vite"
-    ],
-    "33": [
-      "src_assets_react"
-    ],
-    "34": [
-      "public_assets_shots_1"
-    ],
-    "35": [
-      "xai_oauth_client_requirements"
     ]
   },
   "cohesion": {
-    "0": 0.10795454545454546,
-    "1": 0.06666666666666667,
-    "2": 0.09230769230769231,
+    "0": 0.1349206349206349,
+    "1": 0.09230769230769231,
+    "2": 0.12666666666666668,
     "3": 0.13405797101449277,
-    "4": 0.17894736842105263,
+    "4": 0.09523809523809523,
     "5": 0.10526315789473684,
     "6": 0.1111111111111111,
     "7": 0.1111111111111111,
-    "8": 0.13333333333333333,
-    "9": 0.2222222222222222,
+    "8": 0.1111111111111111,
+    "9": 0.13333333333333333,
     "10": 0.5,
     "11": 0.6666666666666666,
     "12": 0.6666666666666666,
@@ -358,13 +340,7 @@
     "26": 1.0,
     "27": 1.0,
     "28": 1.0,
-    "29": 1.0,
-    "30": 1.0,
-    "31": 1.0,
-    "32": 1.0,
-    "33": 1.0,
-    "34": 1.0,
-    "35": 1.0
+    "29": 1.0
   },
   "gods": [
     {
@@ -476,7 +452,7 @@
     }
   ],
   "tokens": {
-    "input": 202089,
-    "output": 413
+    "input": 208340,
+    "output": 645
   }
 }
