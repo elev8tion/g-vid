@@ -14,6 +14,7 @@ Drop a few selfies → pick a cinematic "Shot" scene → get a stunning, lip-syn
   - 11+ premium curated Shots (On The Radar, Analog Reverie, Blue Cube Studio, Neon Rooftop, etc.)
   - Review + one-click Generate
 - **Realistic generation pipeline** with live progress stages ("Grok 4.3 Video Engine")
+- **Quality toggle (Production)** — choose 480p (faster/cheaper) or 720p (recommended) per generation
 - **Instant playback** of high-quality demo videos (real Grok-generated assets)
 - **Credits system** that decrements on generation
 - **Fully responsive**, cinematic dark + neon design language (inspired by premium creative tools)
