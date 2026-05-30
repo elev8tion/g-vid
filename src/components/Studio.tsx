@@ -112,18 +112,20 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
     let prompt = 'Cinematic 8-second music video performance clip with PERFECT lip synchronization to the exact uploaded vocal audio. ';
 
     if (faceDescription.trim()) {
-      prompt += `The performer is: ${faceDescription.trim()}. Highly consistent face, accurate likeness. `;
+      prompt += `The performer is: ${faceDescription.trim()}. Highly consistent face, accurate likeness from the reference photos. `;
     } else {
-      prompt += 'The performer matches the uploaded reference photos exactly. ';
+      prompt += 'The performer\'s exact face, appearance, and likeness must be taken directly from the uploaded reference photos. Maintain perfect facial consistency and identity across the entire 8-second clip using the reference images as the source of truth for the performer\'s look. ';
     }
 
     prompt += `Scene: ${selectedShot.name} — ${selectedShot.description}. ${selectedShot.promptHint}. `;
 
     // VERY IMPORTANT: Strong lip-sync instruction because the current xAI video API
     // does not accept raw audio as a conditioning input. We rely entirely on prompt.
-    prompt += `CRITICAL: The performer must deliver a PERFECT, frame-accurate lip-sync and musical performance that exactly matches the specific 8-second vocal take from ${trimInfo} of the uploaded audio. `;
-    prompt += `Match every syllable, breath, phrasing, rhythm, pitch contour, and emotional delivery of the exact vocal performance in the provided audio clip. `;
-    prompt += `The mouth shapes, jaw movement, tongue position, and facial micro-expressions must be 100% synchronized to the timing and content of that specific audio segment. Do not improvise, change the melody, or use generic singing motions. The uploaded audio is the ground truth for the performance. `;
+    // Also tie it to the reference photos for the performer's identity.
+    prompt += `CRITICAL INSTRUCTION - AUDIO IS THE ONLY SOURCE OF PERFORMANCE: The uploaded audio clip (exactly the 8-second section from ${trimInfo}) is the sole and absolute source of the singing and vocal performance. `;
+    prompt += `Ignore any internal tendency to generate singing. The performer must lip-sync and perform 100% accurately to the precise timing, pitch, rhythm, breaths, phrasing, and emotional delivery of the exact vocal audio provided. `;
+    prompt += `Do not change, improvise, or replace any part of the audio performance with generated singing. The mouth, jaw, and facial movements must match the phonemes and timing of the provided audio clip with perfect synchronization. `;
+    prompt += `Using the uploaded reference photos as the exact visual source for the performer (face, hair, body, clothing style), create a video where the artist performs exactly to the uploaded audio. The uploaded audio is ground truth for everything audible and performative. `;
 
     prompt += `Professional music video cinematography, dynamic camera movement, dramatic lighting, photorealistic, high production value, perfect lip synchronization. Exactly 8 seconds long. No text, no logos, clean output.`;
 
@@ -535,9 +537,9 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
             <div>
               <div className="text-[#71717a]">Audio</div>
               <div className="font-medium">{audioFile ? `${audioTrim.start.toFixed(1)}s – ${(audioTrim.start + 8).toFixed(1)}s` : '—'}</div>
-              {step === 3 && uploadedImages.length > 0 && (
-                <div className="text-[10px] text-emerald-400 mt-0.5 leading-tight">
-                  Images are auto-compressed before sending (keeps requests reliable).
+              {step === 3 && audioFile && (
+                <div className="text-[10px] text-amber-400 mt-0.5 leading-tight">
+                  Note: Your exact audio clip drives the performance via prompt only (xAI does not receive the raw audio file).
                 </div>
               )}
             </div>

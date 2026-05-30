@@ -121,7 +121,8 @@ This is the correct, practical way to connect SuperGrok in 2026:
   - Each reference is `{ "url": "data:..." }` or public HTTPS URL.
   - The API is **asynchronous** (returns `request_id`, backend now polls `/v1/videos/{id}` in the background).
   - **Audio / lip-sync**: Raw audio is **not sent** (large base64 payloads trigger TLS "bad record mac" errors). The frontend builds an extremely explicit prompt describing your exact 8s trimmed clip and demanding frame-accurate lip-sync to it. This is currently the only viable approach.
-  - **Auto-compression**: Reference images are automatically resized (long edge ≤ 1024px) + JPEG compressed (quality ~82) before sending. This prevents huge payloads that break the TLS connection. Tune with `MAX_REF_IMAGE_LONG_EDGE` and `REF_IMAGE_JPEG_QUALITY` env vars.
+  - **Auto-compression**: Reference images are automatically resized (long edge ≤ 1280px by default) + JPEG compressed (quality ~88) before sending. This keeps payloads safe from TLS errors while preserving good face detail for references. Tune with `MAX_REF_IMAGE_LONG_EDGE` and `REF_IMAGE_JPEG_QUALITY` env vars.
+  - The server now prints a very clear "**FINAL PAYLOAD SUMMARY**" block before every call to xAI. Look for this in the logs to see exactly whether `reference_images` were included, how many, payload size, model, etc.
 
   The backend now correctly implements this based on official documentation and will surface clear errors + logs for any remaining constraints.
 

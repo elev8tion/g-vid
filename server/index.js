@@ -50,9 +50,11 @@ const VIDEO_GEN_URL = `${XAI_API_BASE}/videos/generations`;
 const VIDEO_STATUS_URL = (id) => `${XAI_API_BASE}/videos/${id}`;
 const ENABLE_XAI_REFS = process.env.ENABLE_XAI_REFS === '1';
 
-// Image compression settings for reference images (to keep payload size reasonable and avoid TLS errors)
-const MAX_REF_IMAGE_LONG_EDGE = parseInt(process.env.MAX_REF_IMAGE_LONG_EDGE || '1024', 10);
-const REF_IMAGE_JPEG_QUALITY = parseInt(process.env.REF_IMAGE_JPEG_QUALITY || '82', 10);
+// Image compression settings for reference images.
+// Goal: Preserve as much face detail as possible for good reference-to-video results
+// while keeping the total JSON payload small enough to avoid TLS "bad record mac" errors.
+const MAX_REF_IMAGE_LONG_EDGE = parseInt(process.env.MAX_REF_IMAGE_LONG_EDGE || '1280', 10);
+const REF_IMAGE_JPEG_QUALITY = parseInt(process.env.REF_IMAGE_JPEG_QUALITY || '88', 10);
 const XAI_VIDEO_MODEL = 'grok-imagine-video';
 
 // ============================================
@@ -409,6 +411,18 @@ app.post('/generate', upload.fields([
       if (audioFile) { try { fs.unlinkSync(audioFile.path); } catch {} }
     };
 
+    const sendRefs = ENABLE_XAI_REFS;
+
+    console.log('############################################################');
+    console.log('### REFERENCE MODE ACTIVE CHECK');
+    console.log('### ENABLE_XAI_REFS from env:', process.env.ENABLE_XAI_REFS);
+    console.log('### sendRefs (boolean):', sendRefs);
+    console.log('############################################################');
+
+    console.log('[Generate] Background task starting. ENABLE_XAI_REFS =', sendRefs);
+    console.log('[Generate] Number of uploaded image files:', imageFiles.length);
+    console.log('[Generate] Audio file present:', !!audioFile);
+
     try {
       // Convert images to (optionally compressed) data URIs
       const referenceImages = [];
@@ -419,12 +433,11 @@ app.post('/generate', upload.fields([
 
           let finalDataUri;
           if (sendRefs) {
-            // Auto-compress when sending references (prevents TLS "bad record mac" errors from huge payloads)
+            // Auto-compress when sending references
             const originalSize = buf.length;
             finalDataUri = await compressImageForRef(buf, mime);
 
-            // Rough size comparison for logging
-            const compressedSize = Math.round((finalDataUri.length * 3) / 4); // approximate decoded size
+            const compressedSize = Math.round((finalDataUri.length * 3) / 4);
             console.log(`[Compress] ${f.originalname}: ${(originalSize / 1024).toFixed(0)} KB → ~${(compressedSize / 1024).toFixed(0)} KB`);
           } else {
             finalDataUri = `data:${mime};base64,${buf.toString('base64')}`;
@@ -435,6 +448,8 @@ app.post('/generate', upload.fields([
           console.warn('[Generate] failed to process image', f.originalname, e.message);
         }
       }
+
+      console.log('[Generate] Prepared referenceImages count:', referenceImages.length);
 
       // Audio as data URI (for audio_url reference when ENABLE_XAI_REFS=1)
       let audioDataUri = null;
@@ -494,34 +509,36 @@ app.post('/generate', upload.fields([
       // Correct shape per xAI docs + automatic compression:
       //   "model": "grok-imagine-video"
       //   "reference_images": [ { "url": "data:image/jpeg;base64,..." (compressed) }, ... ]
-      //
-      // Images are resized (long edge controlled by MAX_REF_IMAGE_LONG_EDGE) and
-      // JPEG-compressed at REF_IMAGE_JPEG_QUALITY to prevent huge payloads that
-      // trigger "bad record mac" TLS errors.
-      const sendRefs = ENABLE_XAI_REFS;
       if (sendRefs && referenceImages.length) {
         xaiPayload.reference_images = referenceImages.map(uri => ({ url: uri }));
       }
       if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
       if (sendRefs && shotName) xaiPayload.shot_name = shotName;
 
+      const payloadSize = Buffer.byteLength(JSON.stringify(xaiPayload), 'utf8');
+
+      console.log('============================================================');
+      console.log('[xAI] FINAL PAYLOAD SUMMARY BEFORE SENDING');
+      console.log('  ENABLE_XAI_REFS active :', sendRefs);
+      console.log('  Model                  :', xaiPayload.model);
+      console.log('  Reference images       :', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0, '(auto-compressed)');
+      console.log('  Audio included         :', !!xaiPayload.audio, '(raw user audio is deliberately omitted — lip-sync is prompt-only)');
+      console.log('  Prompt length          :', (xaiPayload.prompt || '').length, 'chars');
+      console.log('  Total payload size     :', (payloadSize / 1024).toFixed(0), 'KB');
+      console.log('  Keys being sent        :', Object.keys(xaiPayload).join(', '));
+      console.log('============================================================');
+
+      if (sendRefs && xaiPayload.reference_images && xaiPayload.reference_images.length > 0) {
+        console.log('>>> REF IMAGES ARE BEING SENT TO XAI IN THIS REQUEST <<<');
+      } else {
+        console.log('>>> NO REFERENCE IMAGES ATTACHED — prompt-only mode <<<');
+      }
+
       console.log('[xAI] POST', VIDEO_GEN_URL,
-        'keys:', Object.keys(xaiPayload),
-        'ref_images:', sendRefs ? referenceImages.length : 0,
+        'ref_images:', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0,
         'duration:', xaiPayload.duration,
         'resolution:', xaiPayload.resolution,
-        sendRefs ? '(reference_images attached — audio omitted for payload size)' : '(minimal payload)',
         `(user chose: ${requestedResolution || 'default'})`);
-
-      // Extra safety log right before the actual call
-      const payloadSize = Buffer.byteLength(JSON.stringify(xaiPayload), 'utf8');
-      console.log('[xAI] >>> Sending to xAI with resolution =', xaiPayload.resolution, ' (this must NOT be "1k")', `payload size ≈ ${(payloadSize / 1024).toFixed(0)} KB`);
-
-      if (sendRefs) {
-        console.log('[xAI] Refs payload shape:',
-          'reference_images=', xaiPayload.reference_images ? xaiPayload.reference_images.length + ' items (auto-compressed)' : 'none'
-        );
-      }
 
       let xaiRes;
       try {
@@ -547,7 +564,7 @@ app.post('/generate', upload.fields([
 
       console.log('[xAI] response status:', xaiRes.status);
 
-      // Always capture the *raw* body on non-2xx (xAI sometimes returns 422 with empty {}
+      // Always capture the *raw* body first (xAI sometimes returns 422 with empty {}
       // or a plain text error; .json() alone hid the real message in the last 422).
       let rawBody = '';
       let xaiData = {};
@@ -559,6 +576,8 @@ app.post('/generate', upload.fields([
       } catch (e) {
         rawBody = '(failed to read body)';
       }
+
+      console.log('[xAI] Response keys from xAI:', Object.keys(xaiData));
 
       if (!xaiRes.ok) {
         console.error('[xAI] non-2xx raw body:', rawBody || xaiData);
@@ -639,6 +658,6 @@ app.listen(PORT, () => {
     console.log('  ⚠️  XAI_CLIENT_ID not set — real OAuth is disabled until configured.');
   }
   console.log('  Video resolution policy: only 480p / 720p / 1080p are accepted (old "1k"/"2k" values will be normalized to 720p)');
-  console.log(`  Image compression (refs): long edge ≤ ${MAX_REF_IMAGE_LONG_EDGE}px @ quality ${REF_IMAGE_JPEG_QUALITY}`);
+  console.log(`  Image compression (refs): long edge ≤ ${MAX_REF_IMAGE_LONG_EDGE}px @ quality ${REF_IMAGE_JPEG_QUALITY} (tune with MAX_REF_IMAGE_LONG_EDGE / REF_IMAGE_JPEG_QUALITY)`);
   console.log('  Tip: Use `npm run dev` in the server folder for hot-reload during development (prevents stale code bugs like this)');
 });
