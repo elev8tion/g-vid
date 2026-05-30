@@ -1,0 +1,10 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch({ headless: true });
+const page = await browser.newPage();
+await page.goto('http://localhost:4173', { waitUntil: 'networkidle' });
+await page.waitForTimeout(500);
+await page.getByRole('button', { name: 'Start a new clip' }).click();
+await page.waitForTimeout(500);
+const html = await page.$eval('.fixed.inset-0', el => el.innerHTML.slice(0, 500));
+console.log('innerHTML snippet:', html);
+await browser.close();

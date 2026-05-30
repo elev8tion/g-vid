@@ -1,0 +1,14 @@
+import { chromium } from 'playwright';
+const browser = await chromium.launch({ headless: true });
+const page = await browser.newPage();
+await page.goto('http://localhost:4173', { waitUntil: 'networkidle' });
+await page.waitForTimeout(1000);
+await page.getByRole('button', { name: 'Start a new clip' }).click();
+await page.waitForTimeout(1000);
+const closeCount = await page.locator('[aria-label="Close studio"]').count();
+console.log('closeCount', closeCount);
+const fixedCount = await page.locator('.fixed.inset-0').count();
+console.log('fixed inset-0 elements', fixedCount);
+const fixedClassNames = await page.$$eval('.fixed', els => els.map(e => e.className));
+console.log('fixed class names', fixedClassNames);
+await browser.close();
