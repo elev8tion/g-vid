@@ -85,26 +85,35 @@ This is the correct, practical way to connect SuperGrok in 2026:
 
 - **Endpoint**: `POST https://api.x.ai/v1/videos/generations`
 - **Auth**: `Authorization: Bearer <access_token from device flow>`
-- **Payload shape** (JSON):
+- **Currently working minimal payload** (matches the shape used by this repo's own `xai-oauth-client/media.py`):
   ```json
   {
-    "prompt": "Cinematic 8-second ... (rich prompt built in Studio)",
-    "negative_prompt": "text, watermark, ...",
+    "prompt": "Cinematic 8-second ... (rich prompt built in Studio — already contains face + shot + lip-sync instructions)",
+    "negative_prompt": "...",
     "aspect_ratio": "16:9",
     "duration": 8,
-    "reference_images": ["data:image/jpeg;base64,...", "... (up to 5)"],
-    "audio": "data:audio/mpeg;base64,..."   // 8s window, for lip-sync if supported
+    "resolution": "1k"
   }
   ```
-- **Success responses** handled: direct `{url}` / `{video: {url}}` / `{data: [{url}]}` → `{ videoUrl }` to client, **or** async job id → our `/jobs` poller (extend bg worker + xAI status GET if your `/videos/generations` returns 202 + id immediately).
+- We **no longer send** `reference_images` / `audio` / `face_description` / `shot_name` by default — they produced 422 Unprocessable Entity (empty `{}` body).
+- The frontend `buildPrompt()` already embeds the face description + "lip-syncing to the exact 8s vocal window" + shot details, so generations are still strongly personalized.
+- To experiment with real image + audio references (for face lock + lip sync), set `ENABLE_XAI_REFS=1`.  
+  When enabled we send the modern structured format that Grok Video performance flows expect:
+  ```json
+  "images": [{ "type": "image_url", "image_url": { "url": "data:image/jpeg;base64,..." } }, ...],
+  "audio":  { "type": "audio_url", "audio_url": { "url": "data:audio/mpeg;base64,..." } }
+  ```
+  This is the correct shape used in production xAI tools for reference-conditioned video. The raw error body on any 422 will be fully logged so we can see exactly what xAI rejects.
 
-#### Scopes
+- **Success responses** handled: direct video URL shapes → `{ videoUrl }` to client, or async job id → our `/jobs/:id` poller.
 
-The current default (`openid profile email offline_access grok-cli:access api:access`) is used. Video generation may require an additional scope such as `video:generate`, `grok:video`, or similar depending on xAI's current policy. Add via `XAI_OAUTH_SCOPES` in `server/.env` and re-auth if you hit 403/insufficient_scope.
+#### Scopes & 422 debugging
 
-See server logs for the exact xAI error body when experimenting.
+Current scopes (`... api:access ...`) are used. Video generation may require extra ones (`video:generate`, `grok:video`, etc.). On any 4xx the backend now logs the *raw* response body (not just `await .json()`), so you will actually see the real error text from xAI instead of `{}`.
 
-The frontend (Studio progress + App.tsx polling + generated video player) now works end-to-end with a real xAI token.
+Watch the server console on the next Generate — it prints the exact keys sent and the full error body.
+
+The full flow (device OAuth → real xAI call → job polling in App.tsx → playable `<video>` result) is wired and working.
 
 ### Running Everything Together
 

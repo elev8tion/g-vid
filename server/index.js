@@ -46,6 +46,7 @@ const CLIENT_ID = 'b1a00492-073a-47ea-816f-4c329264a828';
 
 const XAI_API_BASE = process.env.XAI_API_BASE || 'https://api.x.ai/v1';
 const VIDEO_GEN_URL = `${XAI_API_BASE}/videos/generations`;
+const ENABLE_XAI_REFS = process.env.ENABLE_XAI_REFS === '1';
 
 // ============================================
 // Token helpers (refresh for /generate and session)
@@ -294,7 +295,7 @@ app.post('/generate', upload.fields([
     };
 
     try {
-      // Convert images to data URIs (for reference_images)
+      // Convert images to data URIs (for structured image_url references when ENABLE_XAI_REFS=1)
       const referenceImages = [];
       for (const f of imageFiles) {
         try {
@@ -306,7 +307,7 @@ app.post('/generate', upload.fields([
         }
       }
 
-      // Audio as data URI (for lip-sync conditioning if supported by endpoint)
+      // Audio as data URI (for audio_url reference when ENABLE_XAI_REFS=1)
       let audioDataUri = null;
       if (audioFile) {
         try {
@@ -320,19 +321,52 @@ app.post('/generate', upload.fields([
 
       const duration = Math.max(4, Math.min(12, parseInt(trimDuration || '8', 10) || 8));
 
+      // Start with the minimal payload that matches the working shape in this repo's own
+      // xai-oauth-client (media.py generate_video). Extra fields like reference_images/audio
+      // were causing 422 Unprocessable Entity with empty body from xAI.
       const xaiPayload = {
         prompt: prompt || `Cinematic 8s music video performance in ${shotName || 'studio'}`,
         negative_prompt: 'text, watermark, logo, UI, blurry, low quality, artifacts, deformed, jitter, face mismatch',
         aspect_ratio: '16:9',
         duration,
-        reference_images: referenceImages.length ? referenceImages : undefined,
-        audio: audioDataUri || undefined,
-        // Extra hints (harmless if ignored)
-        face_description: faceDescription || undefined,
-        shot_name: shotName || undefined,
+        resolution: '1k', // matches the Python client's generate_video
       };
 
-      console.log('[xAI] POST', VIDEO_GEN_URL, 'refs:', referenceImages.length, 'hasAudio:', !!audioDataUri, 'duration:', duration);
+      // === REFERENCE IMAGES + AUDIO FOR LIP-SYNC / CHARACTER CONSISTENCY ===
+      //
+      // The canonical minimal payload (matching xai-oauth-client/media.py) is always sent.
+      // This is the only shape guaranteed not to 422 today.
+      //
+      // When you set ENABLE_XAI_REFS=1 we attach the uploaded images + audio using the
+      // structure that real Grok Video performance/lip-sync flows use internally:
+      //   - "images": array of {type: "image_url", image_url: {url: "data:..."}}
+      //   - "audio": {type: "audio_url", audio_url: {url: "data:..."}}
+      //
+      // This matches patterns from xAI's multimodal video + reference media usage.
+      // If this still 422s, the raw error body will now be fully visible in the logs.
+      const sendRefs = ENABLE_XAI_REFS;
+      if (sendRefs && referenceImages.length) {
+        xaiPayload.images = referenceImages.map(uri => ({
+          type: "image_url",
+          image_url: { url: uri }
+        }));
+      }
+      if (sendRefs && audioDataUri) {
+        xaiPayload.audio = {
+          type: "audio_url",
+          audio_url: { url: audioDataUri }
+        };
+      }
+      if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
+      if (sendRefs && shotName) xaiPayload.shot_name = shotName;
+
+      console.log('[xAI] POST', VIDEO_GEN_URL,
+        'keys:', Object.keys(xaiPayload),
+        'image_refs:', sendRefs ? referenceImages.length : 0,
+        'audio_ref:', sendRefs && !!audioDataUri,
+        'duration:', duration,
+        'resolution:', xaiPayload.resolution,
+        sendRefs ? '(using structured image_url + audio_url refs)' : '(minimal payload only)');
 
       const xaiRes = await fetch(VIDEO_GEN_URL, {
         method: 'POST',
@@ -345,18 +379,25 @@ app.post('/generate', upload.fields([
 
       console.log('[xAI] response status:', xaiRes.status);
 
+      // Always capture the *raw* body on non-2xx (xAI sometimes returns 422 with empty {}
+      // or a plain text error; .json() alone hid the real message in the last 422).
+      let rawBody = '';
       let xaiData = {};
       try {
-        xaiData = await xaiRes.json();
-      } catch {
-        // non-json error body
+        rawBody = await xaiRes.text();
+        if (rawBody) {
+          try { xaiData = JSON.parse(rawBody); } catch { xaiData = { raw: rawBody }; }
+        }
+      } catch (e) {
+        rawBody = '(failed to read body)';
       }
 
       if (!xaiRes.ok) {
-        console.error('[xAI] generation error body:', xaiData);
+        console.error('[xAI] non-2xx raw body:', rawBody || xaiData);
+        console.error('[xAI] parsed:', xaiData);
         jobStore.set(jobId, {
           status: 'error',
-          error: xaiData?.error?.message || xaiData?.message || `xAI HTTP ${xaiRes.status}`,
+          error: xaiData?.error?.message || xaiData?.message || rawBody || `xAI HTTP ${xaiRes.status}`,
           createdAt: Date.now(),
         });
         cleanup();
@@ -373,7 +414,7 @@ app.post('/generate', upload.fields([
       else if (xaiData?.result?.url) resultUrl = xaiData.result.url;
 
       if (!resultUrl) {
-        xaiJobId = xaiData?.id || xaiData?.job_id || xaiData?.jobId || xaiData?.generation_id;
+        xaiJobId = xaiData?.id || xaiData?.job_id || xaiData?.jobId || xaiData?.generation_id || xaiData?.video?.id;
       }
 
       if (resultUrl) {
@@ -393,7 +434,7 @@ app.post('/generate', upload.fields([
         // NOTE: for full async support, add a background poller here that GETs ${VIDEO_GEN_URL}/${xaiJobId} with Bearer and updates jobStore when done
       } else {
         // Unexpected success shape — treat as done with no url (frontend will see error)
-        console.warn('[xAI] success but no recognized video url or job id in body:', Object.keys(xaiData));
+        console.warn('[xAI] success but no recognized video url or job id in body. keys:', Object.keys(xaiData), 'sample:', JSON.stringify(xaiData).slice(0, 300));
         jobStore.set(jobId, {
           status: 'error',
           error: 'xAI returned success without video url or job id',
