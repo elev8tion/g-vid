@@ -99,12 +99,16 @@ This is the correct, practical way to connect SuperGrok in 2026:
 - We **no longer send** `reference_images` / `audio` / `face_description` / `shot_name` by default — they produced 422 Unprocessable Entity (empty `{}` body).
 - The frontend `buildPrompt()` already embeds the face description + "lip-syncing to the exact 8s vocal window" + shot details, so generations are still strongly personalized.
 - To experiment with real image + audio references (for face lock + lip sync), set `ENABLE_XAI_REFS=1`.  
-  When enabled we send the modern structured format that Grok Video performance flows expect:
+  When enabled we currently send:
   ```json
-  "images": [{ "type": "image_url", "image_url": { "url": "data:image/jpeg;base64,..." } }, ...],
-  "audio":  { "type": "audio_url", "audio_url": { "url": "data:audio/mpeg;base64,..." } }
+  "images": [ { "image_url": "data:image/jpeg;base64,..." }, ... ],
+  "audio":  { "audio_url": "data:audio/mpeg;base64,..." }
   ```
-  This is the correct shape used in production xAI tools for reference-conditioned video. The raw error body on any 422 will be fully logged so we can see exactly what xAI rejects.
+  (Note: `image_url` / `audio_url` values must be **strings**, not objects.)
+
+  This shape was corrected after the "invalid type: map, expected a string" error on `images[0].image_url`.
+  The backend now logs the exact shape it sends on every ref attempt.
+  The raw error body on any 422/4xx is also fully logged.
 
 - **Success responses** handled: direct video URL shapes → `{ videoUrl }` to client, or async job id → our `/jobs/:id` poller.
 

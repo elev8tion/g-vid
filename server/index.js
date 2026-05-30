@@ -363,27 +363,22 @@ app.post('/generate', upload.fields([
 
       // === REFERENCE IMAGES + AUDIO FOR LIP-SYNC / CHARACTER CONSISTENCY ===
       //
-      // The canonical minimal payload (matching xai-oauth-client/media.py) is always sent.
-      // This is the only shape guaranteed not to 422 today.
+      // When ENABLE_XAI_REFS=1, we attach references.
+      // Current working shape for xAI /videos/generations (as of the latest errors):
+      //   - "images": [ { "image_url": "data:image/...;base64,..." }, ... ]
+      //   - "audio":  { "audio_url": "data:audio/...;base64,..." }
       //
-      // When you set ENABLE_XAI_REFS=1 we attach the uploaded images + audio using the
-      // structure that real Grok Video performance/lip-sync flows use internally:
-      //   - "images": array of {type: "image_url", image_url: {url: "data:..."}}
-      //   - "audio": {type: "audio_url", audio_url: {url: "data:..."}}
-      //
-      // This matches patterns from xAI's multimodal video + reference media usage.
-      // If this still 422s, the raw error body will now be fully visible in the logs.
+      // Note: The API expects the *_url fields to be **strings**, not objects.
+      // We log the exact payload shape on every attempt so we can iterate quickly.
       const sendRefs = ENABLE_XAI_REFS;
       if (sendRefs && referenceImages.length) {
         xaiPayload.images = referenceImages.map(uri => ({
-          type: "image_url",
-          image_url: { url: uri }
+          image_url: uri
         }));
       }
       if (sendRefs && audioDataUri) {
         xaiPayload.audio = {
-          type: "audio_url",
-          audio_url: { url: audioDataUri }
+          audio_url: audioDataUri
         };
       }
       if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
@@ -400,6 +395,13 @@ app.post('/generate', upload.fields([
 
       // Extra safety log right before the actual call
       console.log('[xAI] >>> Sending to xAI with resolution =', xaiPayload.resolution, ' (this must NOT be "1k")');
+
+      if (sendRefs) {
+        console.log('[xAI] Refs payload shape:',
+          'images=', xaiPayload.images ? xaiPayload.images.length + ' items (first image_url type: ' + typeof xaiPayload.images[0]?.image_url + ')' : 'none',
+          'audio=', xaiPayload.audio ? typeof xaiPayload.audio.audio_url : 'none'
+        );
+      }
 
       const xaiRes = await fetch(VIDEO_GEN_URL, {
         method: 'POST',
