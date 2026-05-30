@@ -535,9 +535,9 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
             <div>
               <div className="text-[#71717a]">Audio</div>
               <div className="font-medium">{audioFile ? `${audioTrim.start.toFixed(1)}s – ${(audioTrim.start + 8).toFixed(1)}s` : '—'}</div>
-              {step === 3 && audioFile && (
-                <div className="text-[10px] text-amber-400 mt-0.5 leading-tight">
-                  Audio sent experimentally for lip-sync. Results depend on xAI model support.
+              {step === 3 && uploadedImages.length > 0 && (
+                <div className="text-[10px] text-emerald-400 mt-0.5 leading-tight">
+                  Images are auto-compressed before sending (keeps requests reliable).
                 </div>
               )}
             </div>
