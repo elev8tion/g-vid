@@ -37,6 +37,7 @@ interface StudioProps {
     faceDescription: string;
     images: ReferenceImage[];
     audio: File | null;
+    resolution?: '480p' | '720p';
   }) => Promise<{ ok: boolean; message: string }>;
 }
 
@@ -57,6 +58,7 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
   const [audioTrim, setAudioTrim] = useState<TrimWindow>({ start: 0, duration: 8 });
   const [faceDescription, setFaceDescription] = useState('');
   const [selectedShot, setSelectedShot] = useState<Shot | null>(initialShot ?? null);
+  const [videoQuality, setVideoQuality] = useState<'480p' | '720p'>('720p');
   const [isGenerating, setIsGenerating] = useState(false);
   const [generationProgress, setGenerationProgress] = useState(0);
   const [generationStage, setGenerationStage] = useState('');
@@ -79,6 +81,22 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
       }
     };
   }, []);
+
+  // Persist quality preference (long-term UX)
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('gvid_video_quality');
+      if (saved === '480p' || saved === '720p') {
+        setVideoQuality(saved);
+      }
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('gvid_video_quality', videoQuality);
+    } catch {}
+  }, [videoQuality]);
 
   const canProceed = () => {
     if (step === 0) return uploadedImages.length >= 2;
@@ -148,6 +166,7 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
       faceDescription,
       images: uploadedImages,
       audio: audioFile,
+      resolution: videoQuality,
     };
 
     try {
@@ -504,6 +523,42 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
               <div className="text-[#71717a]">Shot</div>
               <div className="font-medium">{selectedShot?.name || '—'}</div>
             </div>
+
+            {/* Quality / Resolution Toggle - Long term play for credit control */}
+            {step === 3 && (
+              <div>
+                <div className="text-[#71717a] mb-1.5">Quality</div>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setVideoQuality('480p')}
+                    className={`flex-1 rounded-xl border px-3 py-2 text-xs font-medium transition-all ${
+                      videoQuality === '480p'
+                        ? 'border-[#3b82f6] bg-[#3b82f6]/10 text-white'
+                        : 'border-[#262626] hover:border-white/30 text-[#a1a1aa]'
+                    }`}
+                  >
+                    480p
+                    <div className="text-[10px] opacity-60 mt-0.5">Faster • Saves credits</div>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setVideoQuality('720p')}
+                    className={`flex-1 rounded-xl border px-3 py-2 text-xs font-medium transition-all ${
+                      videoQuality === '720p'
+                        ? 'border-[#3b82f6] bg-[#3b82f6]/10 text-white'
+                        : 'border-[#262626] hover:border-white/30 text-[#a1a1aa]'
+                    }`}
+                  >
+                    720p
+                    <div className="text-[10px] opacity-60 mt-0.5">Recommended</div>
+                  </button>
+                </div>
+                <div className="text-[10px] text-[#71717a] mt-1.5 leading-tight">
+                  480p uses significantly fewer credits. Great for testing.
+                </div>
+              </div>
+            )}
           </div>
 
           {(message || session?.connected) && (

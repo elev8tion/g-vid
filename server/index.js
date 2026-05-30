@@ -259,7 +259,7 @@ app.post('/generate', upload.fields([
   { name: 'images', maxCount: 5 },
   { name: 'audio', maxCount: 1 }
 ]), async (req, res) => {
-  const { prompt, shotName, trimStart, trimDuration, faceDescription, sessionId } = req.body;
+  const { prompt, shotName, trimStart, trimDuration, faceDescription, sessionId, resolution: requestedResolution } = req.body;
 
   if (!sessionId) {
     return res.status(401).json({ error: 'session_id_required' });
@@ -321,6 +321,10 @@ app.post('/generate', upload.fields([
 
       const duration = Math.max(4, Math.min(12, parseInt(trimDuration || '8', 10) || 8));
 
+      // Validate + sanitize resolution from the UI Quality toggle
+      const allowedResolutions = ['480p', '720p', '1080p'];
+      const resolution = allowedResolutions.includes(requestedResolution) ? requestedResolution : '720p';
+
       // Start with the minimal payload that matches the working shape in this repo's own
       // xai-oauth-client (media.py generate_video). Extra fields like reference_images/audio
       // were causing 422 Unprocessable Entity with empty body from xAI.
@@ -329,7 +333,7 @@ app.post('/generate', upload.fields([
         negative_prompt: 'text, watermark, logo, UI, blurry, low quality, artifacts, deformed, jitter, face mismatch',
         aspect_ratio: '16:9',
         duration,
-        resolution: '1k', // matches the Python client's generate_video
+        resolution,
       };
 
       // === REFERENCE IMAGES + AUDIO FOR LIP-SYNC / CHARACTER CONSISTENCY ===
@@ -366,7 +370,8 @@ app.post('/generate', upload.fields([
         'audio_ref:', sendRefs && !!audioDataUri,
         'duration:', duration,
         'resolution:', xaiPayload.resolution,
-        sendRefs ? '(using structured image_url + audio_url refs)' : '(minimal payload only)');
+        sendRefs ? '(structured image_url + audio_url refs)' : '(minimal payload)',
+        `(user chose: ${requestedResolution || 'default'})`);
 
       const xaiRes = await fetch(VIDEO_GEN_URL, {
         method: 'POST',

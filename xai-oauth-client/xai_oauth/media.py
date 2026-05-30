@@ -37,8 +37,8 @@ IMAGE_MODELS = {
 # Supported aspect ratios
 ASPECT_RATIOS = ["1:1", "16:9", "9:16", "4:3", "3:4", "3:2", "2:3"]
 
-# Resolutions
-RESOLUTIONS = ["1k", "2k"]
+# Resolutions for video (the actual /videos/generations API uses these, not "1k"/"2k")
+RESOLUTIONS = ["480p", "720p", "1080p"]
 
 # Video durations (in seconds)
 VIDEO_DURATIONS = [4, 8, 12]
@@ -185,7 +185,7 @@ class XaiMediaClient:
         *,
         duration: int = 8,
         aspect_ratio: str = "16:9",
-        resolution: str = "1k",
+        resolution: str = "720p",   # "480p" | "720p" | "1080p" (NOT "1k"/"2k")
         motion_strength: Optional[float] = None,
         negative_prompt: Optional[str] = None,
     ) -> Dict[str, Any]:

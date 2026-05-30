@@ -46,6 +46,7 @@ interface GenerationPayload {
   faceDescription: string;
   images: { file: File }[];
   audio: File | null;
+  resolution?: '480p' | '720p';
 }
 
 interface GenerateResult {
@@ -376,6 +377,7 @@ function App() {
     formData.append('trimDuration', payload.trim.duration.toString());
     formData.append('faceDescription', payload.faceDescription);
     formData.append('sessionId', session.sessionId);
+    formData.append('resolution', payload.resolution || '720p');
     payload.images.forEach((image, index) => {
       formData.append('images', image.file, image.file.name || `photo-${index}.jpg`);
     });

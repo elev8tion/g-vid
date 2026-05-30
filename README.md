@@ -92,7 +92,7 @@ This is the correct, practical way to connect SuperGrok in 2026:
     "negative_prompt": "...",
     "aspect_ratio": "16:9",
     "duration": 8,
-    "resolution": "1k"
+    "resolution": "720p"   // or "480p" / "1080p"
   }
   ```
 - We **no longer send** `reference_images` / `audio` / `face_description` / `shot_name` by default — they produced 422 Unprocessable Entity (empty `{}` body).
@@ -106,6 +106,8 @@ This is the correct, practical way to connect SuperGrok in 2026:
   This is the correct shape used in production xAI tools for reference-conditioned video. The raw error body on any 422 will be fully logged so we can see exactly what xAI rejects.
 
 - **Success responses** handled: direct video URL shapes → `{ videoUrl }` to client, or async job id → our `/jobs/:id` poller.
+
+- New in UI: **Quality toggle** (480p / 720p) in the final review step. This directly controls the `resolution` sent to xAI and is the recommended long-term way to control credit usage. Default is 720p; preference is remembered in localStorage.
 
 #### Scopes & 422 debugging
 

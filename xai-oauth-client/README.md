@@ -53,7 +53,7 @@ print(result["url"])
 |----------------------|-----------|-------|
 | Image Generation     | Yes       | `grok-imagine-image`, quality mode |
 | Image Editing        | Partial   | Via `/images/edits` (if available) |
-| Video Generation     | Yes       | `/videos/generations` |
+| Video Generation     | Yes       | `/videos/generations` (resolution: 480p/720p/1080p) |
 | Audio (TTS)          | Planned   | Placeholder for future xAI support |
 | Custom Styles        | Yes       | Pass rich style descriptions |
 | Negative Prompts     | Yes       | Supported on image & video |
