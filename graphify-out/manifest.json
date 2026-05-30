@@ -80,9 +80,9 @@
     "semantic_hash": "6b5c4cb81230b2fed05f0216b775c0f5"
   },
   "/Users/kc/g-vid/server/index.js": {
-    "mtime": 1780125938.449669,
-    "ast_hash": "e774491b371addce8be2568a99f80602",
-    "semantic_hash": "e774491b371addce8be2568a99f80602"
+    "mtime": 1780130914.6211853,
+    "ast_hash": "a09869432922d32686dcbddc491a1990",
+    "semantic_hash": "a09869432922d32686dcbddc491a1990"
   },
   "/Users/kc/g-vid/server/package.json": {
     "mtime": 1779987137.1920729,
@@ -90,9 +90,9 @@
     "semantic_hash": "fb0a3fdbf959e9346b1bd3fbca34b6f4"
   },
   "/Users/kc/g-vid/xai-oauth-client/example_media.py": {
-    "mtime": 1780119613.1532774,
-    "ast_hash": "c3781469d8b27d6a70edd9b000ff47cd",
-    "semantic_hash": "c3781469d8b27d6a70edd9b000ff47cd"
+    "mtime": 1780128519.5596952,
+    "ast_hash": "512f74f839996f6942dcea5e616d9e87",
+    "semantic_hash": "512f74f839996f6942dcea5e616d9e87"
   },
   "/Users/kc/g-vid/xai-oauth-client/cli.py": {
     "mtime": 1780119613.1523101,
@@ -105,9 +105,9 @@
     "semantic_hash": "6a186199d4d1d9aec266b3f54cd87af6"
   },
   "/Users/kc/g-vid/xai-oauth-client/xai_oauth/media.py": {
-    "mtime": 1780119613.1815915,
-    "ast_hash": "bfc000d8e5c4eef1d723ba196ee834b7",
-    "semantic_hash": "bfc000d8e5c4eef1d723ba196ee834b7"
+    "mtime": 1780128533.7169464,
+    "ast_hash": "cf241541e8b4955d6549764f2a522836",
+    "semantic_hash": "cf241541e8b4955d6549764f2a522836"
   },
   "/Users/kc/g-vid/xai-oauth-client/xai_oauth/client.py": {
     "mtime": 1780119613.1555989,
@@ -135,9 +135,9 @@
     "semantic_hash": "76131411108bb87db17c10a26553d3dd"
   },
   "/Users/kc/g-vid/src/App.tsx": {
-    "mtime": 1780124231.4985201,
-    "ast_hash": "febe4dada66b33ad4f9cadd832ae7af5",
-    "semantic_hash": "febe4dada66b33ad4f9cadd832ae7af5"
+    "mtime": 1780128866.6875248,
+    "ast_hash": "c6b73fa81669e1f5a5766324a47110ba",
+    "semantic_hash": "c6b73fa81669e1f5a5766324a47110ba"
   },
   "/Users/kc/g-vid/src/main.tsx": {
     "mtime": 1780019240.707252,
@@ -145,9 +145,9 @@
     "semantic_hash": "787e5a07efeb2bf6209d5937195f2f68"
   },
   "/Users/kc/g-vid/src/components/Studio.tsx": {
-    "mtime": 1780058437.8653724,
-    "ast_hash": "b582f8d1b600c79ea7e0aeb589774b4d",
-    "semantic_hash": "b582f8d1b600c79ea7e0aeb589774b4d"
+    "mtime": 1780128855.7191324,
+    "ast_hash": "09cdcc42b3a11668e09cdf00d1c13632",
+    "semantic_hash": "09cdcc42b3a11668e09cdf00d1c13632"
   },
   "/Users/kc/g-vid/src/components/TopNav.tsx": {
     "mtime": 1780111640.333638,

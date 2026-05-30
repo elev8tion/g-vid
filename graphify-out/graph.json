@@ -8,7 +8,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L1",
-      "community": 6,
+      "community": 7,
       "norm_label": "tsconfig.node.json",
       "id": "tsconfig_node_json"
     },
@@ -17,7 +17,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L2",
-      "community": 6,
+      "community": 7,
       "norm_label": "compileroptions",
       "id": "g_vid_tsconfig_node_compileroptions"
     },
@@ -26,7 +26,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L3",
-      "community": 6,
+      "community": 7,
       "norm_label": "tsbuildinfofile",
       "id": "g_vid_tsconfig_node_compileroptions_tsbuildinfofile"
     },
@@ -35,7 +35,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L4",
-      "community": 6,
+      "community": 7,
       "norm_label": "target",
       "id": "g_vid_tsconfig_node_compileroptions_target"
     },
@@ -44,7 +44,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L5",
-      "community": 6,
+      "community": 7,
       "norm_label": "lib",
       "id": "g_vid_tsconfig_node_compileroptions_lib"
     },
@@ -53,7 +53,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L6",
-      "community": 6,
+      "community": 7,
       "norm_label": "module",
       "id": "g_vid_tsconfig_node_compileroptions_module"
     },
@@ -62,7 +62,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L7",
-      "community": 6,
+      "community": 7,
       "norm_label": "types",
       "id": "g_vid_tsconfig_node_compileroptions_types"
     },
@@ -71,7 +71,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L8",
-      "community": 6,
+      "community": 7,
       "norm_label": "skiplibcheck",
       "id": "g_vid_tsconfig_node_compileroptions_skiplibcheck"
     },
@@ -80,7 +80,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L11",
-      "community": 6,
+      "community": 7,
       "norm_label": "moduleresolution",
       "id": "g_vid_tsconfig_node_compileroptions_moduleresolution"
     },
@@ -89,7 +89,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L12",
-      "community": 6,
+      "community": 7,
       "norm_label": "allowimportingtsextensions",
       "id": "g_vid_tsconfig_node_compileroptions_allowimportingtsextensions"
     },
@@ -98,7 +98,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L13",
-      "community": 6,
+      "community": 7,
       "norm_label": "verbatimmodulesyntax",
       "id": "g_vid_tsconfig_node_compileroptions_verbatimmodulesyntax"
     },
@@ -107,7 +107,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L14",
-      "community": 6,
+      "community": 7,
       "norm_label": "moduledetection",
       "id": "g_vid_tsconfig_node_compileroptions_moduledetection"
     },
@@ -116,7 +116,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L15",
-      "community": 6,
+      "community": 7,
       "norm_label": "noemit",
       "id": "g_vid_tsconfig_node_compileroptions_noemit"
     },
@@ -125,7 +125,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L18",
-      "community": 6,
+      "community": 7,
       "norm_label": "nounusedlocals",
       "id": "g_vid_tsconfig_node_compileroptions_nounusedlocals"
     },
@@ -134,7 +134,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L19",
-      "community": 6,
+      "community": 7,
       "norm_label": "nounusedparameters",
       "id": "g_vid_tsconfig_node_compileroptions_nounusedparameters"
     },
@@ -143,7 +143,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L20",
-      "community": 6,
+      "community": 7,
       "norm_label": "erasablesyntaxonly",
       "id": "g_vid_tsconfig_node_compileroptions_erasablesyntaxonly"
     },
@@ -152,7 +152,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L21",
-      "community": 6,
+      "community": 7,
       "norm_label": "nofallthroughcasesinswitch",
       "id": "g_vid_tsconfig_node_compileroptions_nofallthroughcasesinswitch"
     },
@@ -161,7 +161,7 @@
       "file_type": "code",
       "source_file": "tsconfig.node.json",
       "source_location": "L23",
-      "community": 6,
+      "community": 7,
       "norm_label": "include",
       "id": "g_vid_tsconfig_node_include"
     },
@@ -170,7 +170,7 @@
       "file_type": "code",
       "source_file": ".tmp-playwright-dom.mjs",
       "source_location": "L1",
-      "community": 21,
+      "community": 20,
       "norm_label": ".tmp-playwright-dom.mjs",
       "id": "tmp_playwright_dom_mjs"
     },
@@ -179,7 +179,7 @@
       "file_type": "code",
       "source_file": "tailwind.config.js",
       "source_location": "L1",
-      "community": 22,
+      "community": 21,
       "norm_label": "tailwind.config.js",
       "id": "tailwind_config_js"
     },
@@ -188,7 +188,7 @@
       "file_type": "code",
       "source_file": ".tmp-playwright-box.mjs",
       "source_location": "L1",
-      "community": 23,
+      "community": 22,
       "norm_label": ".tmp-playwright-box.mjs",
       "id": "tmp_playwright_box_mjs"
     },
@@ -197,7 +197,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L1",
-      "community": 5,
+      "community": 6,
       "norm_label": "tsconfig.app.json",
       "id": "tsconfig_app_json"
     },
@@ -206,7 +206,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L2",
-      "community": 5,
+      "community": 6,
       "norm_label": "compileroptions",
       "id": "g_vid_tsconfig_app_compileroptions"
     },
@@ -215,7 +215,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L3",
-      "community": 5,
+      "community": 6,
       "norm_label": "tsbuildinfofile",
       "id": "g_vid_tsconfig_app_compileroptions_tsbuildinfofile"
     },
@@ -224,7 +224,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L4",
-      "community": 5,
+      "community": 6,
       "norm_label": "target",
       "id": "g_vid_tsconfig_app_compileroptions_target"
     },
@@ -233,7 +233,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L5",
-      "community": 5,
+      "community": 6,
       "norm_label": "lib",
       "id": "g_vid_tsconfig_app_compileroptions_lib"
     },
@@ -242,7 +242,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L6",
-      "community": 5,
+      "community": 6,
       "norm_label": "module",
       "id": "g_vid_tsconfig_app_compileroptions_module"
     },
@@ -251,7 +251,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L7",
-      "community": 5,
+      "community": 6,
       "norm_label": "types",
       "id": "g_vid_tsconfig_app_compileroptions_types"
     },
@@ -260,7 +260,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L8",
-      "community": 5,
+      "community": 6,
       "norm_label": "skiplibcheck",
       "id": "g_vid_tsconfig_app_compileroptions_skiplibcheck"
     },
@@ -269,7 +269,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L11",
-      "community": 5,
+      "community": 6,
       "norm_label": "moduleresolution",
       "id": "g_vid_tsconfig_app_compileroptions_moduleresolution"
     },
@@ -278,7 +278,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L12",
-      "community": 5,
+      "community": 6,
       "norm_label": "allowimportingtsextensions",
       "id": "g_vid_tsconfig_app_compileroptions_allowimportingtsextensions"
     },
@@ -287,7 +287,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L13",
-      "community": 5,
+      "community": 6,
       "norm_label": "verbatimmodulesyntax",
       "id": "g_vid_tsconfig_app_compileroptions_verbatimmodulesyntax"
     },
@@ -296,7 +296,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L14",
-      "community": 5,
+      "community": 6,
       "norm_label": "moduledetection",
       "id": "g_vid_tsconfig_app_compileroptions_moduledetection"
     },
@@ -305,7 +305,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L15",
-      "community": 5,
+      "community": 6,
       "norm_label": "noemit",
       "id": "g_vid_tsconfig_app_compileroptions_noemit"
     },
@@ -314,7 +314,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L16",
-      "community": 5,
+      "community": 6,
       "norm_label": "jsx",
       "id": "g_vid_tsconfig_app_compileroptions_jsx"
     },
@@ -323,7 +323,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L19",
-      "community": 5,
+      "community": 6,
       "norm_label": "nounusedlocals",
       "id": "g_vid_tsconfig_app_compileroptions_nounusedlocals"
     },
@@ -332,7 +332,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L20",
-      "community": 5,
+      "community": 6,
       "norm_label": "nounusedparameters",
       "id": "g_vid_tsconfig_app_compileroptions_nounusedparameters"
     },
@@ -341,7 +341,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L21",
-      "community": 5,
+      "community": 6,
       "norm_label": "erasablesyntaxonly",
       "id": "g_vid_tsconfig_app_compileroptions_erasablesyntaxonly"
     },
@@ -350,7 +350,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L22",
-      "community": 5,
+      "community": 6,
       "norm_label": "nofallthroughcasesinswitch",
       "id": "g_vid_tsconfig_app_compileroptions_nofallthroughcasesinswitch"
     },
@@ -359,7 +359,7 @@
       "file_type": "code",
       "source_file": "tsconfig.app.json",
       "source_location": "L24",
-      "community": 5,
+      "community": 6,
       "norm_label": "include",
       "id": "g_vid_tsconfig_app_include"
     },
@@ -386,7 +386,7 @@
       "file_type": "code",
       "source_file": ".tmp-playwright.mjs",
       "source_location": "L1",
-      "community": 24,
+      "community": 23,
       "norm_label": ".tmp-playwright.mjs",
       "id": "tmp_playwright_mjs"
     },
@@ -395,7 +395,7 @@
       "file_type": "code",
       "source_file": ".tmp-playwright-studio-element.mjs",
       "source_location": "L1",
-      "community": 15,
+      "community": 17,
       "norm_label": ".tmp-playwright-studio-element.mjs",
       "id": "tmp_playwright_studio_element_mjs"
     },
@@ -404,7 +404,7 @@
       "file_type": "code",
       "source_file": ".tmp-playwright-studio-element.mjs",
       "source_location": "L8",
-      "community": 15,
+      "community": 17,
       "norm_label": "studio",
       "id": "g_vid_tmp_playwright_studio_element_studio"
     },
@@ -413,7 +413,7 @@
       "file_type": "code",
       "source_file": ".tmp-playwright-snap.mjs",
       "source_location": "L1",
-      "community": 25,
+      "community": 24,
       "norm_label": ".tmp-playwright-snap.mjs",
       "id": "tmp_playwright_snap_mjs"
     },
@@ -467,7 +467,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L1",
-      "community": 1,
+      "community": 4,
       "norm_label": "package.json",
       "id": "package_json"
     },
@@ -476,7 +476,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L2",
-      "community": 1,
+      "community": 4,
       "norm_label": "name",
       "id": "g_vid_package_name"
     },
@@ -485,7 +485,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L3",
-      "community": 1,
+      "community": 4,
       "norm_label": "private",
       "id": "g_vid_package_private"
     },
@@ -494,7 +494,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L4",
-      "community": 1,
+      "community": 4,
       "norm_label": "version",
       "id": "g_vid_package_version"
     },
@@ -503,7 +503,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L5",
-      "community": 1,
+      "community": 4,
       "norm_label": "type",
       "id": "g_vid_package_type"
     },
@@ -512,7 +512,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L6",
-      "community": 9,
+      "community": 4,
       "norm_label": "scripts",
       "id": "g_vid_package_scripts"
     },
@@ -521,7 +521,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L7",
-      "community": 9,
+      "community": 4,
       "norm_label": "dev",
       "id": "g_vid_package_scripts_dev"
     },
@@ -530,7 +530,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L8",
-      "community": 9,
+      "community": 4,
       "norm_label": "dev:5175",
       "id": "g_vid_package_scripts_dev_5175"
     },
@@ -539,7 +539,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L9",
-      "community": 9,
+      "community": 4,
       "norm_label": "build",
       "id": "g_vid_package_scripts_build"
     },
@@ -548,7 +548,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L10",
-      "community": 9,
+      "community": 4,
       "norm_label": "lint",
       "id": "g_vid_package_scripts_lint"
     },
@@ -557,7 +557,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L11",
-      "community": 9,
+      "community": 4,
       "norm_label": "preview",
       "id": "g_vid_package_scripts_preview"
     },
@@ -566,7 +566,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L12",
-      "community": 9,
+      "community": 4,
       "norm_label": "prod",
       "id": "g_vid_package_scripts_prod"
     },
@@ -575,7 +575,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L13",
-      "community": 9,
+      "community": 4,
       "norm_label": "server",
       "id": "g_vid_package_scripts_server"
     },
@@ -584,7 +584,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L14",
-      "community": 9,
+      "community": 4,
       "norm_label": "up",
       "id": "g_vid_package_scripts_up"
     },
@@ -593,7 +593,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L16",
-      "community": 1,
+      "community": 4,
       "norm_label": "dependencies",
       "id": "g_vid_package_dependencies"
     },
@@ -602,7 +602,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L17",
-      "community": 1,
+      "community": 4,
       "norm_label": "framer-motion",
       "id": "g_vid_package_dependencies_framer_motion"
     },
@@ -611,7 +611,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L18",
-      "community": 1,
+      "community": 4,
       "norm_label": "lucide-react",
       "id": "g_vid_package_dependencies_lucide_react"
     },
@@ -620,7 +620,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L19",
-      "community": 1,
+      "community": 4,
       "norm_label": "react",
       "id": "g_vid_package_dependencies_react"
     },
@@ -629,7 +629,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L20",
-      "community": 1,
+      "community": 4,
       "norm_label": "react-dom",
       "id": "g_vid_package_dependencies_react_dom"
     },
@@ -638,7 +638,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L21",
-      "community": 1,
+      "community": 4,
       "norm_label": "react-hot-toast",
       "id": "g_vid_package_dependencies_react_hot_toast"
     },
@@ -647,7 +647,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L22",
-      "community": 1,
+      "community": 4,
       "norm_label": "sonner",
       "id": "g_vid_package_dependencies_sonner"
     },
@@ -656,7 +656,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L24",
-      "community": 1,
+      "community": 8,
       "norm_label": "devdependencies",
       "id": "g_vid_package_devdependencies"
     },
@@ -665,7 +665,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L25",
-      "community": 1,
+      "community": 8,
       "norm_label": "@eslint/js",
       "id": "g_vid_package_devdependencies_eslint_js"
     },
@@ -674,7 +674,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L26",
-      "community": 1,
+      "community": 8,
       "norm_label": "@tailwindcss/postcss",
       "id": "g_vid_package_devdependencies_tailwindcss_postcss"
     },
@@ -683,7 +683,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L27",
-      "community": 1,
+      "community": 8,
       "norm_label": "@types/node",
       "id": "g_vid_package_devdependencies_types_node"
     },
@@ -692,7 +692,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L28",
-      "community": 1,
+      "community": 8,
       "norm_label": "@types/react",
       "id": "g_vid_package_devdependencies_types_react"
     },
@@ -701,7 +701,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L30",
-      "community": 1,
+      "community": 8,
       "norm_label": "@vitejs/plugin-react",
       "id": "g_vid_package_devdependencies_vitejs_plugin_react"
     },
@@ -710,7 +710,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L31",
-      "community": 1,
+      "community": 8,
       "norm_label": "autoprefixer",
       "id": "g_vid_package_devdependencies_autoprefixer"
     },
@@ -719,7 +719,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L32",
-      "community": 1,
+      "community": 8,
       "norm_label": "concurrently",
       "id": "g_vid_package_devdependencies_concurrently"
     },
@@ -728,7 +728,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L33",
-      "community": 1,
+      "community": 8,
       "norm_label": "eslint",
       "id": "g_vid_package_devdependencies_eslint"
     },
@@ -737,7 +737,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L34",
-      "community": 1,
+      "community": 8,
       "norm_label": "eslint-plugin-react-hooks",
       "id": "g_vid_package_devdependencies_eslint_plugin_react_hooks"
     },
@@ -746,7 +746,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L35",
-      "community": 1,
+      "community": 8,
       "norm_label": "eslint-plugin-react-refresh",
       "id": "g_vid_package_devdependencies_eslint_plugin_react_refresh"
     },
@@ -755,7 +755,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L36",
-      "community": 1,
+      "community": 8,
       "norm_label": "globals",
       "id": "g_vid_package_devdependencies_globals"
     },
@@ -764,7 +764,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L37",
-      "community": 1,
+      "community": 8,
       "norm_label": "playwright",
       "id": "g_vid_package_devdependencies_playwright"
     },
@@ -773,7 +773,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L38",
-      "community": 1,
+      "community": 8,
       "norm_label": "postcss",
       "id": "g_vid_package_devdependencies_postcss"
     },
@@ -782,7 +782,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L39",
-      "community": 1,
+      "community": 8,
       "norm_label": "tailwindcss",
       "id": "g_vid_package_devdependencies_tailwindcss"
     },
@@ -791,7 +791,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L40",
-      "community": 1,
+      "community": 8,
       "norm_label": "typescript",
       "id": "g_vid_package_devdependencies_typescript"
     },
@@ -800,7 +800,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L41",
-      "community": 1,
+      "community": 8,
       "norm_label": "typescript-eslint",
       "id": "g_vid_package_devdependencies_typescript_eslint"
     },
@@ -809,7 +809,7 @@
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L42",
-      "community": 1,
+      "community": 8,
       "norm_label": "vite",
       "id": "g_vid_package_devdependencies_vite"
     },
@@ -818,7 +818,7 @@
       "file_type": "code",
       "source_file": "tsconfig.json",
       "source_location": "L1",
-      "community": 12,
+      "community": 14,
       "norm_label": "tsconfig.json",
       "id": "tsconfig_json"
     },
@@ -827,7 +827,7 @@
       "file_type": "code",
       "source_file": "tsconfig.json",
       "source_location": "L2",
-      "community": 12,
+      "community": 14,
       "norm_label": "files",
       "id": "g_vid_tsconfig_files"
     },
@@ -836,7 +836,7 @@
       "file_type": "code",
       "source_file": "tsconfig.json",
       "source_location": "L3",
-      "community": 12,
+      "community": 14,
       "norm_label": "references",
       "id": "g_vid_tsconfig_references"
     },
@@ -845,7 +845,7 @@
       "file_type": "code",
       "source_file": "eslint.config.js",
       "source_location": "L1",
-      "community": 26,
+      "community": 25,
       "norm_label": "eslint.config.js",
       "id": "eslint_config_js"
     },
@@ -854,7 +854,7 @@
       "file_type": "code",
       "source_file": "vite.config.ts",
       "source_location": "L1",
-      "community": 27,
+      "community": 26,
       "norm_label": "vite.config.ts",
       "id": "vite_config_ts"
     },
@@ -863,7 +863,7 @@
       "file_type": "code",
       "source_file": "postcss.config.js",
       "source_location": "L1",
-      "community": 28,
+      "community": 27,
       "norm_label": "postcss.config.js",
       "id": "postcss_config_js"
     },
@@ -872,7 +872,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L1",
-      "community": 8,
+      "community": 5,
       "norm_label": "index.js",
       "id": "server_index_js"
     },
@@ -881,7 +881,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L23",
-      "community": 8,
+      "community": 5,
       "norm_label": "app",
       "id": "server_index_app"
     },
@@ -890,7 +890,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L30",
-      "community": 8,
+      "community": 5,
       "norm_label": "upload",
       "id": "server_index_upload"
     },
@@ -899,7 +899,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L35",
-      "community": 8,
+      "community": 5,
       "norm_label": "tokenstore",
       "id": "server_index_tokenstore"
     },
@@ -908,7 +908,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L36",
-      "community": 8,
+      "community": 5,
       "norm_label": "deviceflowstore",
       "id": "server_index_deviceflowstore"
     },
@@ -917,7 +917,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L37",
-      "community": 8,
+      "community": 5,
       "norm_label": "jobstore",
       "id": "server_index_jobstore"
     },
@@ -926,7 +926,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L53",
-      "community": 8,
+      "community": 5,
       "norm_label": "dorefresh()",
       "id": "server_index_dorefresh"
     },
@@ -935,7 +935,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L85",
-      "community": 8,
+      "community": 5,
       "norm_label": "getvalidtoken()",
       "id": "server_index_getvalidtoken"
     },
@@ -944,7 +944,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L116",
-      "community": 8,
+      "community": 5,
       "norm_label": "body",
       "id": "server_index_body"
     },
@@ -953,7 +953,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L166",
-      "community": 8,
+      "community": 5,
       "norm_label": "flow",
       "id": "server_index_flow"
     },
@@ -962,7 +962,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L291",
-      "community": 8,
+      "community": 5,
       "norm_label": "cleanup()",
       "id": "server_index_cleanup"
     },
@@ -971,7 +971,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L298",
-      "community": 2,
+      "community": 1,
       "norm_label": "referenceimages",
       "id": "server_index_referenceimages"
     },
@@ -980,7 +980,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L301",
-      "community": 8,
+      "community": 5,
       "norm_label": "buf",
       "id": "server_index_buf"
     },
@@ -989,7 +989,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L321",
-      "community": 8,
+      "community": 5,
       "norm_label": "duration",
       "id": "server_index_duration"
     },
@@ -998,7 +998,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L323",
-      "community": 8,
+      "community": 5,
       "norm_label": "xaipayload",
       "id": "server_index_xaipayload"
     },
@@ -1007,7 +1007,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L348",
-      "community": 8,
+      "community": 5,
       "norm_label": "xaidata",
       "id": "server_index_xaidata"
     },
@@ -1016,7 +1016,7 @@
       "file_type": "code",
       "source_file": "server/index.js",
       "source_location": "L421",
-      "community": 8,
+      "community": 5,
       "norm_label": "job",
       "id": "server_index_job"
     },
@@ -1025,7 +1025,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L1",
-      "community": 7,
+      "community": 9,
       "norm_label": "package.json",
       "id": "server_package_json"
     },
@@ -1034,7 +1034,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L2",
-      "community": 7,
+      "community": 9,
       "norm_label": "name",
       "id": "server_package_name"
     },
@@ -1043,7 +1043,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L3",
-      "community": 7,
+      "community": 9,
       "norm_label": "version",
       "id": "server_package_version"
     },
@@ -1052,7 +1052,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L4",
-      "community": 7,
+      "community": 9,
       "norm_label": "description",
       "id": "server_package_description"
     },
@@ -1061,7 +1061,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L5",
-      "community": 7,
+      "community": 9,
       "norm_label": "main",
       "id": "server_package_main"
     },
@@ -1070,7 +1070,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L6",
-      "community": 7,
+      "community": 9,
       "norm_label": "scripts",
       "id": "server_package_scripts"
     },
@@ -1079,7 +1079,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L7",
-      "community": 7,
+      "community": 9,
       "norm_label": "start",
       "id": "server_package_scripts_start"
     },
@@ -1088,7 +1088,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L8",
-      "community": 7,
+      "community": 9,
       "norm_label": "dev",
       "id": "server_package_scripts_dev"
     },
@@ -1097,7 +1097,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L10",
-      "community": 7,
+      "community": 9,
       "norm_label": "type",
       "id": "server_package_type"
     },
@@ -1106,7 +1106,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L11",
-      "community": 7,
+      "community": 9,
       "norm_label": "keywords",
       "id": "server_package_keywords"
     },
@@ -1115,7 +1115,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L12",
-      "community": 7,
+      "community": 9,
       "norm_label": "author",
       "id": "server_package_author"
     },
@@ -1124,7 +1124,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L13",
-      "community": 7,
+      "community": 9,
       "norm_label": "license",
       "id": "server_package_license"
     },
@@ -1133,7 +1133,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L14",
-      "community": 7,
+      "community": 9,
       "norm_label": "dependencies",
       "id": "server_package_dependencies"
     },
@@ -1142,7 +1142,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L15",
-      "community": 7,
+      "community": 9,
       "norm_label": "cors",
       "id": "server_package_dependencies_cors"
     },
@@ -1151,7 +1151,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L16",
-      "community": 7,
+      "community": 9,
       "norm_label": "dotenv",
       "id": "server_package_dependencies_dotenv"
     },
@@ -1160,7 +1160,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L17",
-      "community": 7,
+      "community": 9,
       "norm_label": "express",
       "id": "server_package_dependencies_express"
     },
@@ -1169,7 +1169,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L18",
-      "community": 7,
+      "community": 9,
       "norm_label": "multer",
       "id": "server_package_dependencies_multer"
     },
@@ -1178,7 +1178,7 @@
       "file_type": "code",
       "source_file": "server/package.json",
       "source_location": "L19",
-      "community": 7,
+      "community": 9,
       "norm_label": "node-fetch",
       "id": "server_package_dependencies_node_fetch"
     },
@@ -1187,7 +1187,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/example_media.py",
       "source_location": "L1",
-      "community": 3,
+      "community": 0,
       "norm_label": "example_media.py",
       "id": "xai_oauth_client_example_media_py"
     },
@@ -1196,7 +1196,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/example_media.py",
       "source_location": "L9",
-      "community": 3,
+      "community": 0,
       "norm_label": "main()",
       "id": "xai_oauth_client_example_media_main"
     },
@@ -1205,7 +1205,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/example_media.py",
       "source_location": "L1",
-      "community": 3,
+      "community": 0,
       "norm_label": "advanced media generation example using xai oauth  this demonstrates the flexibl",
       "id": "xai_oauth_client_example_media_rationale_1"
     },
@@ -1232,7 +1232,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/example.py",
       "source_location": "L1",
-      "community": 14,
+      "community": 15,
       "norm_label": "example.py",
       "id": "xai_oauth_client_example_py"
     },
@@ -1241,7 +1241,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/example.py",
       "source_location": "L6",
-      "community": 14,
+      "community": 15,
       "norm_label": "main()",
       "id": "xai_oauth_client_example_main"
     },
@@ -1250,7 +1250,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/example.py",
       "source_location": "L1",
-      "community": 14,
+      "community": 15,
       "norm_label": "example usage of the xai oauth client.",
       "id": "xai_oauth_client_example_rationale_1"
     },
@@ -1268,7 +1268,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L47",
-      "community": 3,
+      "community": 0,
       "norm_label": "xaimediaclient",
       "id": "xai_oauth_media_xaimediaclient"
     },
@@ -1277,7 +1277,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L59",
-      "community": 3,
+      "community": 0,
       "norm_label": ".__init__()",
       "id": "xai_oauth_media_xaimediaclient_init"
     },
@@ -1286,7 +1286,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L59",
-      "community": 3,
+      "community": 0,
       "norm_label": "xaioauthclient",
       "id": "xaioauthclient"
     },
@@ -1295,25 +1295,16 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L63",
-      "community": 3,
+      "community": 0,
       "norm_label": "._get_headers()",
       "id": "xai_oauth_media_xaimediaclient_get_headers"
-    },
-    {
-      "label": "str",
-      "file_type": "code",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L63",
-      "community": 3,
-      "norm_label": "str",
-      "id": "xai_oauth_client_xai_oauth_media_py_str"
     },
     {
       "label": ".generate_image()",
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L75",
-      "community": 3,
+      "community": 0,
       "norm_label": ".generate_image()",
       "id": "xai_oauth_media_xaimediaclient_generate_image"
     },
@@ -1322,52 +1313,25 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L75",
-      "community": 3,
+      "community": 0,
       "norm_label": "int",
       "id": "int"
-    },
-    {
-      "label": "bool",
-      "file_type": "code",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L75",
-      "community": 3,
-      "norm_label": "bool",
-      "id": "xai_oauth_client_xai_oauth_media_py_bool"
-    },
-    {
-      "label": "Any",
-      "file_type": "code",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L75",
-      "community": 3,
-      "norm_label": "any",
-      "id": "xai_oauth_client_xai_oauth_media_py_any"
     },
     {
       "label": ".edit_image()",
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L142",
-      "community": 3,
+      "community": 0,
       "norm_label": ".edit_image()",
       "id": "xai_oauth_media_xaimediaclient_edit_image"
-    },
-    {
-      "label": "float",
-      "file_type": "code",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L142",
-      "community": 3,
-      "norm_label": "float",
-      "id": "xai_oauth_client_xai_oauth_media_py_float"
     },
     {
       "label": ".generate_video()",
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L182",
-      "community": 3,
+      "community": 0,
       "norm_label": ".generate_video()",
       "id": "xai_oauth_media_xaimediaclient_generate_video"
     },
@@ -1376,7 +1340,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L228",
-      "community": 3,
+      "community": 0,
       "norm_label": ".generate_audio()",
       "id": "xai_oauth_media_xaimediaclient_generate_audio"
     },
@@ -1385,7 +1349,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L242",
-      "community": 3,
+      "community": 0,
       "norm_label": "._enhance_prompt_if_requested()",
       "id": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested"
     },
@@ -1394,7 +1358,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L254",
-      "community": 3,
+      "community": 0,
       "norm_label": ".close()",
       "id": "xai_oauth_media_xaimediaclient_close"
     },
@@ -1412,7 +1376,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L48",
-      "community": 3,
+      "community": 0,
       "norm_label": "flexible and powerful media generation client for xai.      designed to be highl",
       "id": "xai_oauth_media_rationale_48"
     },
@@ -1421,7 +1385,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L87",
-      "community": 3,
+      "community": 0,
       "norm_label": "generate an image using xai's grok imagine.          this method is highly custo",
       "id": "xai_oauth_media_rationale_87"
     },
@@ -1430,7 +1394,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L151",
-      "community": 3,
+      "community": 0,
       "norm_label": "image editing / img2img using xai.         note: support depends on xai's curren",
       "id": "xai_oauth_media_rationale_151"
     },
@@ -1439,7 +1403,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L192",
-      "community": 3,
+      "community": 0,
       "norm_label": "generate video using xai's video generation endpoint.         highly customizabl",
       "id": "xai_oauth_media_rationale_192"
     },
@@ -1448,7 +1412,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L229",
-      "community": 3,
+      "community": 0,
       "norm_label": "placeholder for audio generation.         xai may add tts in the future. current",
       "id": "xai_oauth_media_rationale_229"
     },
@@ -1457,7 +1421,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
       "source_location": "L243",
-      "community": 3,
+      "community": 0,
       "norm_label": "optionally lets grok itself improve the prompt for better results.         this",
       "id": "xai_oauth_media_rationale_243"
     },
@@ -1466,7 +1430,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 2,
       "norm_label": "client.py",
       "id": "xai_oauth_client_xai_oauth_client_py"
     },
@@ -1475,7 +1439,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L27",
-      "community": 0,
+      "community": 3,
       "norm_label": "xaioautherror",
       "id": "xai_oauth_client_xaioautherror"
     },
@@ -1484,7 +1448,7 @@
       "file_type": "code",
       "source_file": "",
       "source_location": "",
-      "community": 0,
+      "community": 3,
       "norm_label": "exception",
       "id": "exception"
     },
@@ -1493,7 +1457,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L31",
-      "community": 0,
+      "community": 3,
       "norm_label": "_discover()",
       "id": "xai_oauth_client_discover"
     },
@@ -1502,7 +1466,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L31",
-      "community": 0,
+      "community": 3,
       "norm_label": "str",
       "id": "xai_oauth_client_xai_oauth_client_py_str"
     },
@@ -1511,7 +1475,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L42",
-      "community": 0,
+      "community": 3,
       "norm_label": "_pkce_verifier()",
       "id": "xai_oauth_client_pkce_verifier"
     },
@@ -1520,7 +1484,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L47",
-      "community": 0,
+      "community": 3,
       "norm_label": "_pkce_challenge()",
       "id": "xai_oauth_client_pkce_challenge"
     },
@@ -1565,7 +1529,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L68",
-      "community": 0,
+      "community": 3,
       "norm_label": "_start_callback_server()",
       "id": "xai_oauth_client_start_callback_server"
     },
@@ -1574,7 +1538,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L68",
-      "community": 0,
+      "community": 3,
       "norm_label": "httpserver",
       "id": "httpserver"
     },
@@ -1583,7 +1547,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L68",
-      "community": 0,
+      "community": 3,
       "norm_label": "thread",
       "id": "thread"
     },
@@ -1592,7 +1556,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L77",
-      "community": 0,
+      "community": 3,
       "norm_label": "_wait_for_callback()",
       "id": "xai_oauth_client_wait_for_callback"
     },
@@ -1601,7 +1565,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L77",
-      "community": 0,
+      "community": 3,
       "norm_label": "float",
       "id": "xai_oauth_client_xai_oauth_client_py_float"
     },
@@ -1619,7 +1583,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L91",
-      "community": 4,
+      "community": 2,
       "norm_label": ".__init__()",
       "id": "xai_oauth_client_xaioauthclient_init"
     },
@@ -1628,7 +1592,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L96",
-      "community": 0,
+      "community": 3,
       "norm_label": ".access_token()",
       "id": "xai_oauth_client_xaioauthclient_access_token"
     },
@@ -1637,7 +1601,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L100",
-      "community": 0,
+      "community": 3,
       "norm_label": ".is_authenticated()",
       "id": "xai_oauth_client_xaioauthclient_is_authenticated"
     },
@@ -1646,7 +1610,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L100",
-      "community": 0,
+      "community": 3,
       "norm_label": "bool",
       "id": "xai_oauth_client_xai_oauth_client_py_bool"
     },
@@ -1655,7 +1619,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L103",
-      "community": 0,
+      "community": 3,
       "norm_label": ".login()",
       "id": "xai_oauth_client_xaioauthclient_login"
     },
@@ -1664,7 +1628,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L179",
-      "community": 0,
+      "community": 3,
       "norm_label": ".refresh()",
       "id": "xai_oauth_client_xaioauthclient_refresh"
     },
@@ -1673,7 +1637,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L209",
-      "community": 0,
+      "community": 3,
       "norm_label": ".ensure_valid_token()",
       "id": "xai_oauth_client_xaioauthclient_ensure_valid_token"
     },
@@ -1682,7 +1646,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L223",
-      "community": 0,
+      "community": 3,
       "norm_label": ".get_auth_header()",
       "id": "xai_oauth_client_xaioauthclient_get_auth_header"
     },
@@ -1691,7 +1655,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 2,
       "norm_label": "main xai oauth client (pkce flow + refresh).",
       "id": "xai_oauth_client_rationale_1"
     },
@@ -1700,7 +1664,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L28",
-      "community": 0,
+      "community": 3,
       "norm_label": "custom exception for xai oauth errors.",
       "id": "xai_oauth_client_rationale_28"
     },
@@ -1709,7 +1673,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L32",
-      "community": 0,
+      "community": 3,
       "norm_label": "fetch openid configuration.",
       "id": "xai_oauth_client_rationale_32"
     },
@@ -1727,7 +1691,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L104",
-      "community": 0,
+      "community": 3,
       "norm_label": "perform the full oauth login flow.",
       "id": "xai_oauth_client_rationale_104"
     },
@@ -1736,7 +1700,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L180",
-      "community": 0,
+      "community": 3,
       "norm_label": "refresh the access token using the refresh token.",
       "id": "xai_oauth_client_rationale_180"
     },
@@ -1745,7 +1709,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/client.py",
       "source_location": "L210",
-      "community": 0,
+      "community": 3,
       "norm_label": "make sure we have a valid, non-expired access token.",
       "id": "xai_oauth_client_rationale_210"
     },
@@ -1754,7 +1718,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/constants.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 2,
       "norm_label": "constants.py",
       "id": "xai_oauth_client_xai_oauth_constants_py"
     },
@@ -1763,7 +1727,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/constants.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 2,
       "norm_label": "constants for xai oauth (matching hermes implementation).",
       "id": "xai_oauth_constants_rationale_1"
     },
@@ -1772,7 +1736,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/__init__.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 2,
       "norm_label": "__init__.py",
       "id": "xai_oauth_client_xai_oauth_init_py"
     },
@@ -1781,7 +1745,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/__init__.py",
       "source_location": "L1",
-      "community": 0,
+      "community": 2,
       "norm_label": "xai oauth client package with rich media generation support.",
       "id": "xai_oauth_init_rationale_1"
     },
@@ -1790,7 +1754,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/cli.py",
       "source_location": "L1",
-      "community": 4,
+      "community": 2,
       "norm_label": "cli.py",
       "id": "xai_oauth_client_xai_oauth_cli_py"
     },
@@ -1799,7 +1763,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/cli.py",
       "source_location": "L10",
-      "community": 4,
+      "community": 2,
       "norm_label": "main()",
       "id": "xai_oauth_cli_main"
     },
@@ -1808,7 +1772,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/cli.py",
       "source_location": "L1",
-      "community": 4,
+      "community": 2,
       "norm_label": "cli entry point for xai-oauth-client.",
       "id": "xai_oauth_cli_rationale_1"
     },
@@ -1817,7 +1781,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L1",
-      "community": 4,
+      "community": 2,
       "norm_label": "storage.py",
       "id": "xai_oauth_client_xai_oauth_storage_py"
     },
@@ -1826,7 +1790,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L12",
-      "community": 4,
+      "community": 2,
       "norm_label": "get_token_path()",
       "id": "xai_oauth_storage_get_token_path"
     },
@@ -1835,7 +1799,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L12",
-      "community": 4,
+      "community": 2,
       "norm_label": "path",
       "id": "path"
     },
@@ -1844,7 +1808,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L17",
-      "community": 4,
+      "community": 2,
       "norm_label": "ensure_token_dir()",
       "id": "xai_oauth_storage_ensure_token_dir"
     },
@@ -1853,7 +1817,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L22",
-      "community": 4,
+      "community": 2,
       "norm_label": "_read_tokens_raw()",
       "id": "xai_oauth_storage_read_tokens_raw"
     },
@@ -1862,7 +1826,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L22",
-      "community": 4,
+      "community": 2,
       "norm_label": "str",
       "id": "xai_oauth_client_xai_oauth_storage_py_str"
     },
@@ -1871,7 +1835,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L22",
-      "community": 4,
+      "community": 2,
       "norm_label": "any",
       "id": "xai_oauth_client_xai_oauth_storage_py_any"
     },
@@ -1880,7 +1844,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L32",
-      "community": 4,
+      "community": 2,
       "norm_label": "save_tokens()",
       "id": "xai_oauth_storage_save_tokens"
     },
@@ -1889,7 +1853,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L45",
-      "community": 4,
+      "community": 2,
       "norm_label": "load_tokens()",
       "id": "xai_oauth_storage_load_tokens"
     },
@@ -1898,7 +1862,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L51",
-      "community": 4,
+      "community": 2,
       "norm_label": "load_full_state()",
       "id": "xai_oauth_storage_load_full_state"
     },
@@ -1907,7 +1871,7 @@
       "file_type": "code",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L56",
-      "community": 4,
+      "community": 2,
       "norm_label": "clear_tokens()",
       "id": "xai_oauth_storage_clear_tokens"
     },
@@ -1916,7 +1880,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L1",
-      "community": 4,
+      "community": 2,
       "norm_label": "token storage for xai oauth (simple json file, modeled after hermes).",
       "id": "xai_oauth_storage_rationale_1"
     },
@@ -1925,7 +1889,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L13",
-      "community": 4,
+      "community": 2,
       "norm_label": "return the path where tokens are stored.",
       "id": "xai_oauth_storage_rationale_13"
     },
@@ -1934,7 +1898,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L33",
-      "community": 4,
+      "community": 2,
       "norm_label": "save tokens + discovery info.",
       "id": "xai_oauth_storage_rationale_33"
     },
@@ -1943,7 +1907,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L46",
-      "community": 4,
+      "community": 2,
       "norm_label": "load tokens from disk.",
       "id": "xai_oauth_storage_rationale_46"
     },
@@ -1952,7 +1916,7 @@
       "file_type": "rationale",
       "source_file": "xai-oauth-client/xai_oauth/storage.py",
       "source_location": "L52",
-      "community": 4,
+      "community": 2,
       "norm_label": "return the full stored state (tokens + discovery).",
       "id": "xai_oauth_storage_rationale_52"
     },
@@ -1961,7 +1925,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "app.tsx",
       "id": "src_app_tsx"
     },
@@ -1970,7 +1934,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L9",
-      "community": 2,
+      "community": 1,
       "norm_label": "shot",
       "id": "src_app_shot"
     },
@@ -1979,7 +1943,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L19",
-      "community": 2,
+      "community": 1,
       "norm_label": "sessionstate",
       "id": "src_app_sessionstate"
     },
@@ -1988,7 +1952,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L26",
-      "community": 2,
+      "community": 1,
       "norm_label": "designtweaks",
       "id": "src_app_designtweaks"
     },
@@ -1997,7 +1961,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L32",
-      "community": 2,
+      "community": 1,
       "norm_label": "oauthflowstate",
       "id": "src_app_oauthflowstate"
     },
@@ -2006,7 +1970,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L42",
-      "community": 2,
+      "community": 1,
       "norm_label": "generationpayload",
       "id": "src_app_generationpayload"
     },
@@ -2015,7 +1979,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L51",
-      "community": 2,
+      "community": 1,
       "norm_label": "generateresult",
       "id": "src_app_generateresult"
     },
@@ -2024,7 +1988,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L56",
-      "community": 2,
+      "community": 1,
       "norm_label": "storage_keys",
       "id": "src_app_storage_keys"
     },
@@ -2033,7 +1997,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L64",
-      "community": 2,
+      "community": 1,
       "norm_label": "shots",
       "id": "src_app_shots"
     },
@@ -2042,7 +2006,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L78",
-      "community": 2,
+      "community": 1,
       "norm_label": "tweak_defaults",
       "id": "src_app_tweak_defaults"
     },
@@ -2051,7 +2015,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L84",
-      "community": 2,
+      "community": 1,
       "norm_label": "usedesigntweaks()",
       "id": "src_app_usedesigntweaks"
     },
@@ -2060,7 +2024,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L118",
-      "community": 2,
+      "community": 1,
       "norm_label": "accentvariants",
       "id": "src_app_accentvariants"
     },
@@ -2069,7 +2033,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L125",
-      "community": 2,
+      "community": 1,
       "norm_label": "default_session",
       "id": "src_app_default_session"
     },
@@ -2078,7 +2042,7 @@
       "file_type": "code",
       "source_file": "src/App.tsx",
       "source_location": "L131",
-      "community": 2,
+      "community": 1,
       "norm_label": "app()",
       "id": "src_app_app"
     },
@@ -2087,7 +2051,7 @@
       "file_type": "code",
       "source_file": "src/main.tsx",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "main.tsx",
       "id": "src_main_tsx"
     },
@@ -2096,7 +2060,7 @@
       "file_type": "code",
       "source_file": "src/components/Studio.tsx",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "studio.tsx",
       "id": "src_components_studio_tsx"
     },
@@ -2105,7 +2069,7 @@
       "file_type": "code",
       "source_file": "src/components/Studio.tsx",
       "source_location": "L8",
-      "community": 2,
+      "community": 1,
       "norm_label": "progress_stages",
       "id": "components_studio_progress_stages"
     },
@@ -2114,7 +2078,7 @@
       "file_type": "code",
       "source_file": "src/components/Studio.tsx",
       "source_location": "L22",
-      "community": 2,
+      "community": 1,
       "norm_label": "trimwindow",
       "id": "components_studio_trimwindow"
     },
@@ -2123,7 +2087,7 @@
       "file_type": "code",
       "source_file": "src/components/Studio.tsx",
       "source_location": "L27",
-      "community": 2,
+      "community": 1,
       "norm_label": "studioprops",
       "id": "components_studio_studioprops"
     },
@@ -2132,7 +2096,7 @@
       "file_type": "code",
       "source_file": "src/components/Studio.tsx",
       "source_location": "L43",
-      "community": 2,
+      "community": 1,
       "norm_label": "studio()",
       "id": "components_studio_studio"
     },
@@ -2141,7 +2105,7 @@
       "file_type": "code",
       "source_file": "src/components/TopNav.tsx",
       "source_location": "L1",
-      "community": 2,
+      "community": 1,
       "norm_label": "topnav.tsx",
       "id": "src_components_topnav_tsx"
     },
@@ -2150,7 +2114,7 @@
       "file_type": "code",
       "source_file": "src/components/TopNav.tsx",
       "source_location": "L5",
-      "community": 2,
+      "community": 1,
       "norm_label": "topnavprops",
       "id": "components_topnav_topnavprops"
     },
@@ -2159,7 +2123,7 @@
       "file_type": "code",
       "source_file": "src/components/TopNav.tsx",
       "source_location": "L16",
-      "community": 2,
+      "community": 1,
       "norm_label": "navlinks",
       "id": "components_topnav_navlinks"
     },
@@ -2168,7 +2132,7 @@
       "file_type": "code",
       "source_file": "src/components/TopNav.tsx",
       "source_location": "L21",
-      "community": 2,
+      "community": 1,
       "norm_label": "statusbadge()",
       "id": "components_topnav_statusbadge"
     },
@@ -2177,7 +2141,7 @@
       "file_type": "code",
       "source_file": "src/components/TopNav.tsx",
       "source_location": "L29",
-      "community": 2,
+      "community": 1,
       "norm_label": "topnav()",
       "id": "components_topnav_topnav"
     },
@@ -2186,7 +2150,7 @@
       "file_type": "code",
       "source_file": "src/hooks/useFeatureFlag.ts",
       "source_location": "L1",
-      "community": 29,
+      "community": 28,
       "norm_label": "usefeatureflag.ts",
       "id": "src_hooks_usefeatureflag_ts"
     },
@@ -2199,22 +2163,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 17,
+      "community": 13,
       "norm_label": "real xai device code oauth for g-vid",
       "id": "server_readme_oauth"
-    },
-    {
-      "label": "xAI OAuth Client + Media Generation (SuperGrok)",
-      "file_type": "document",
-      "source_file": "xai-oauth-client/README.md",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 17,
-      "norm_label": "xai oauth client + media generation (supergrok)",
-      "id": "xai_oauth_client_readme"
     },
     {
       "label": "index.html",
@@ -2225,7 +2176,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 12,
       "norm_label": "index.html",
       "id": "index_html_index_html"
     },
@@ -2238,7 +2189,7 @@
       "captured_at": null,
       "author": "Systems Architect",
       "contributor": null,
-      "community": 13,
+      "community": 12,
       "norm_label": "g-vid ui redesign document",
       "id": "g_vid_ui_redesign_g_vid_ui_redesign"
     },
@@ -2251,7 +2202,7 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "community": 13,
+      "community": 12,
       "norm_label": "g-vid readme",
       "id": "readme_g_vid"
     },
@@ -2264,7 +2215,7 @@
       "captured_at": null,
       "author": "OpenClaude",
       "contributor": null,
-      "community": 30,
+      "community": 29,
       "norm_label": "verify user journeys guide",
       "id": "verify_user_journeys_guide_verify_user_journeys_guide"
     },
@@ -2277,9 +2228,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "src_assets_hero",
-      "community": 31,
-      "norm_label": "hero.png"
+      "community": 30,
+      "norm_label": "hero.png",
+      "id": "src_assets_hero"
     },
     {
       "label": "vite.svg",
@@ -2290,9 +2241,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "src_assets_vite",
-      "community": 32,
-      "norm_label": "vite.svg"
+      "community": 31,
+      "norm_label": "vite.svg",
+      "id": "src_assets_vite"
     },
     {
       "label": "react.svg",
@@ -2303,9 +2254,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "src_assets_react",
-      "community": 33,
-      "norm_label": "react.svg"
+      "community": 32,
+      "norm_label": "react.svg",
+      "id": "src_assets_react"
     },
     {
       "label": "1.jpg",
@@ -2316,9 +2267,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "public_assets_shots_1",
-      "community": 34,
-      "norm_label": "1.jpg"
+      "community": 33,
+      "norm_label": "1.jpg",
+      "id": "public_assets_shots_1"
     },
     {
       "label": "requirements.txt",
@@ -2329,9 +2280,9 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "xai_oauth_client_requirements",
-      "community": 35,
-      "norm_label": "requirements.txt"
+      "community": 34,
+      "norm_label": "requirements.txt",
+      "id": "xai_oauth_client_requirements"
     },
     {
       "label": "g-vid",
@@ -2342,9 +2293,94 @@
       "captured_at": null,
       "author": null,
       "contributor": null,
-      "id": "readme_gvid",
-      "community": 20,
-      "norm_label": "g-vid"
+      "community": 13,
+      "norm_label": "g-vid",
+      "id": "readme_gvid"
+    },
+    {
+      "label": "VIDEO_STATUS_URL()",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L49",
+      "id": "server_index_video_status_url",
+      "community": 5,
+      "norm_label": "video_status_url()"
+    },
+    {
+      "label": "pollXaiVideoStatus()",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L107",
+      "id": "server_index_pollxaivideostatus",
+      "community": 5,
+      "norm_label": "pollxaivideostatus()"
+    },
+    {
+      "label": "normalizeVideoGenerationPayload()",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L467",
+      "id": "server_index_normalizevideogenerationpayload",
+      "community": 5,
+      "norm_label": "normalizevideogenerationpayload()"
+    },
+    {
+      "label": "normalized",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L487",
+      "id": "server_index_normalized",
+      "community": 5,
+      "norm_label": "normalized"
+    },
+    {
+      "label": "str",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L65",
+      "id": "str",
+      "community": 0,
+      "norm_label": "str"
+    },
+    {
+      "label": "bool",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L77",
+      "id": "bool",
+      "community": 0,
+      "norm_label": "bool"
+    },
+    {
+      "label": "Any",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L77",
+      "id": "any",
+      "community": 0,
+      "norm_label": "any"
+    },
+    {
+      "label": "float",
+      "file_type": "code",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L144",
+      "id": "float",
+      "community": 0,
+      "norm_label": "float"
+    },
+    {
+      "label": "xAI OAuth Client + Media Generation (SuperGrok)",
+      "file_type": "document",
+      "source_file": "xai-oauth-client/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_xaioauthclient",
+      "community": 13,
+      "norm_label": "xai oauth client + media generation (supergrok)"
     }
   ],
   "links": [
@@ -3162,7 +3198,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L178",
+      "source_location": "L317",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3172,7 +3208,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L314",
+      "source_location": "L454",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3182,7 +3218,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L292",
+      "source_location": "L432",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3202,7 +3238,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L54",
+      "source_location": "L56",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3212,7 +3248,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L322",
+      "source_location": "L462",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3222,7 +3258,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L167",
+      "source_location": "L306",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3232,7 +3268,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L86",
+      "source_location": "L88",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3242,7 +3278,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L462",
+      "source_location": "L615",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3262,7 +3298,37 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L299",
+      "source_location": "L487",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_normalized",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L467",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_normalizevideogenerationpayload",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L175",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_pollxaivideostatus",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L439",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3292,7 +3358,17 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L385",
+      "source_location": "L49",
+      "weight": 1.0,
+      "source": "server_index_js",
+      "target": "server_index_video_status_url",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L547",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3302,7 +3378,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L327",
+      "source_location": "L495",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_js",
@@ -3313,11 +3389,22 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "server/index.js",
-      "source_location": "L96",
+      "source_location": "L98",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "server_index_getvalidtoken",
       "target": "server_index_dorefresh"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L112",
+      "weight": 1.0,
+      "source": "server_index_pollxaivideostatus",
+      "target": "server_index_getvalidtoken",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3531,6 +3618,17 @@
       "target": "xai_oauth_media_xaimediaclient"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "xai-oauth-client/example_media.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "xai_oauth_client_example_media_main",
+      "target": "xaioauthclient"
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/cli.py",
@@ -3608,7 +3706,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L47",
+      "source_location": "L49",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_client_xai_oauth_media_py",
@@ -3639,7 +3737,7 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L48",
+      "source_location": "L50",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_rationale_48",
@@ -3659,7 +3757,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L254",
+      "source_location": "L256",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3669,7 +3767,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L142",
+      "source_location": "L144",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3679,7 +3777,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L242",
+      "source_location": "L244",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3689,7 +3787,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L228",
+      "source_location": "L230",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3699,7 +3797,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L75",
+      "source_location": "L77",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3709,7 +3807,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L182",
+      "source_location": "L184",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3719,7 +3817,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3729,7 +3827,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L59",
+      "source_location": "L61",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient",
@@ -3740,7 +3838,7 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L59",
+      "source_location": "L61",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_init",
@@ -3761,7 +3859,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L166",
+      "source_location": "L168",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_edit_image",
@@ -3772,7 +3870,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L117",
+      "source_location": "L119",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_generate_image",
@@ -3783,7 +3881,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L211",
+      "source_location": "L213",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_generate_video",
@@ -3794,82 +3892,17 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L63",
+      "source_location": "L65",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_get_headers",
-      "target": "xai_oauth_client_xai_oauth_media_py_str"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L22",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "xai_oauth_client_xai_oauth_media_py_str",
-      "target": "xai_oauth_client_xaioauthclient"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_edit_image",
-      "target": "xai_oauth_client_xai_oauth_media_py_str"
-    },
-    {
-      "relation": "references",
-      "context": "return_type",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L242",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested",
-      "target": "xai_oauth_client_xai_oauth_media_py_str"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L228",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_generate_audio",
-      "target": "xai_oauth_client_xai_oauth_media_py_str"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L75",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_generate_image",
-      "target": "xai_oauth_client_xai_oauth_media_py_str"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L182",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_generate_video",
-      "target": "xai_oauth_client_xai_oauth_media_py_str"
+      "target": "str"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L87",
+      "source_location": "L89",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_rationale_87",
@@ -3880,7 +3913,29 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L75",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "any"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_image",
+      "target": "bool"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L77",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_generate_image",
@@ -3891,29 +3946,18 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L75",
+      "source_location": "L77",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_generate_image",
-      "target": "xai_oauth_client_xai_oauth_media_py_any"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L75",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_generate_image",
-      "target": "xai_oauth_client_xai_oauth_media_py_bool"
+      "target": "str"
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L100",
+      "source_location": "L102",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_generate_image",
@@ -3934,70 +3978,17 @@
       "context": "parameter_type",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L182",
+      "source_location": "L184",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_generate_video",
       "target": "int"
     },
     {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L22",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "xai_oauth_client_xai_oauth_media_py_bool",
-      "target": "xai_oauth_client_xaioauthclient"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L22",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "xai_oauth_client_xai_oauth_media_py_any",
-      "target": "xai_oauth_client_xaioauthclient"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L142",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_edit_image",
-      "target": "xai_oauth_client_xai_oauth_media_py_any"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L228",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_generate_audio",
-      "target": "xai_oauth_client_xai_oauth_media_py_any"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L182",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_generate_video",
-      "target": "xai_oauth_client_xai_oauth_media_py_any"
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L151",
+      "source_location": "L153",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_rationale_151",
@@ -4005,65 +3996,132 @@
     },
     {
       "relation": "references",
-      "context": "parameter_type",
+      "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L142",
+      "source_location": "L144",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_xaimediaclient_edit_image",
-      "target": "xai_oauth_client_xai_oauth_media_py_float"
+      "target": "any"
     },
     {
-      "relation": "uses",
-      "confidence": "INFERRED",
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L22",
-      "weight": 0.8,
-      "confidence_score": 0.5,
-      "source": "xai_oauth_client_xai_oauth_media_py_float",
-      "target": "xai_oauth_client_xaioauthclient"
+      "source_location": "L144",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_edit_image",
+      "target": "float"
     },
     {
       "relation": "references",
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L182",
+      "source_location": "L144",
       "weight": 1.0,
       "confidence_score": 1.0,
-      "source": "xai_oauth_media_xaimediaclient_generate_video",
-      "target": "xai_oauth_client_xai_oauth_media_py_float"
+      "source": "xai_oauth_media_xaimediaclient_edit_image",
+      "target": "str"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L192",
+      "source_location": "L194",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_rationale_192",
       "target": "xai_oauth_media_xaimediaclient_generate_video"
     },
     {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "any"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "float"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L184",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_video",
+      "target": "str"
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L229",
+      "source_location": "L231",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_rationale_229",
       "target": "xai_oauth_media_xaimediaclient_generate_audio"
     },
     {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L230",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_audio",
+      "target": "any"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L230",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_generate_audio",
+      "target": "str"
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "xai-oauth-client/xai_oauth/media.py",
-      "source_location": "L243",
+      "source_location": "L245",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "xai_oauth_media_rationale_243",
       "target": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L244",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "xai_oauth_media_xaimediaclient_enhance_prompt_if_requested",
+      "target": "str"
     },
     {
       "relation": "rationale_for",
@@ -4522,6 +4580,46 @@
       "confidence_score": 1.0,
       "source": "xai_oauth_client_xaioauthclient_login",
       "target": "xai_oauth_client_wait_for_callback"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "any",
+      "target": "xai_oauth_client_xaioauthclient"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "bool",
+      "target": "xai_oauth_client_xaioauthclient"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "float",
+      "target": "xai_oauth_client_xaioauthclient"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "xai-oauth-client/xai_oauth/media.py",
+      "source_location": "L22",
+      "weight": 0.8,
+      "confidence_score": 0.5,
+      "source": "str",
+      "target": "xai_oauth_client_xaioauthclient"
     },
     {
       "relation": "calls",
@@ -5182,7 +5280,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L118",
+      "source_location": "L119",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5192,7 +5290,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L131",
+      "source_location": "L132",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5202,7 +5300,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L125",
+      "source_location": "L126",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5222,7 +5320,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5272,7 +5370,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L64",
+      "source_location": "L65",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5282,7 +5380,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L56",
+      "source_location": "L57",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5292,7 +5390,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L78",
+      "source_location": "L79",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5302,7 +5400,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L84",
+      "source_location": "L85",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_tsx",
@@ -5368,7 +5466,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "src/App.tsx",
-      "source_location": "L148",
+      "source_location": "L149",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_app_app",
@@ -5388,7 +5486,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/components/Studio.tsx",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "src_components_studio_tsx",
@@ -5462,7 +5560,7 @@
       "source_location": null,
       "weight": 1.0,
       "source": "server_readme_oauth",
-      "target": "xai_oauth_client_readme"
+      "target": "readme_xaioauthclient"
     },
     {
       "relation": "references",
@@ -5492,9 +5590,20 @@
       "source_location": null,
       "weight": 1.0,
       "source": "readme_gvid",
-      "target": "readme_gvid"
+      "target": "readme_xaioauthclient"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "server_index_pollxaivideostatus",
+      "target": "server_index_video_status_url",
+      "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d16e7e55055eec247d96f0ba7b8234a5bb9a8a64"
+  "built_at_commit": "627e5dc462cd6a832a2bfccea2feaefb82001861"
 }
