@@ -120,7 +120,7 @@ This is the correct, practical way to connect SuperGrok in 2026:
   - Use `reference_images` (not the deprecated `images`).
   - Each reference is `{ "url": "data:..." }` or public HTTPS URL.
   - The API is **asynchronous** (returns `request_id`, backend now polls `/v1/videos/{id}` in the background).
-  - Audio lip-sync is currently driven via strong prompt engineering (the frontend already builds excellent prompts for this).
+  - **Audio / lip-sync**: The current public xAI video API does not have a documented first-class audio conditioning field for video generation. We send your trimmed audio clip experimentally when `ENABLE_XAI_REFS=1`. Lip-sync quality currently depends heavily on the strength of the prompt (which the frontend makes very explicit). If audio is ignored by the model, it will generate its own performance.
 
   The backend now correctly implements this based on official documentation and will surface clear errors + logs for any remaining constraints.
 

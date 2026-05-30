@@ -109,7 +109,7 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
     if (!selectedShot) return '';
     const trimInfo = `${audioTrim.start.toFixed(1)}s–${(audioTrim.start + 8).toFixed(1)}s`;
 
-    let prompt = 'Cinematic 8-second music video performance clip. ';
+    let prompt = 'Cinematic 8-second music video performance clip with PERFECT lip synchronization to the exact uploaded vocal audio. ';
 
     if (faceDescription.trim()) {
       prompt += `The performer is: ${faceDescription.trim()}. Highly consistent face, accurate likeness. `;
@@ -118,9 +118,14 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
     }
 
     prompt += `Scene: ${selectedShot.name} — ${selectedShot.description}. ${selectedShot.promptHint}. `;
-    prompt += `The artist is passionately performing and lip-syncing to an 8-second vocal clip taken from ${trimInfo} of the uploaded audio. `;
-    prompt +=
-      'Professional music video cinematography, dynamic camera movement, dramatic lighting, photorealistic, high production value, perfect lip synchronization. Exactly 8 seconds long. No text, no logos, clean output.';
+
+    // VERY IMPORTANT: Strong lip-sync instruction because the current xAI video API
+    // does not accept raw audio as a conditioning input. We rely entirely on prompt.
+    prompt += `CRITICAL: The performer must deliver a PERFECT, frame-accurate lip-sync and musical performance that exactly matches the specific 8-second vocal take from ${trimInfo} of the uploaded audio. `;
+    prompt += `Match every syllable, breath, phrasing, rhythm, pitch contour, and emotional delivery of the exact vocal performance in the provided audio clip. `;
+    prompt += `The mouth shapes, jaw movement, tongue position, and facial micro-expressions must be 100% synchronized to the timing and content of that specific audio segment. Do not improvise, change the melody, or use generic singing motions. The uploaded audio is the ground truth for the performance. `;
+
+    prompt += `Professional music video cinematography, dynamic camera movement, dramatic lighting, photorealistic, high production value, perfect lip synchronization. Exactly 8 seconds long. No text, no logos, clean output.`;
 
     return prompt;
   };
@@ -530,6 +535,11 @@ export function Studio({ onClose, session, onConnect, SHOTS, initialShot, onGene
             <div>
               <div className="text-[#71717a]">Audio</div>
               <div className="font-medium">{audioFile ? `${audioTrim.start.toFixed(1)}s – ${(audioTrim.start + 8).toFixed(1)}s` : '—'}</div>
+              {step === 3 && audioFile && (
+                <div className="text-[10px] text-amber-400 mt-0.5 leading-tight">
+                  Audio sent experimentally for lip-sync. Results depend on xAI model support.
+                </div>
+              )}
             </div>
             <div>
               <div className="text-[#71717a]">Shot</div>

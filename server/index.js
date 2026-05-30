@@ -432,14 +432,22 @@ app.post('/generate', upload.fields([
         resolution: normalized.resolution,
       };
 
-      // === REFERENCE IMAGES (no audio field per current Reference-to-Video schema) ===
-      // Shape required by xAI /videos/generations:
+      // === REFERENCE IMAGES + EXPERIMENTAL AUDIO ===
+      // Shape required by xAI /videos/generations (Reference-to-Video):
+      //   "model": "grok-imagine-video"
       //   "reference_images": [ { "url": "data:image/...;base64,..." }, ... ]
-      //   model: "grok-imagine-video"
-      // Audio is not part of this schema; lip-sync is driven by the prompt.
+      // We also try sending the user's audio clip. If the API rejects it,
+      // the raw error will be logged and we fall back to prompt-only lip-sync.
       const sendRefs = ENABLE_XAI_REFS;
       if (sendRefs && referenceImages.length) {
         xaiPayload.reference_images = referenceImages.map(uri => ({ url: uri }));
+
+        // Experimental: include the user's trimmed audio.
+        // Current public docs do not document audio for video gen.
+        // This may be ignored or cause an error — logs will show the exact response.
+        if (audioDataUri) {
+          xaiPayload.audio = audioDataUri;
+        }
       }
       if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
       if (sendRefs && shotName) xaiPayload.shot_name = shotName;
@@ -447,6 +455,7 @@ app.post('/generate', upload.fields([
       console.log('[xAI] POST', VIDEO_GEN_URL,
         'keys:', Object.keys(xaiPayload),
         'ref_images:', sendRefs ? referenceImages.length : 0,
+        'has_audio:', !!(sendRefs && audioDataUri),
         'duration:', xaiPayload.duration,
         'resolution:', xaiPayload.resolution,
         sendRefs ? '(reference_images attached)' : '(minimal payload)',
