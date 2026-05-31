@@ -522,6 +522,8 @@ app.post('/generate', upload.fields([
   // If audio was uploaded, preserve it for later audio replacement (muxing) and trim to the selected 8s window
   let preservedAudioPath = null;
   let trimmedAudioPath = null;
+  let audioDataUri = null;
+  let audioDataBytes = 0;
   if (audioFile) {
     const ext = path.extname(audioFile.originalname) || '.mp3';
     preservedAudioPath = path.join(GENERATED_DIR, `${jobId}-original-audio${ext}`);
@@ -548,6 +550,22 @@ app.post('/generate', upload.fields([
       console.log('[Audio] Trimmed user audio to', `${startSeconds}-${startSeconds + durationSeconds}s`, '→', candidateTrimPath);
     } catch (err) {
       console.warn('[Audio] Failed to trim audio, falling back to full clip:', err?.message || err);
+    }
+
+    // Prepare small audio reference for xAI (guarded to avoid TLS payload bloat)
+    const audioPathForRef = trimmedAudioPath || preservedAudioPath;
+    try {
+      const buf = fs.readFileSync(audioPathForRef);
+      audioDataBytes = buf.length;
+      const MAX_AUDIO_BYTES = 1_200_000; // ~1.2 MB guardrail
+      if (audioDataBytes <= MAX_AUDIO_BYTES) {
+        const mime = audioFile.mimetype || 'audio/mpeg';
+        audioDataUri = `data:${mime};base64,${buf.toString('base64')}`;
+      } else {
+        console.warn('[Audio] Skipping audio data URI (size too large):', (audioDataBytes / 1024).toFixed(0), 'KB');
+      }
+    } catch (e) {
+      console.warn('[Audio] failed to read audio for data URI');
     }
   }
 
@@ -670,6 +688,7 @@ app.post('/generate', upload.fields([
         }
         if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
         if (sendRefs && shotName) xaiPayload.shot_name = shotName;
+        if (sendRefs && audioDataUri) xaiPayload.audio = audioDataUri;
 
         const payloadSize = Buffer.byteLength(JSON.stringify(xaiPayload), 'utf8');
         console.log('============================================================');
@@ -677,7 +696,7 @@ app.post('/generate', upload.fields([
         console.log('  ENABLE_XAI_REFS active :', sendRefs);
         console.log('  Model                  :', xaiPayload.model);
         console.log('  Reference images       :', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0, '(auto-compressed)');
-        console.log('  Audio included         : false (user audio muxed locally post-gen to avoid large payloads)');
+        console.log('  Audio included         :', !!audioDataUri, audioDataUri ? `(size ${(audioDataBytes / 1024).toFixed(0)} KB)` : '(not sent)');
         console.log('  Prompt length          :', (xaiPayload.prompt || '').length, 'chars');
         console.log('  Total payload size     :', (payloadSize / 1024).toFixed(0), 'KB');
         console.log('  Keys being sent        :', Object.keys(xaiPayload).join(', '));
