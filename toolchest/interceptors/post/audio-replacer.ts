@@ -68,7 +68,10 @@ export const audioReplacer: PostXAIInterceptor = {
       if (vDur && aDur) {
         const drift = Math.abs(vDur - aDur);
         const tempo = vDur / aDur;
-        if (drift > 0.1 && tempo > 0.5 && tempo < 2.0) {
+        const DRIFT_THRESHOLD = 0.02; // 20ms
+        const TEMPO_MIN = 0.5;
+        const TEMPO_MAX = 2.0;
+        if (drift > DRIFT_THRESHOLD && tempo > TEMPO_MIN && tempo < TEMPO_MAX) {
           const adjustedAudioPath = path.join(GENERATED_DIR, `${context.jobId}-audio-adjusted${path.extname(context.audioPath) || '.mp3'}`);
           await new Promise<void>((resolve, reject) => {
             const proc = spawn('/opt/homebrew/bin/ffmpeg', [
