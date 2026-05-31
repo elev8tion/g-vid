@@ -40,12 +40,17 @@ export const audioAnalyzer: PreXAIInterceptor = {
         ? `Strong rhythmic / percussive accents detected around these approximate times (in seconds from clip start): ${analysis.beats.map(b => b.toFixed(1)).join(', ')}. Hit these moments with conviction, body movement, and precise lip sync.`
         : 'Maintain consistent rhythmic feel and natural phrasing throughout the clip.';
 
+      const timingCues = analysis.beats.length > 0
+        ? `TIMING CUES (seconds from clip start): ${analysis.beats.slice(0, 8).map(b => b.toFixed(1)).join(', ')}. Lip-sync mouth shapes to these onsets; keep jaw/visemes tightly aligned.`
+        : `TIMING CUES: Keep steady phrasing across the full 8s window; no silent gaps to fill.`;
+
       const enhancement = `
 
 AUDIO PERFORMANCE ANALYSIS (use this as absolute ground truth for the performance):
 - Exact window: 8 seconds starting at ${context.trimWindow.start.toFixed(1)}s of the original recording.
 - Overall character: ${character}
 - ${beatNote}
+- ${timingCues}
 - Critical: The mouth shapes, jaw, tongue, and micro-expressions must match the phonemes and exact timing of this specific recording. Do not generate generic or improved singing — replicate the raw, human performance in the file with perfect accuracy.`;
 
       return {
