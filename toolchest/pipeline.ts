@@ -153,8 +153,9 @@ export interface BuildPipelineOptions {
   enableAudioAnalysis?: boolean;
   enablePromptEnhancer?: boolean;
   enableAudioReplace?: boolean;
+  preInterceptors?: PreXAIInterceptor[];
+  postInterceptors?: PostXAIInterceptor[];
 }
-
 
 export function buildPipeline(opts: BuildPipelineOptions = {}): XAIInterceptorPipeline {
   const pipeline = new XAIInterceptorPipeline();
@@ -162,13 +163,44 @@ export function buildPipeline(opts: BuildPipelineOptions = {}): XAIInterceptorPi
     enableAudioAnalysis = true,
     enablePromptEnhancer = true,
     enableAudioReplace = true,
+    preInterceptors,
+    postInterceptors,
   } = opts;
 
-  if (enableAudioAnalysis) pipeline.registerPre(audioAnalyzer);
-  if (enablePromptEnhancer) pipeline.registerPre(promptEnhancer);
-  if (enableAudioReplace) pipeline.registerPost(audioReplacer);
+  const registerPre = (interceptor: PreXAIInterceptor) => {
+    if ((interceptor === audioAnalyzer || interceptor.name === audioAnalyzer.name) && !enableAudioAnalysis) {
+      return;
+    }
+    if ((interceptor === promptEnhancer || interceptor.name === promptEnhancer.name) && !enablePromptEnhancer) {
+      return;
+    }
+    pipeline.registerPre(interceptor);
+  };
+
+  const registerPost = (interceptor: PostXAIInterceptor) => {
+    if ((interceptor === audioReplacer || interceptor.name === audioReplacer.name) && !enableAudioReplace) {
+      return;
+    }
+    pipeline.registerPost(interceptor);
+  };
+
+  if (preInterceptors?.length) {
+    preInterceptors.forEach(registerPre);
+  } else {
+    registerPre(audioAnalyzer);
+    registerPre(promptEnhancer);
+  }
+
+  if (postInterceptors?.length) {
+    postInterceptors.forEach(registerPost);
+  } else {
+    registerPost(audioReplacer);
+  }
 
   return pipeline;
 }
 
-export const defaultPipeline = buildPipeline();
+export const defaultPipeline = buildPipeline({
+  preInterceptors: [promptEnhancer, audioAnalyzer],
+  postInterceptors: [audioReplacer],
+});

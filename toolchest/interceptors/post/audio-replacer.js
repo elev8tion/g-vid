@@ -4,6 +4,7 @@
 import { spawn } from 'node:child_process';
 import path from 'node:path';
 import fs from 'node:fs';
+import { pipeline } from 'node:stream/promises';
 
 export const audioReplacer = {
   name: 'audio-replacer',
@@ -16,20 +17,37 @@ export const audioReplacer = {
       return videoPath;
     }
 
-    if (!fs.existsSync(videoPath)) {
-      console.error('[audio-replacer] Video file not found at', videoPath);
-      return videoPath;
-    }
-
     const GENERATED_DIR = path.join(process.cwd(), 'generated');
     if (!fs.existsSync(GENERATED_DIR)) fs.mkdirSync(GENERATED_DIR, { recursive: true });
+
+    const fetchFn = globalThis.fetch || (await import('node-fetch')).default;
+
+    const isRemote = typeof videoPath === 'string' && (videoPath.startsWith('http://') || videoPath.startsWith('https://'));
+    const downloadedPath = isRemote ? path.join(GENERATED_DIR, `${context.jobId}-xai.mp4`) : videoPath;
+
+    if (isRemote) {
+      try {
+        const res = await fetchFn(videoPath);
+        if (!res.ok || !res.body) {
+          console.error('[audio-replacer] Failed to download video from', videoPath, res.status, res.statusText);
+          return videoPath;
+        }
+        await pipeline(res.body, fs.createWriteStream(downloadedPath));
+      } catch (err) {
+        console.error('[audio-replacer] Error downloading video', err);
+        return videoPath;
+      }
+    } else if (!fs.existsSync(downloadedPath)) {
+      console.error('[audio-replacer] Video file not found at', downloadedPath);
+      return videoPath;
+    }
 
     const finalPath = path.join(GENERATED_DIR, `${context.jobId}-with-user-audio.mp4`);
 
     await new Promise((resolve, reject) => {
       const proc = spawn('/opt/homebrew/bin/ffmpeg', [
         '-y',
-        '-i', videoPath,
+        '-i', downloadedPath,
         '-i', userAudio,
         '-c:v', 'copy',
         '-c:a', 'aac',
@@ -43,8 +61,12 @@ export const audioReplacer = {
       proc.on('error', reject);
     });
 
+    if (isRemote) {
+      try { fs.unlinkSync(downloadedPath); } catch {}
+    }
+
     const publicUrl = `http://localhost:8787/generated/${path.basename(finalPath)}`;
     console.log('[audio-replacer] Successfully replaced audio. New URL:', publicUrl);
-    return finalPath; // return local path so caller detects the muxed file and builds the final public URL
+    return publicUrl;
   },
 };

@@ -106,6 +106,7 @@ const XAI_VIDEO_MODEL = 'grok-imagine-video';
 
 // Toolchest pipeline (pre/post interceptors around xAI calls) — using dynamic import because server is ESM
 const toolchest = await import('../toolchest/index.js');
+const { promptEnhancer, audioAnalyzer, audioReplacer } = toolchest;
 
 const parseFlag = (value, defaultValue = true) => {
   if (value === undefined) return defaultValue;
@@ -258,6 +259,8 @@ async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
           enableAudioAnalysis: flags.enableAudioAnalysis ?? true,
           enablePromptEnhancer: flags.enablePromptEnhancer ?? true,
           enableAudioReplace: flags.enableAudioReplace ?? true,
+          preInterceptors: [promptEnhancer, audioAnalyzer],
+          postInterceptors: [audioReplacer],
         });
 
         const postContext = {
@@ -508,7 +511,11 @@ app.post('/generate', upload.fields([
     enablePromptEnhancer: parseFlag(req.body.enablePromptEnhancer, true),
     enableAudioReplace: parseFlag(req.body.enableAudioReplace, true),
   };
-  const pipelineInstance = toolchest.buildPipeline(pipelineFlags);
+  const pipelineInstance = toolchest.buildPipeline({
+    ...pipelineFlags,
+    preInterceptors: [promptEnhancer, audioAnalyzer],
+    postInterceptors: [audioReplacer],
+  });
 
   const jobId = 'job_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
 
@@ -552,18 +559,6 @@ app.post('/generate', upload.fields([
     }
 
     console.log('[Generate] Prepared referenceImages count:', referenceImages.length);
-
-    // Audio as data URI (for audio_url reference when ENABLE_XAI_REFS=1)
-    let audioDataUri = null;
-    if (audioFile) {
-      try {
-        const buf = fs.readFileSync(audioFile.path);
-        const mime = audioFile.mimetype || 'audio/mpeg';
-        audioDataUri = `data:${mime};base64,${buf.toString('base64')}`;
-      } catch (e) {
-        console.warn('[Generate] failed to read audio');
-      }
-    }
 
     const duration = Math.max(4, Math.min(12, parseInt(trimDuration || '8', 10) || 8));
 
@@ -651,7 +646,6 @@ app.post('/generate', upload.fields([
         }
         if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
         if (sendRefs && shotName) xaiPayload.shot_name = shotName;
-        if (sendRefs && audioDataUri) xaiPayload.audio = audioDataUri;
 
         const payloadSize = Buffer.byteLength(JSON.stringify(xaiPayload), 'utf8');
         console.log('============================================================');
@@ -659,7 +653,7 @@ app.post('/generate', upload.fields([
         console.log('  ENABLE_XAI_REFS active :', sendRefs);
         console.log('  Model                  :', xaiPayload.model);
         console.log('  Reference images       :', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0, '(auto-compressed)');
-        console.log('  Audio included         :', !!xaiPayload.audio, '(raw user audio is deliberately omitted — lip-sync is prompt-only)');
+        console.log('  Audio included         : false (user audio muxed locally post-gen to avoid large payloads)');
         console.log('  Prompt length          :', (xaiPayload.prompt || '').length, 'chars');
         console.log('  Total payload size     :', (payloadSize / 1024).toFixed(0), 'KB');
         console.log('  Keys being sent        :', Object.keys(xaiPayload).join(', '));
