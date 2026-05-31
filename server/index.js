@@ -519,12 +519,36 @@ app.post('/generate', upload.fields([
 
   const jobId = 'job_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
 
-  // If audio was uploaded, preserve it for later audio replacement (muxing)
+  // If audio was uploaded, preserve it for later audio replacement (muxing) and trim to the selected 8s window
   let preservedAudioPath = null;
+  let trimmedAudioPath = null;
   if (audioFile) {
     const ext = path.extname(audioFile.originalname) || '.mp3';
     preservedAudioPath = path.join(GENERATED_DIR, `${jobId}-original-audio${ext}`);
     fs.copyFileSync(audioFile.path, preservedAudioPath);
+
+    const startSeconds = Math.max(0, parseFloat(trimStart) || 0);
+    const durationSeconds = Math.max(1, Math.min(12, parseFloat(trimDuration) || 8));
+    const candidateTrimPath = path.join(GENERATED_DIR, `${jobId}-trimmed-audio${ext}`);
+
+    try {
+      await new Promise((resolve, reject) => {
+        const proc = spawn('/opt/homebrew/bin/ffmpeg', [
+          '-y',
+          '-ss', String(startSeconds),
+          '-t', String(durationSeconds),
+          '-i', preservedAudioPath,
+          '-acodec', 'copy',
+          candidateTrimPath,
+        ]);
+        proc.on('close', (code) => (code === 0 ? resolve() : reject(new Error(`ffmpeg exited ${code}`))));
+        proc.on('error', reject);
+      });
+      trimmedAudioPath = candidateTrimPath;
+      console.log('[Audio] Trimmed user audio to', `${startSeconds}-${startSeconds + durationSeconds}s`, '→', candidateTrimPath);
+    } catch (err) {
+      console.warn('[Audio] Failed to trim audio, falling back to full clip:', err?.message || err);
+    }
   }
 
   const cleanup = () => {
@@ -602,7 +626,7 @@ app.post('/generate', upload.fields([
       sessionId,
       originalPrompt: prompt,
       referenceImages: sendRefs ? referenceImages : [],
-      audioPath: preservedAudioPath || undefined,
+      audioPath: (trimmedAudioPath || preservedAudioPath) || undefined,
       shot: { id: shotName, name: shotName, description: '', promptHint: '' },
       faceDescription,
       trimWindow: { start: parseFloat(trimStart) || 0, duration: parseFloat(trimDuration) || 8 },
@@ -630,7 +654,7 @@ app.post('/generate', upload.fields([
       status: 'processing',
       createdAt: Date.now(),
       sessionId,
-      originalAudioPath: preservedAudioPath,
+      originalAudioPath: trimmedAudioPath || preservedAudioPath,
       steps: preSteps,
       pipelineFlags,
     });
