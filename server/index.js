@@ -47,6 +47,43 @@ const tokenStore = new Map();        // sessionId → { accessToken, refreshToke
 const deviceFlowStore = new Map();   // device_code → { interval, expiresAt }
 const jobStore = new Map();          // jobId → { status: 'processing'|'done'|'error', resultUrl?: string, error?: string, createdAt: number, xaiJobId?: string }
 
+// Dev-only: persist sessions across restarts so you don't have to re-connect constantly while testing.
+// File is gitignored. Completely safe to delete.
+const DEV_SESSIONS_FILE = path.join(process.cwd(), '.dev-sessions.json'); // lives next to .env in server/ folder
+
+function loadDevSessions() {
+  if (process.env.NODE_ENV === 'production') return;
+  try {
+    if (fs.existsSync(DEV_SESSIONS_FILE)) {
+      const data = JSON.parse(fs.readFileSync(DEV_SESSIONS_FILE, 'utf8'));
+      for (const [sid, val] of Object.entries(data)) {
+        // Only restore non-expired sessions
+        if (val.expiresAt && Date.now() < val.expiresAt) {
+          tokenStore.set(sid, val);
+        }
+      }
+      if (tokenStore.size > 0) {
+        console.log(`[Dev] Restored ${tokenStore.size} session(s) from ${DEV_SESSIONS_FILE}`);
+      }
+    }
+  } catch (e) {
+    console.warn('[Dev] Could not load dev sessions:', e.message);
+  }
+}
+
+function saveDevSessions() {
+  if (process.env.NODE_ENV === 'production') return;
+  try {
+    const obj = Object.fromEntries(tokenStore);
+    fs.writeFileSync(DEV_SESSIONS_FILE, JSON.stringify(obj, null, 2));
+  } catch (e) {
+    console.warn('[Dev] Could not save dev sessions:', e.message);
+  }
+}
+
+// Load persisted sessions on startup
+loadDevSessions();
+
 // xAI OAuth Device Code configuration (mirrors cre8-clips)
 const XAI_ISSUER = process.env.XAI_OAUTH_ISSUER || 'https://auth.x.ai';
 const DEVICE_CODE_URL = `${XAI_ISSUER}/oauth2/device/code`;
@@ -70,11 +107,15 @@ const XAI_VIDEO_MODEL = 'grok-imagine-video';
 // Toolchest pipeline (pre/post interceptors around xAI calls) — using dynamic import because server is ESM
 const toolchest = await import('../toolchest/index.js');
 
-const xaiPipeline = new toolchest.XAIInterceptorPipeline()
-  .registerPre(toolchest.promptEnhancer)
-  .registerPre(toolchest.audioAnalyzer);   // Analyzes user's audio and injects concrete timing/energy cues into the prompt
-  // Note: audioReplacer temporarily disabled due to ESM module resolution for node-fetch.
-  // We will re-enable it cleanly in the next step.
+const parseFlag = (value, defaultValue = true) => {
+  if (value === undefined) return defaultValue;
+  if (typeof value === 'boolean') return value;
+  if (typeof value === 'string') {
+    const lower = value.toLowerCase();
+    return !(lower === 'false' || lower === '0' || lower === 'off');
+  }
+  return Boolean(value);
+};
 
 // ============================================
 // Token helpers (refresh for /generate and session)
@@ -107,6 +148,7 @@ async function doRefresh(sessionId, tokenData) {
     tokenType: data.token_type || 'Bearer',
   };
   tokenStore.set(sessionId, updated);
+  saveDevSessions(); // persist for dev restarts
   console.log('[OAuth] Access token refreshed for session', sessionId);
   return updated;
 }
@@ -168,58 +210,6 @@ async function compressImageForRef(buffer, originalMime = 'image/jpeg') {
   }
 }
 
-/**
- * Download video from URL and replace its audio track with the provided audio file.
- * Returns the path to the new video file inside GENERATED_DIR.
- */
-async function replaceAudioInVideo(videoUrl, audioPath, jobId) {
-  const videoTempPath = path.join(GENERATED_DIR, `${jobId}-xai-video.mp4`);
-  const finalPath = path.join(GENERATED_DIR, `${jobId}-final.mp4`);
-
-  try {
-    // Download the xAI video
-    console.log('[Mux] Downloading xAI video for audio replacement...');
-    const videoRes = await fetch(videoUrl);
-    if (!videoRes.ok) throw new Error(`Failed to download video: ${videoRes.status}`);
-    await pipeline(videoRes.body, fs.createWriteStream(videoTempPath));
-
-    // Run ffmpeg to replace audio (copy video stream, re-encode audio if needed)
-    console.log('[Mux] Running ffmpeg to replace audio track with user clip...');
-    await new Promise((resolve, reject) => {
-      const ffmpeg = spawn('/opt/homebrew/bin/ffmpeg', [
-        '-y',
-        '-i', videoTempPath,
-        '-i', audioPath,
-        '-c:v', 'copy',           // keep original video quality
-        '-c:a', 'aac',            // re-encode audio to aac for mp4
-        '-map', '0:v:0',
-        '-map', '1:a:0',
-        '-shortest',              // match shortest stream (should be 8s)
-        finalPath,
-      ], { stdio: ['ignore', 'pipe', 'pipe'] });
-
-      let stderr = '';
-      ffmpeg.stderr.on('data', (data) => { stderr += data.toString(); });
-
-      ffmpeg.on('close', (code) => {
-        if (code === 0) {
-          resolve();
-        } else {
-          reject(new Error(`ffmpeg failed with code ${code}: ${stderr}`));
-        }
-      });
-
-      ffmpeg.on('error', reject);
-    });
-
-    console.log('[Mux] Audio replacement complete:', finalPath);
-    return finalPath;
-  } finally {
-    // Clean up temp video download
-    try { fs.unlinkSync(videoTempPath); } catch {}
-  }
-}
-
 // Poll xAI video status endpoint until completion/failure
 async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
   const MAX_ATTEMPTS = 60; // ~5 minutes at 5s interval
@@ -261,35 +251,51 @@ async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
       const existingJob = jobStore.get(jobId) || {};
       let finalUrl = resultUrl;
 
-      // Run post-interceptors (currently just audio replacement)
-      // This is where we apply the user's audio, future lyrics, quality passes, etc.
-      for (const interceptor of xaiPipeline.postInterceptors) {
-        console.log(`[Toolchest] Running post-interceptor: ${interceptor.name}`);
-        try {
-          finalUrl = await interceptor.run(finalUrl, {
-            ...existingJob,
-            jobId,
-          });
-        } catch (postErr) {
-          console.error(`[Toolchest] Post-interceptor ${interceptor.name} failed:`, postErr);
-          // Continue with previous URL on failure
-        }
+      // Run post-interceptors (with per-request toggles) against the returned video URL
+      try {
+        const flags = existingJob.pipelineFlags || {};
+        const postPipeline = toolchest.buildPipeline({
+          enableAudioAnalysis: flags.enableAudioAnalysis ?? true,
+          enablePromptEnhancer: flags.enablePromptEnhancer ?? true,
+          enableAudioReplace: flags.enableAudioReplace ?? true,
+        });
+
+        const postContext = {
+          ...existingJob,
+          jobId,
+          audioPath: existingJob.originalAudioPath || existingJob.audioPath,
+        };
+
+        const { videoUrl: processedUrl, steps: postSteps } = await postPipeline.runPost(finalUrl, postContext);
+        finalUrl = processedUrl;
+
+        const finalSteps = [
+          ...(existingJob.steps || []),
+          ...postSteps,
+          { name: 'done', status: 'completed' },
+        ];
+
+        jobStore.set(jobId, {
+          ...existingJob,
+          status: 'done',
+          resultUrl: finalUrl,
+          createdAt: Date.now(),
+          steps: finalSteps,
+        });
+        console.log('[xAI status] job', jobId, 'completed with url', finalUrl);
+      } catch (postErr) {
+        console.error('[Poller] Post-processing failed:', postErr);
+        jobStore.set(jobId, {
+          ...existingJob,
+          status: 'error',
+          error: {
+            stage: postErr?.stage || 'post',
+            interceptor: postErr?.interceptor,
+            message: postErr?.message || 'post_processing_failed',
+          },
+          createdAt: Date.now(),
+        });
       }
-
-      const finalSteps = [
-        ...(existingJob.steps || []),
-        { name: 'audio_merge', status: 'completed' },
-        { name: 'done', status: 'completed' },
-      ];
-
-      jobStore.set(jobId, {
-        ...existingJob,
-        status: 'done',
-        resultUrl: finalUrl,
-        createdAt: Date.now(),
-        steps: finalSteps,
-      });
-      console.log('[xAI status] job', jobId, 'completed with url', finalUrl);
       return;
     }
 
@@ -427,6 +433,8 @@ app.get('/auth/device/status', async (req, res) => {
         tokenType: tokenData.token_type || 'Bearer',
       });
 
+      saveDevSessions(); // persist for dev restarts
+
       deviceFlowStore.delete(device_code);
 
       return res.json({
@@ -466,6 +474,7 @@ app.get('/auth/session/:sessionId', async (req, res) => {
 app.post('/auth/disconnect', (req, res) => {
   const { sessionId } = req.body;
   if (sessionId) tokenStore.delete(sessionId);
+  saveDevSessions(); // keep persisted file in sync
   res.json({ ok: true });
 });
 
@@ -494,7 +503,13 @@ app.post('/generate', upload.fields([
   console.log('[Generate] trim:', trimStart, trimDuration, 'face:', faceDescription ? 'yes' : 'no');
   console.log('[Generate] images:', imageFiles.length, 'audio:', !!audioFile);
 
-  // Create job and return immediately so frontend can poll
+  const pipelineFlags = {
+    enableAudioAnalysis: parseFlag(req.body.enableAudioAnalysis, true),
+    enablePromptEnhancer: parseFlag(req.body.enablePromptEnhancer, true),
+    enableAudioReplace: parseFlag(req.body.enableAudioReplace, true),
+  };
+  const pipelineInstance = toolchest.buildPipeline(pipelineFlags);
+
   const jobId = 'job_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
 
   // If audio was uploaded, preserve it for later audio replacement (muxing)
@@ -505,279 +520,253 @@ app.post('/generate', upload.fields([
     fs.copyFileSync(audioFile.path, preservedAudioPath);
   }
 
-  jobStore.set(jobId, {
-    status: 'processing',
-    createdAt: Date.now(),
-    sessionId,
-    originalAudioPath: preservedAudioPath,
-    steps: [], // will be populated by interceptors + xAI phases
-  });
+  const cleanup = () => {
+    for (const f of imageFiles) { try { fs.unlinkSync(f.path); } catch {} }
+    if (audioFile) { try { fs.unlinkSync(audioFile.path); } catch {} }
+  };
 
-  // Respond fast
-  res.json({ jobId, status: 'processing' });
+  const sendRefs = ENABLE_XAI_REFS;
 
-  // Background: build payload with base64 refs + call xAI
-  (async () => {
-    const cleanup = () => {
-      for (const f of imageFiles) { try { fs.unlinkSync(f.path); } catch {} }
-      if (audioFile) { try { fs.unlinkSync(audioFile.path); } catch {} }
+  try {
+    // Convert images to (optionally compressed) data URIs
+    const referenceImages = [];
+    for (const f of imageFiles) {
+      try {
+        const buf = fs.readFileSync(f.path);
+        const mime = f.mimetype || 'image/jpeg';
+
+        let finalDataUri;
+        if (sendRefs) {
+          const originalSize = buf.length;
+          finalDataUri = await compressImageForRef(buf, mime);
+          const compressedSize = Math.round((finalDataUri.length * 3) / 4);
+          console.log(`[Compress] ${f.originalname}: ${(originalSize / 1024).toFixed(0)} KB → ~${(compressedSize / 1024).toFixed(0)} KB`);
+        } else {
+          finalDataUri = `data:${mime};base64,${buf.toString('base64')}`;
+        }
+
+        referenceImages.push(finalDataUri);
+      } catch (e) {
+        console.warn('[Generate] failed to process image', f.originalname, e.message);
+      }
+    }
+
+    console.log('[Generate] Prepared referenceImages count:', referenceImages.length);
+
+    // Audio as data URI (for audio_url reference when ENABLE_XAI_REFS=1)
+    let audioDataUri = null;
+    if (audioFile) {
+      try {
+        const buf = fs.readFileSync(audioFile.path);
+        const mime = audioFile.mimetype || 'audio/mpeg';
+        audioDataUri = `data:${mime};base64,${buf.toString('base64')}`;
+      } catch (e) {
+        console.warn('[Generate] failed to read audio');
+      }
+    }
+
+    const duration = Math.max(4, Math.min(12, parseInt(trimDuration || '8', 10) || 8));
+
+    const normalizeVideoGenerationPayload = (raw) => {
+      const allowedResolutions = ['480p', '720p', '1080p'];
+      const allowedAspectRatios = ['16:9', '9:16', '1:1', '4:3', '3:4'];
+      const allowedDurations = [4, 8, 12];
+
+      let resolution = allowedResolutions.includes(raw.requestedResolution)
+        ? raw.requestedResolution
+        : '720p';
+
+      let aspect_ratio = allowedAspectRatios.includes(raw.aspect_ratio)
+        ? raw.aspect_ratio
+        : '16:9';
+
+      let finalDuration = allowedDurations.includes(raw.duration)
+        ? raw.duration
+        : 8;
+
+      return { resolution, aspect_ratio, duration: finalDuration };
     };
 
-    const sendRefs = ENABLE_XAI_REFS;
+    const normalized = normalizeVideoGenerationPayload({
+      requestedResolution,
+      aspect_ratio: '16:9',
+      duration,
+    });
 
-    console.log('############################################################');
-    console.log('### REFERENCE MODE ACTIVE CHECK');
-    console.log('### ENABLE_XAI_REFS from env:', process.env.ENABLE_XAI_REFS);
-    console.log('### sendRefs (boolean):', sendRefs);
-    console.log('############################################################');
+    let xaiPayload = {
+      model: XAI_VIDEO_MODEL,
+      prompt: prompt || `Cinematic 8s music video performance in ${shotName || 'studio'}`,
+      negative_prompt: 'text, watermark, logo, UI, blurry, low quality, artifacts, deformed, jitter, face mismatch',
+      aspect_ratio: normalized.aspect_ratio,
+      duration: normalized.duration,
+      resolution: normalized.resolution,
+    };
 
-    console.log('[Generate] Background task starting. ENABLE_XAI_REFS =', sendRefs);
-    console.log('[Generate] Number of uploaded image files:', imageFiles.length);
-    console.log('[Generate] Audio file present:', !!audioFile);
-    if (audioFile) {
-      console.log('[Generate] >>> User audio was uploaded but will NOT be sent as data to xAI. Performance will be driven by prompt instructions only.');
+    const generationContext = {
+      jobId,
+      sessionId,
+      originalPrompt: prompt,
+      referenceImages: sendRefs ? referenceImages : [],
+      audioPath: preservedAudioPath || undefined,
+      shot: { id: shotName, name: shotName, description: '', promptHint: '' },
+      faceDescription,
+      trimWindow: { start: parseFloat(trimStart) || 0, duration: parseFloat(trimDuration) || 8 },
+    };
+
+    let preSteps = [];
+    try {
+      const preResult = await pipelineInstance.runPre(xaiPayload, generationContext);
+      xaiPayload = preResult.request;
+      preSteps = preResult.steps;
+      console.log('[Toolchest] Pre steps completed:', preSteps.map(s => s.name).join(' → '));
+    } catch (err) {
+      cleanup();
+      if (err instanceof toolchest.PipelineInterceptorError) {
+        return res.status(400).json({
+          error: 'pre_interceptor_failed',
+          details: { stage: err.stage, interceptor: err.interceptor, message: err.message },
+        });
+      }
+      console.error('[Toolchest] Pre-interceptor error:', err);
+      return res.status(500).json({ error: 'pre_interceptor_failed', message: err?.message || 'Pre-processing failed' });
     }
 
-    try {
-      // Convert images to (optionally compressed) data URIs
-      const referenceImages = [];
-      for (const f of imageFiles) {
+    jobStore.set(jobId, {
+      status: 'processing',
+      createdAt: Date.now(),
+      sessionId,
+      originalAudioPath: preservedAudioPath,
+      steps: preSteps,
+      pipelineFlags,
+    });
+
+    // Respond only after pre-processing succeeded
+    res.json({ jobId, status: 'processing' });
+
+    // Background: call xAI
+    (async () => {
+      try {
+        if (sendRefs && referenceImages.length) {
+          xaiPayload.reference_images = referenceImages.map(uri => ({ url: uri }));
+        }
+        if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
+        if (sendRefs && shotName) xaiPayload.shot_name = shotName;
+        if (sendRefs && audioDataUri) xaiPayload.audio = audioDataUri;
+
+        const payloadSize = Buffer.byteLength(JSON.stringify(xaiPayload), 'utf8');
+        console.log('============================================================');
+        console.log('[xAI] FINAL PAYLOAD SUMMARY BEFORE SENDING');
+        console.log('  ENABLE_XAI_REFS active :', sendRefs);
+        console.log('  Model                  :', xaiPayload.model);
+        console.log('  Reference images       :', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0, '(auto-compressed)');
+        console.log('  Audio included         :', !!xaiPayload.audio, '(raw user audio is deliberately omitted — lip-sync is prompt-only)');
+        console.log('  Prompt length          :', (xaiPayload.prompt || '').length, 'chars');
+        console.log('  Total payload size     :', (payloadSize / 1024).toFixed(0), 'KB');
+        console.log('  Keys being sent        :', Object.keys(xaiPayload).join(', '));
+        console.log('============================================================');
+
+        if (sendRefs && xaiPayload.reference_images && xaiPayload.reference_images.length > 0) {
+          console.log('>>> REF IMAGES ARE BEING SENT TO XAI IN THIS REQUEST <<<');
+        } else {
+          console.log('>>> NO REFERENCE IMAGES ATTACHED — prompt-only mode <<<');
+        }
+
+        console.log('[xAI] POST', VIDEO_GEN_URL,
+          'ref_images:', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0,
+          'duration:', xaiPayload.duration,
+          'resolution:', xaiPayload.resolution,
+          `(user chose: ${requestedResolution || 'default'})`);
+
+        let xaiRes;
         try {
-          const buf = fs.readFileSync(f.path);
-          const mime = f.mimetype || 'image/jpeg';
+          xaiRes = await fetch(VIDEO_GEN_URL, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${tokenData.accessToken}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(xaiPayload),
+          });
+        } catch (fetchErr) {
+          console.error('[xAI] Network/TLS error during request:', fetchErr.message);
+          jobStore.set(jobId, {
+            status: 'error',
+            error: `Network/TLS error calling xAI: ${fetchErr.message}. This is usually caused by very large base64 image payloads. Try disabling refs (or using fewer/smaller photos) and rely on the detailed prompt for lip-sync.`,
+            createdAt: Date.now(),
+          });
+          cleanup();
+          return;
+        }
 
-          let finalDataUri;
-          if (sendRefs) {
-            // Auto-compress when sending references
-            const originalSize = buf.length;
-            finalDataUri = await compressImageForRef(buf, mime);
+        console.log('[xAI] response status:', xaiRes.status);
 
-            const compressedSize = Math.round((finalDataUri.length * 3) / 4);
-            console.log(`[Compress] ${f.originalname}: ${(originalSize / 1024).toFixed(0)} KB → ~${(compressedSize / 1024).toFixed(0)} KB`);
-          } else {
-            finalDataUri = `data:${mime};base64,${buf.toString('base64')}`;
+        let rawBody = '';
+        let xaiData = {};
+        try {
+          rawBody = await xaiRes.text();
+          if (rawBody) {
+            try { xaiData = JSON.parse(rawBody); } catch { xaiData = { raw: rawBody }; }
           }
-
-          referenceImages.push(finalDataUri);
         } catch (e) {
-          console.warn('[Generate] failed to process image', f.originalname, e.message);
+          rawBody = '(failed to read body)';
         }
-      }
 
-      console.log('[Generate] Prepared referenceImages count:', referenceImages.length);
+        console.log('[xAI] Response keys from xAI:', Object.keys(xaiData));
 
-      // Audio as data URI (for audio_url reference when ENABLE_XAI_REFS=1)
-      let audioDataUri = null;
-      if (audioFile) {
-        try {
-          const buf = fs.readFileSync(audioFile.path);
-          const mime = audioFile.mimetype || 'audio/mpeg';
-          audioDataUri = `data:${mime};base64,${buf.toString('base64')}`;
-        } catch (e) {
-          console.warn('[Generate] failed to read audio');
+        if (!xaiRes.ok) {
+          console.error('[xAI] non-2xx raw body:', rawBody || xaiData);
+          console.error('[xAI] parsed:', xaiData);
+          jobStore.set(jobId, {
+            status: 'error',
+            error: xaiData?.error?.message || xaiData?.message || rawBody || `xAI HTTP ${xaiRes.status}`,
+            createdAt: Date.now(),
+          });
+          cleanup();
+          return;
         }
-      }
 
-      const duration = Math.max(4, Math.min(12, parseInt(trimDuration || '8', 10) || 8));
+        const xaiRequestId = xaiData?.request_id;
 
-      // =====================================================
-      // Payload normalization — prevents future deserialization 422s
-      // =====================================================
-      const normalizeVideoGenerationPayload = (raw) => {
-        const allowedResolutions = ['480p', '720p', '1080p'];
-        const allowedAspectRatios = ['16:9', '9:16', '1:1', '4:3', '3:4'];
-        const allowedDurations = [4, 8, 12];
+        if (xaiRequestId) {
+          const existingJob = jobStore.get(jobId) || {};
+          jobStore.set(jobId, {
+            ...existingJob,
+            status: 'processing',
+            xaiRequestId,
+            sessionId,
+            createdAt: Date.now(),
+            steps: existingJob.steps || preSteps,
+          });
+          console.log('[Generate] job', jobId, 'submitted to xAI as request_id', xaiRequestId);
 
-        let resolution = allowedResolutions.includes(raw.requestedResolution)
-          ? raw.requestedResolution
-          : '720p';
+          pollXaiVideoStatus(jobId, xaiRequestId, sessionId).catch(err => {
+            console.error('[Generate] background xAI status poller failed for job', jobId, err);
+          });
 
-        let aspect_ratio = allowedAspectRatios.includes(raw.aspect_ratio)
-          ? raw.aspect_ratio
-          : '16:9';
-
-        let finalDuration = allowedDurations.includes(raw.duration)
-          ? raw.duration
-          : 8;
-
-        return { resolution, aspect_ratio, duration: finalDuration };
-      };
-
-      const normalized = normalizeVideoGenerationPayload({
-        requestedResolution,
-        aspect_ratio: '16:9',
-        duration,
-      });
-
-      // Payload for xAI Grok Imagine Video API (reference-to-video).
-      // Uses Reference-to-Video mode when reference_images are provided.
-      // Build base payload
-      let xaiPayload = {
-        model: XAI_VIDEO_MODEL,
-        prompt: prompt || `Cinematic 8s music video performance in ${shotName || 'studio'}`,
-        negative_prompt: 'text, watermark, logo, UI, blurry, low quality, artifacts, deformed, jitter, face mismatch',
-        aspect_ratio: normalized.aspect_ratio,
-        duration: normalized.duration,
-        resolution: normalized.resolution,
-      };
-
-      // Build rich context for all interceptors
-      const generationContext = {
-        jobId,
-        sessionId,
-        originalPrompt: prompt,
-        referenceImages: sendRefs ? referenceImages : [],
-        audioPath: audioFile ? path.join(GENERATED_DIR, `${jobId}-original-audio${path.extname(audioFile.originalname || '.mp3')}`) : undefined,
-        shot: { id: shotName, name: shotName, description: '', promptHint: '' },
-        faceDescription,
-        trimWindow: { start: parseFloat(trimStart) || 0, duration: parseFloat(trimDuration) || 8 },
-      };
-
-      // Run pre-interceptors and record steps for observability
-      const jobSteps = [];
-      if (xaiPipeline.preInterceptors.length > 0) {
-        for (const interceptor of xaiPipeline.preInterceptors) {
-          const stepName = interceptor.name === 'audio-analyzer' ? 'audio_analysis' : 'enhance_prompt';
-          console.log(`[Toolchest] Running pre-interceptor: ${interceptor.name}`);
-          const start = Date.now();
-          xaiPayload = await interceptor.run(xaiPayload, generationContext);
-          jobSteps.push({
-            name: stepName,
-            status: 'completed',
-            durationMs: Date.now() - start,
+        } else {
+          console.warn('[xAI] success but no request_id. keys:', Object.keys(xaiData), 'sample:', JSON.stringify(xaiData).slice(0, 400));
+          jobStore.set(jobId, {
+            status: 'error',
+            error: 'Unexpected response from xAI video API (no request_id)',
+            createdAt: Date.now(),
           });
         }
-        console.log('[Toolchest] Pre steps completed:', jobSteps.map(s => s.name).join(' → '));
-      }
-
-      // === REFERENCE IMAGES (Reference-to-Video mode) ===
-      // Correct shape per xAI docs + automatic compression:
-      //   "model": "grok-imagine-video"
-      //   "reference_images": [ { "url": "data:image/jpeg;base64,..." (compressed) }, ... ]
-      if (sendRefs && referenceImages.length) {
-        xaiPayload.reference_images = referenceImages.map(uri => ({ url: uri }));
-      }
-      if (sendRefs && faceDescription) xaiPayload.face_description = faceDescription;
-      if (sendRefs && shotName) xaiPayload.shot_name = shotName;
-
-      const payloadSize = Buffer.byteLength(JSON.stringify(xaiPayload), 'utf8');
-
-      console.log('============================================================');
-      console.log('[xAI] FINAL PAYLOAD SUMMARY BEFORE SENDING');
-      console.log('  ENABLE_XAI_REFS active :', sendRefs);
-      console.log('  Model                  :', xaiPayload.model);
-      console.log('  Reference images       :', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0, '(auto-compressed)');
-      console.log('  Audio included         :', !!xaiPayload.audio, '(raw user audio is deliberately omitted — lip-sync is prompt-only)');
-      console.log('  Prompt length          :', (xaiPayload.prompt || '').length, 'chars');
-      console.log('  Total payload size     :', (payloadSize / 1024).toFixed(0), 'KB');
-      console.log('  Keys being sent        :', Object.keys(xaiPayload).join(', '));
-      console.log('============================================================');
-
-      if (sendRefs && xaiPayload.reference_images && xaiPayload.reference_images.length > 0) {
-        console.log('>>> REF IMAGES ARE BEING SENT TO XAI IN THIS REQUEST <<<');
-      } else {
-        console.log('>>> NO REFERENCE IMAGES ATTACHED — prompt-only mode <<<');
-      }
-
-      console.log('[xAI] POST', VIDEO_GEN_URL,
-        'ref_images:', xaiPayload.reference_images ? xaiPayload.reference_images.length : 0,
-        'duration:', xaiPayload.duration,
-        'resolution:', xaiPayload.resolution,
-        `(user chose: ${requestedResolution || 'default'})`);
-
-      let xaiRes;
-      try {
-        xaiRes = await fetch(VIDEO_GEN_URL, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${tokenData.accessToken}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(xaiPayload),
-        });
-      } catch (fetchErr) {
-        // Catch low-level network/TLS errors (e.g. "bad record mac" from huge base64 payloads)
-        console.error('[xAI] Network/TLS error during request:', fetchErr.message);
+      } catch (err) {
+        console.error('[xAI] call failed:', err);
         jobStore.set(jobId, {
           status: 'error',
-          error: `Network/TLS error calling xAI: ${fetchErr.message}. This is usually caused by very large base64 image payloads. Try disabling refs (or using fewer/smaller photos) and rely on the detailed prompt for lip-sync.`,
+          error: err.message || 'xAI request failed',
           createdAt: Date.now(),
         });
+      } finally {
         cleanup();
-        return;
       }
-
-      console.log('[xAI] response status:', xaiRes.status);
-
-      // Always capture the *raw* body first (xAI sometimes returns 422 with empty {}
-      // or a plain text error; .json() alone hid the real message in the last 422).
-      let rawBody = '';
-      let xaiData = {};
-      try {
-        rawBody = await xaiRes.text();
-        if (rawBody) {
-          try { xaiData = JSON.parse(rawBody); } catch { xaiData = { raw: rawBody }; }
-        }
-      } catch (e) {
-        rawBody = '(failed to read body)';
-      }
-
-      console.log('[xAI] Response keys from xAI:', Object.keys(xaiData));
-
-      if (!xaiRes.ok) {
-        console.error('[xAI] non-2xx raw body:', rawBody || xaiData);
-        console.error('[xAI] parsed:', xaiData);
-        jobStore.set(jobId, {
-          status: 'error',
-          error: xaiData?.error?.message || xaiData?.message || rawBody || `xAI HTTP ${xaiRes.status}`,
-          createdAt: Date.now(),
-        });
-        cleanup();
-        return;
-      }
-
-      // xAI video API is always async for generation.
-      // Successful submit returns { "request_id": "..." }
-      const xaiRequestId = xaiData?.request_id;
-
-      if (xaiRequestId) {
-        // Store the xAI request id — merge so we don't lose originalAudioPath etc.
-        const existingJob = jobStore.get(jobId) || {};
-        jobStore.set(jobId, {
-          ...existingJob,
-          status: 'processing',
-          xaiRequestId,
-          sessionId,
-          createdAt: Date.now(),
-          steps: [...(existingJob.steps || []), ...jobSteps], // carry pre steps forward
-        });
-        console.log('[Generate] job', jobId, 'submitted to xAI as request_id', xaiRequestId);
-
-        // Background poll the xAI status endpoint until done/failed
-        pollXaiVideoStatus(jobId, xaiRequestId, sessionId).catch(err => {
-          console.error('[Generate] background xAI status poller failed for job', jobId, err);
-        });
-
-      } else {
-        // Unexpected response shape
-        console.warn('[xAI] success but no request_id. keys:', Object.keys(xaiData), 'sample:', JSON.stringify(xaiData).slice(0, 400));
-        jobStore.set(jobId, {
-          status: 'error',
-          error: 'Unexpected response from xAI video API (no request_id)',
-          createdAt: Date.now(),
-        });
-      }
-    } catch (err) {
-      console.error('[xAI] call failed:', err);
-      jobStore.set(jobId, {
-        status: 'error',
-        error: err.message || 'xAI request failed',
-        createdAt: Date.now(),
-      });
-    } finally {
-      cleanup();
-    }
-  })();
+    })();
+  } catch (err) {
+    cleanup();
+    console.error('[Generate] failed to start generation:', err);
+    return res.status(500).json({ error: 'generate_failed', message: err?.message || 'Failed to start generation' });
+  }
 });
 
 // ============================================
@@ -810,3 +799,8 @@ app.listen(PORT, () => {
   console.log(`  Image compression (refs): long edge ≤ ${MAX_REF_IMAGE_LONG_EDGE}px @ quality ${REF_IMAGE_JPEG_QUALITY} (tune with MAX_REF_IMAGE_LONG_EDGE / REF_IMAGE_JPEG_QUALITY)`);
   console.log('  Tip: Use `npm run dev` in the server folder for hot-reload during development (prevents stale code bugs like this)');
 });
+
+// Dev-only: persist sessions on shutdown so you don't lose your login on every restart during testing.
+process.on('SIGINT', () => { saveDevSessions(); process.exit(0); });
+process.on('SIGTERM', () => { saveDevSessions(); process.exit(0); });
+process.on('beforeExit', saveDevSessions);

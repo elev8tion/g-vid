@@ -1,6 +1,10 @@
 export * from './types';
 export * from './pipeline';
 
+import { promptEnhancer } from './interceptors/pre/prompt-enhancer';
+import { audioAnalyzer } from './interceptors/pre/audio-analyzer';
+import { audioReplacer } from './interceptors/post/audio-replacer';
+
 // Built-in interceptors
 export { promptEnhancer } from './interceptors/pre/prompt-enhancer';
 export { audioAnalyzer } from './interceptors/pre/audio-analyzer';

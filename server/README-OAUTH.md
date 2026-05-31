@@ -41,3 +41,19 @@ This backend now implements the **official xAI Device Authorization Grant** (RFC
 - The frontend automatically restores a valid session on reload if the token is still alive.
 
 This replaces all previous mock "SuperGrok" buttons with a production-grade OAuth experience.
+
+### /generate per-request pipeline flags
+The `/generate` handler accepts optional booleans (default **true**) to toggle toolchest interceptors per request:
+- `enableAudioAnalysis` — run the pre audio analyzer (adds audio-derived guidance to the prompt)
+- `enablePromptEnhancer` — run the pre prompt enhancer
+- `enableAudioReplace` — run the post audio replacer (muxes the user audio onto the generated video)
+
+Example (JSON body):
+```json
+{
+  "enableAudioAnalysis": false,
+  "enablePromptEnhancer": true,
+  "enableAudioReplace": true
+}
+```
+If flags are omitted, all defaults remain enabled to preserve current behavior.

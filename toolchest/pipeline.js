@@ -2,6 +2,18 @@
  * XAI Interceptor Pipeline (ESM version for the server)
  */
 
+import { audioAnalyzer } from './interceptors/pre/audio-analyzer.js';
+import { promptEnhancer } from './interceptors/pre/prompt-enhancer.js';
+import { audioReplacer } from './interceptors/post/audio-replacer.js';
+
+export class PipelineInterceptorError extends Error {
+  constructor(stage, interceptor, message) {
+    super(message);
+    this.stage = stage;
+    this.interceptor = interceptor;
+  }
+}
+
 export class XAIInterceptorPipeline {
   constructor() {
     this.preInterceptors = [];
@@ -18,22 +30,112 @@ export class XAIInterceptorPipeline {
     return this;
   }
 
+  getPreInterceptors() {
+    return [...this.preInterceptors];
+  }
+
+  getPostInterceptors() {
+    return [...this.postInterceptors];
+  }
+
+  async runInterceptors(stage, interceptors, value, context, steps) {
+    let current = value;
+
+    for (const interceptor of interceptors) {
+      const stepName = stage === 'pre'
+        ? (interceptor.name === 'audio-analyzer' ? 'audio_analysis' : 'enhance_prompt')
+        : 'audio_merge';
+
+      const start = Date.now();
+      const stepEntry = {
+        name: stepName,
+        status: 'running',
+        startedAt: start,
+      };
+      steps.push(stepEntry);
+
+      try {
+        console.debug(`[Toolchest] ${stage} interceptor start: ${interceptor.name}`);
+        if (stage === 'pre') {
+          current = await interceptor.run(current, context);
+        } else {
+          current = await interceptor.run(current, context);
+        }
+        stepEntry.status = 'completed';
+        stepEntry.durationMs = Date.now() - start;
+        console.debug(`[Toolchest] ${stage} interceptor done: ${interceptor.name} in ${stepEntry.durationMs}ms`);
+      } catch (err) {
+        stepEntry.status = 'failed';
+        stepEntry.durationMs = Date.now() - start;
+        console.error(`[Toolchest] ${stage} interceptor failed: ${interceptor.name}`, err);
+        throw new PipelineInterceptorError(stage, interceptor.name, err?.message || 'Interceptor failed');
+      }
+    }
+
+    return current;
+  }
+
+  async runPre(initialRequest, context) {
+    const steps = [];
+    const request = await this.runInterceptors('pre', this.preInterceptors, initialRequest, context, steps);
+    return { request, steps };
+  }
+
+  async runPost(initialVideoUrl, context) {
+    const steps = [];
+    const videoUrl = await this.runInterceptors('post', this.postInterceptors, initialVideoUrl, context, steps);
+    return { videoUrl, steps };
+  }
+
   async execute(initialRequest, context, xaiCall) {
-    let request = { ...initialRequest };
+    const steps = [];
 
-    for (const interceptor of this.preInterceptors) {
-      console.log(`[Toolchest] Running pre-interceptor: ${interceptor.name}`);
-      request = await interceptor.run(request, context);
+    const pre = await this.runPre(initialRequest, context);
+    steps.push(...pre.steps);
+
+    const start = Date.now();
+    const coreStep = { name: 'xai_video_gen', status: 'running', startedAt: start };
+    steps.push(coreStep);
+    let videoUrl;
+    try {
+      console.debug(`[Toolchest] core xAI call start`);
+      videoUrl = await xaiCall(pre.request);
+      coreStep.status = 'completed';
+      coreStep.durationMs = Date.now() - start;
+      console.debug(`[Toolchest] core xAI call done in ${coreStep.durationMs}ms`);
+    } catch (err) {
+      coreStep.status = 'failed';
+      coreStep.durationMs = Date.now() - start;
+      throw err;
     }
 
-    console.log(`[Toolchest] Sending to xAI with ${request.reference_images?.length || 0} reference images`);
-    let videoUrl = await xaiCall(request);
-
-    for (const interceptor of this.postInterceptors) {
-      console.log(`[Toolchest] Running post-interceptor: ${interceptor.name}`);
-      videoUrl = await interceptor.run(videoUrl, context);
+    if (!videoUrl) {
+      throw new Error('xAI call returned no video URL');
     }
 
-    return videoUrl;
+    const post = await this.runPost(videoUrl, context);
+    steps.push(...post.steps, { name: 'done', status: 'completed' });
+
+    return {
+      finalVideoUrl: post.videoUrl,
+      steps,
+    };
   }
 }
+
+export function buildPipeline(opts = {}) {
+  const pipeline = new XAIInterceptorPipeline();
+  const {
+    enableAudioAnalysis = true,
+    enablePromptEnhancer = true,
+    enableAudioReplace = true,
+  } = opts;
+
+  if (enableAudioAnalysis) pipeline.registerPre(audioAnalyzer);
+  if (enablePromptEnhancer) pipeline.registerPre(promptEnhancer);
+  if (enableAudioReplace) pipeline.registerPost(audioReplacer);
+
+  return pipeline;
+}
+
+export const defaultPipeline = buildPipeline();
