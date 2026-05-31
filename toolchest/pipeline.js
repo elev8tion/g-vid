@@ -5,6 +5,7 @@
 import { audioAnalyzer } from './interceptors/pre/audio-analyzer.js';
 import { promptEnhancer } from './interceptors/pre/prompt-enhancer.js';
 import { audioReplacer } from './interceptors/post/audio-replacer.js';
+import { audioLipSyncWav2Lip } from './interceptors/post/audio-lip-sync-wav2lip.js';
 
 export class PipelineInterceptorError extends Error {
   constructor(stage, interceptor, message) {
@@ -129,6 +130,7 @@ export function buildPipeline(opts = {}) {
     enableAudioAnalysis = true,
     enablePromptEnhancer = true,
     enableAudioReplace = true,
+    enableWav2Lip = false,
     preInterceptors,
     postInterceptors,
   } = opts;
@@ -147,6 +149,9 @@ export function buildPipeline(opts = {}) {
     if ((interceptor === audioReplacer || interceptor.name === audioReplacer.name) && !enableAudioReplace) {
       return;
     }
+    if ((interceptor === audioLipSyncWav2Lip || interceptor.name === audioLipSyncWav2Lip.name) && !enableWav2Lip) {
+      return;
+    }
     pipeline.registerPost(interceptor);
   };
 
@@ -161,6 +166,7 @@ export function buildPipeline(opts = {}) {
     postInterceptors.forEach(registerPost);
   } else {
     registerPost(audioReplacer);
+    if (enableWav2Lip) registerPost(audioLipSyncWav2Lip);
   }
 
   return pipeline;

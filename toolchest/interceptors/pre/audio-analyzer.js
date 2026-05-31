@@ -3,6 +3,7 @@
  */
 import fs from 'node:fs';
 import { spawn } from 'node:child_process';
+import path from 'node:path';
 
 export const audioAnalyzer = {
   name: 'audio-analyzer',
@@ -14,6 +15,12 @@ export const audioAnalyzer = {
 
     try {
       const analysis = await analyzeWithFfmpeg(context.audioPath);
+      // Optionally persist cues for debugging (non-blocking)
+      try {
+        const DEBUG_DIR = path.join(process.cwd(), 'generated');
+        if (!fs.existsSync(DEBUG_DIR)) fs.mkdirSync(DEBUG_DIR, { recursive: true });
+        fs.writeFileSync(path.join(DEBUG_DIR, `${context.jobId || 'job'}-beats.json`), JSON.stringify(analysis, null, 2));
+      } catch {}
 
       let character = '';
       if (analysis.meanVolume > -10) {

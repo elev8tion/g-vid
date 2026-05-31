@@ -2,6 +2,7 @@ import type { PreXAIInterceptor, PostXAIInterceptor, XaiVideoRequest, Generation
 import { audioAnalyzer } from './interceptors/pre/audio-analyzer';
 import { promptEnhancer } from './interceptors/pre/prompt-enhancer';
 import { audioReplacer } from './interceptors/post/audio-replacer';
+import { audioLipSyncWav2Lip } from './interceptors/post/audio-lip-sync-wav2lip';
 
 export interface PipelineExecutionResult {
   finalVideoUrl: string;
@@ -153,6 +154,7 @@ export interface BuildPipelineOptions {
   enableAudioAnalysis?: boolean;
   enablePromptEnhancer?: boolean;
   enableAudioReplace?: boolean;
+  enableWav2Lip?: boolean;
   preInterceptors?: PreXAIInterceptor[];
   postInterceptors?: PostXAIInterceptor[];
 }
@@ -163,6 +165,7 @@ export function buildPipeline(opts: BuildPipelineOptions = {}): XAIInterceptorPi
     enableAudioAnalysis = true,
     enablePromptEnhancer = true,
     enableAudioReplace = true,
+    enableWav2Lip = false,
     preInterceptors,
     postInterceptors,
   } = opts;
@@ -181,6 +184,9 @@ export function buildPipeline(opts: BuildPipelineOptions = {}): XAIInterceptorPi
     if ((interceptor === audioReplacer || interceptor.name === audioReplacer.name) && !enableAudioReplace) {
       return;
     }
+    if ((interceptor === audioLipSyncWav2Lip || interceptor.name === audioLipSyncWav2Lip.name) && !enableWav2Lip) {
+      return;
+    }
     pipeline.registerPost(interceptor);
   };
 
@@ -195,6 +201,7 @@ export function buildPipeline(opts: BuildPipelineOptions = {}): XAIInterceptorPi
     postInterceptors.forEach(registerPost);
   } else {
     registerPost(audioReplacer);
+    if (enableWav2Lip) registerPost(audioLipSyncWav2Lip);
   }
 
   return pipeline;

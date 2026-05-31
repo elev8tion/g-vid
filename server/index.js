@@ -106,7 +106,8 @@ const XAI_VIDEO_MODEL = 'grok-imagine-video';
 
 // Toolchest pipeline (pre/post interceptors around xAI calls) — using dynamic import because server is ESM
 const toolchest = await import('../toolchest/index.js');
-const { promptEnhancer, audioAnalyzer, audioReplacer } = toolchest;
+const { promptEnhancer, audioAnalyzer, audioReplacer, audioLipSyncWav2Lip } = toolchest;
+const ENABLE_WAV2LIP = process.env.WAV2LIP_ENABLED === '1';
 
 const parseFlag = (value, defaultValue = true) => {
   if (value === undefined) return defaultValue;
@@ -259,8 +260,9 @@ async function pollXaiVideoStatus(jobId, requestId, sessionId, attempt = 0) {
           enableAudioAnalysis: flags.enableAudioAnalysis ?? true,
           enablePromptEnhancer: flags.enablePromptEnhancer ?? true,
           enableAudioReplace: flags.enableAudioReplace ?? true,
+          enableWav2Lip: ENABLE_WAV2LIP,
           preInterceptors: [promptEnhancer, audioAnalyzer],
-          postInterceptors: [audioReplacer],
+          postInterceptors: ENABLE_WAV2LIP ? [audioReplacer, audioLipSyncWav2Lip] : [audioReplacer],
         });
 
         const postContext = {
@@ -513,8 +515,9 @@ app.post('/generate', upload.fields([
   };
   const pipelineInstance = toolchest.buildPipeline({
     ...pipelineFlags,
+    enableWav2Lip: ENABLE_WAV2LIP,
     preInterceptors: [promptEnhancer, audioAnalyzer],
-    postInterceptors: [audioReplacer],
+    postInterceptors: ENABLE_WAV2LIP ? [audioReplacer, audioLipSyncWav2Lip] : [audioReplacer],
   });
 
   const jobId = 'job_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);

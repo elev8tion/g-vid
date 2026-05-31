@@ -1,5 +1,6 @@
 import type { PreXAIInterceptor, XaiVideoRequest, GenerationContext, PipelineStepExecution } from '../../types';
 import fs from 'node:fs';
+import path from 'node:path';
 import { spawn } from 'node:child_process';
 
 /**
@@ -24,6 +25,11 @@ export const audioAnalyzer: PreXAIInterceptor = {
 
     try {
       const analysis = await this.analyzeWithFfmpeg(context.audioPath);
+      try {
+        const DEBUG_DIR = path.join(process.cwd(), 'generated');
+        if (!fs.existsSync(DEBUG_DIR)) fs.mkdirSync(DEBUG_DIR, { recursive: true });
+        fs.writeFileSync(path.join(DEBUG_DIR, `${context.jobId || 'job'}-beats.json`), JSON.stringify(analysis, null, 2));
+      } catch {}
 
       let character = '';
       if (analysis.meanVolume > -10) {
