@@ -26,9 +26,9 @@ export const audioLipSyncWav2Lip: PostXAIInterceptor = {
     if (!enabled) return videoUrl;
 
     const cli = process.env.WAV2LIP_CLI || 'python3';
-    const script = process.env.WAV2LIP_SCRIPT;
-    const checkpoint = process.env.WAV2LIP_CHECKPOINT;
-    const device = process.env.WAV2LIP_DEVICE; // optional
+    const script = process.env.WAV2LIP_SCRIPT ? path.resolve(process.env.WAV2LIP_SCRIPT) : null;
+    const checkpoint = process.env.WAV2LIP_CHECKPOINT ? path.resolve(process.env.WAV2LIP_CHECKPOINT) : null;
+    const w2lDir = script ? path.dirname(path.resolve(script)) : null;
 
     if (!script || !checkpoint) {
       console.warn('[wav2lip] Missing WAV2LIP_SCRIPT or WAV2LIP_CHECKPOINT. Skipping.');
@@ -74,18 +74,24 @@ export const audioLipSyncWav2Lip: PostXAIInterceptor = {
       '--audio', context.audioPath,
       '--outfile', outputPath,
     ];
-    if (device) {
-      args.push('--device', device);
+
+    const env = { ...process.env } as NodeJS.ProcessEnv;
+    if (w2lDir) {
+      env.PYTHONPATH = env.PYTHONPATH ? `${w2lDir}:${env.PYTHONPATH}` : w2lDir;
     }
 
     try {
       await new Promise<void>((resolve, reject) => {
-        const proc = spawn(cli, args, { stdio: ['ignore', 'pipe', 'pipe'] });
+        const proc = spawn(cli, args, {
+          stdio: ['ignore', 'pipe', 'pipe'],
+          cwd: w2lDir || process.cwd(),
+          env,
+        });
         let stderr = '';
         proc.stderr.on('data', (d) => (stderr += d.toString()));
         proc.on('close', (code) => {
           if (code === 0) return resolve();
-          reject(new Error(`wav2lip exited ${code}: ${stderr.slice(0, 400)}`));
+          reject(new Error(`wav2lip exited ${code}: ${stderr.slice(0, 600)}`));
         });
         proc.on('error', reject);
       });
