@@ -1,6 +1,6 @@
 # g-vid
 
-**A high-fidelity clone of [VisualEssential.com](https://www.visualessential.com/#shots) — built to work directly with SuperGrok via OAuth.**
+— built to work directly with SuperGrok via OAuth.**
 
 Drop a few selfies → pick a cinematic "Shot" scene → get a stunning, lip-synced music video performance in ~90 seconds. Powered by Grok 4.3 Video through your existing SuperGrok (or X Premium+) subscription.
 
